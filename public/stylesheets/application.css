@@ -1,0 +1,155 @@
+html, body { background:#A8ACB7 }
+body {color:#E67E00 }
+body { width: 980px; }
+
+/*
+div.page-header {
+	padding: 0;
+	background: red; 
+	height: 138px;
+}
+*/
+/*
+div.page-header {
+padding: 0;
+        text-indent: -10000px;
+background: white url('../images/SAD_logo.png') no-repeat 0px 0px;
+height: 160px;
+}
+*/
+
+
+div.page-header h1.app-name {
+	text-indent: -10000px; 
+	background: white url('../images/SAD_logo.png') no-repeat 0px 0px;
+	padding: 0; margin: 0; 
+	height: 160px;
+}
+/*        background-position:right top; */
+
+div.page-header .main-nav {
+position: relative;
+top: 0px;
+height: 24px;
+width: 100%;
+line-height: 21px;
+padding: 0;
+text-align: right;
+background: #E67E00; /* This is the navigation bar colour */
+}
+div.page-header .main-nav li {
+margin: 0;
+padding: 0 0 0 4px;
+display:inline;
+float:none;
+border-left: 2px solid #eee;
+background: #E67E00;
+color: silver;
+}
+div.page-header .navigation.main-nav li a {
+padding: 3px 8px;
+margin: 0;
+font-weight: normal;
+display:inline;
+font-size: 15px;
+background: #E67E00;
+color: black;
+}
+div.page-header .navigation.main-nav li.current a {
+background: #313367;
+color: white;
+}
+div.page-header .navigation.main-nav li a:hover {
+background: #A9BACF;
+color: black;
+}
+
+div.page-content, div.page-content .aside { background: white; }
+.aside1 { width: 173px; padding: 10px;}
+.search-and-browse {
+ background: #E67E00;
+ border: 1px solid #313367;
+ font-size: 11px;
+ margin: 4px;
+}
+.search-and-browse h3 {
+ background: white; color: #E67E00;
+ margin: 0; padding: 3px 5px;
+ font-weight: normal; font-size: 13px;
+}
+.search-and-browse a { background: none; color: white;}
+.search-and-browse .navigation { list-style-type: circle; }
+.search-and-browse .navigation li { padding: 3px 0; font-size: 11px; lineheight:14px;}
+.search-and-browse .navigation li a { border:none;}
+.search-and-browse .search form { margin: 0 3px 3px 3px;}
+.search-and-browse .search p { margin: 3px;}
+.search-and-browse .search-field { width: 120px;}
+.search-and-browse .submit-button { padding: 2px;}
+.search-and-browse .browse-by-audience select { margin: 5px 3px; width: 92%;}
+
+
+/*
+div.page-content, div.page-content .aside { background: white; }
+.aside1 { margin: 0; padding: 12px 10px; width: 182px;}
+.nav-panel {border: 1px solid #C9C9C9; margin-bottom: 10px;}
+.nav-panel h3 {background:#A9BACF; color: #313131; font-size: 13px; padding:3px 8px; margin: 0;}
+.nav-panel .body {background: white; color: #00059A; padding: 5px;}
+.nav-panel .body a {color: #E67E00; background: none;}
+.nav-panel ul {color: #E67E00; list-style-type: circle;}
+.nav-panel ul li { margin: 5px 0 5px 20px;}
+*/
+
+.page-footer {
+	background: white no-repeat bottom center; 
+	overflow: hidden; height: 100%;
+	border-top: 1px solid  #E67E00;
+	font-size: 12px; line-height: 10px;
+	padding: 5px 0px 10px 40px;
+}
+.page-footer ul { list-style-type: none; }
+.page-footer ul li { float: left; border-right: 1px solid  #E67E00; margin: 0;padding: 0 5px;}
+.page-footer ul li a {border:none; color: black;}
+
+/*
+div.page-content, div.page-content .aside { background: white; }
+ .aside1 { width: 173px; padding: 10px;}
+  .search-and-browse {
+   background: #E67E00;
+   border: 1px solid #313367;
+   font-size: 11px;
+   margin: 4px;
+}
+ .search-and-browse h3 {
+   background: #FFFFFF; color: #E67E00;
+   margin: 0; padding: 3px 5px;
+   font-weight: normal; font-size: 13px;
+}
+ .search-and-browse a { background: none; color: #000483;}
+ .search-and-browse .navigation { list-style-type: circle; }
+ .search-and-browse .navigation li { padding: 3px 0; font-size: 11px; line-height:14px;}
+ .search-and-browse .navigation li a { border:none;}
+ .search-and-browse .search form { margin: 0 3px 3px 3px;}
+ .search-and-browse .search p { margin: 3px;}
+ .search-and-browse .search-field { width: 120px;}
+ .search-and-browse .submit-button { padding: 2px;}
+ .search-and-browse .browse-by-audience select { margin: 5px 3px; width: 92%;}
+
+*/
+
+/*
+div.page-header .navigation.main-nav li a:hover {
+	background: #A9BACF;
+	color: black;
+}
+*/
+/*
+div.page-header { 
+
+	padding: 0;
+	background: url('../images/health-protection-agency.jpg') no-repeat 0px 62px;
+	height: 300px;
+        background-position:right top;
+}
+*/
+.field-list textarea, .field-list input[type=text], .field-list input[type=password] { width: 50%; margin: 0; }
+

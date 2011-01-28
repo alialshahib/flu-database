@@ -1,0 +1,9 @@
+<index-page>
+ <collection: replace>
+      <div>
+           <table-plus fields="this,title,na_sequence,ha_sequence,m2_sequence,comment">
+            <controls:/>
+           </table-plus> 
+      </div>
+ </collection:>
+</index-page>

@@ -1,0 +1,274 @@
+
+/*** CONSTANTS & DEFINES ***/
+
+@hpa_orange: #f68620;
+
+@header_bg: #8C8c8c;
+
+@notice_bg: khaki;
+@notice_fg: darkgrey;
+@error_bg: #BC1C3D;
+@error_fg: white;
+
+
+/*** RULES ***/
+
+/*** OVERALL LAYOUT */
+
+html, body {
+	background: beige;
+	width: auto;
+}
+
+body {
+	/* border: 1px solid gray; */
+	margin: 0 10px 20px;
+}
+
+
+/*** HEADER ELEMENTS */
+
+/* account/login toolbar */
+.account-nav a {
+	font-weight: normal;
+}
+
+ul.navigation.account-nav li a {
+	color: black !important;
+	opacity: 0.3;
+}
+
+ul.navigation.account-nav li a:hover {
+	opacity: 1.0;
+}
+
+/* page/site header */
+div.header.page-header {
+	background: @header_bg;
+}
+
+h1.app-name {
+	/* TODO: can't get a good transparent version of hpa logo */
+	/* 
+	background-image: url(/images/hpa-logo.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	*/
+	text-align: right;
+}
+
+/* SITE TABS */
+/*
+Controlling the size and space occupied by the site-tabs is done in 3 places:
+
+1. altering the space on its left (padding-left) which defaults to 30px
+2. altering the font-size, default 13px, which alters tabs around it
+3. altering space between tabs (margin-right), default 10px
+4. altering the padding on `li a`.
+
+*/
+ul.navigation.main-nav {
+	padding-left: 25px;
+	
+	li {
+		margin-right: 5px;	
+	}
+	
+	li a {
+		background: @hpa_orange !important;
+		font-size: 100%;
+		padding: 3px 8px 4px;
+	}
+
+	li.current a {
+		background: white !important;
+	}
+}
+
+/*** CONTENT ELEMENTS */
+
+div.content-header {
+	margin: 0px 25px;
+	border-width: 0 !important;
+}
+
+div.section.content {
+	background: white;
+	border-style: solid;
+	border-color: @header_bg;
+	border-width: 0 1px 1px;
+}
+
+div.section.welcome-message {
+	background: transparent;
+}
+
+p.byline {
+	margin-top: 1em;
+	border-top: 1px dotted black;
+	font-style: italic;	
+}
+
+/*** FLASHES & MESSAGES */
+/*
+Attempts to unify and share the declarations here result in the base formatting
+coming through.
+TODO: investigate generated css.
+*/
+
+.flash {
+	margin-top: 15px;
+}
+
+.flash.notice, .flash.success {
+	background: #DFF2BF;
+	color:  #4F8A10;
+	background-image: url(/images/icons/32/comment.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid;
+}
+
+.flash.error {
+	background: #BC1C3D;
+	color: white;
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid #900024;
+}
+
+div.section.error-messages {
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+}
+
+/*** FORM ELEMENTS ***/
+.button {
+	color: white;
+	background: @hpa_orange;
+}
+
+a.edit-link, a.new-link, a.cancel {
+	color: @hpa_orange;
+	border: 1px solid @hpa_orange;
+	padding: 0px 2px;
+	:hover {
+		color: white;
+		background: black;
+		border-color: black;
+	}
+}
+
+a.edit-link {
+	margin-top: 20px !important;
+}
+
+h2.heading {
+	border-bottom: 1px dotted black;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+
+div.input-many-item {
+	border: 1px solid gray;
+	padding: 0.5em 1.0em;
+	margin-bottom: 0.5em;
+}
+
+input.string, input[type=text] {
+	width: auto !important;
+	// TODO; get rid of this & chnage to relative url
+	background: white
+		url(http://158.119.147.40:8080/hobothemes/clean/images/fieldbg.gif)
+		repeat-x 50% 0%;
+	border-bottom: 1px solid #DDD;
+	border-left: 1px solid #C3C3C3;
+	border-right: 1px solid #C3C3C3;
+	border-top: 1px solid #7C7C7C;
+	cursor: auto;
+	font-size: 100%;
+	font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue',
+		Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color: #555;
+	padding: 0px 2px;
+}
+
+textarea.text {
+	font-family: HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue',
+		Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	color: #555;
+	padding: 0px 2px;
+	height: 100px;
+}
+
+textarea.seqdata-tag {
+	font-family: monospace !important;	
+	font-weight: normal;
+	color: #555;
+	padding: 0px 2px;
+	height: 200px;
+}
+
+
+
+/*** SEQUENCE DISPLAY */
+/*
+Table for rendering biosequence within.
+*/
+.sequence_layout {
+	border: thin solid gray;
+	margin: 1em 0em;
+	
+	/*
+	We choose scalable fonts available on most computers. Note that as most browsers
+	have a small size for monospace, the size is boosted slightly.
+	*/
+	td {
+		font-size: 110%;
+		font-family: "Courier New", "Lucida Console", "Andale Mono",
+			"Lucida Sans Typewriter", "Bitstream Vera Sans Mono", Tahoma, monospace;
+		padding: 0.5em;
+	}
+	
+	.sequence {
+		background-color: cornsilk;
+		color: slategray;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+/*** FOOTER ELEMENTS ***/
+
+div.footer.page-footer, div.footer.page-footer a {
+	color: darkgray;
+	
+	a {
+		color: darkgray;
+		
+		:hover {
+			color: black;
+		}
+	}
+}
+
+
+/* add icon of appropriate type to link */
+a[href$='.doc'] {
+ padding:0 20px 0 0;
+ background:transparent url(/graphics/icons/doc.gif) no-repeat center right;
+}
+
+/* all clickable things have the pointer cursor */
+input[type=submit],label,select,.pointer { cursor:pointer; }
+
+/* highlight the input field currently in focus, does not work in IE */
+

@@ -1,0 +1,11 @@
+<index-page>
+ <collection: replace> 
+      <div>
+         <table-plus fields="this,iC50_zanamivir_MUNANA_nm,iC50_zanamivir_na_star_nm,iC50_zanamivir_other_nm,iC50_oseltamivir_munana_nm,iC50_oseltamivir_na_star_nm,iC50_oseltamivir_other_nm,iC50_amantadine_um,iC50_rimantadine_um,suseptibility"/>
+<!--            <controls:/>
+           </table-plus> -->
+     </div>
+ </collection:>
+</index-page>
+
+

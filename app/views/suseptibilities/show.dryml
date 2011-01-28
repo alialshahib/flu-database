@@ -1,0 +1,4 @@
+<show-page>
+<!--  <collection: replace> -->
+  <field-list: tag="editor"/>
+</show-page>

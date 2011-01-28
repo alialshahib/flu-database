@@ -1,0 +1,78 @@
+<def tag="messages">
+ <br/><br/> <!-- This is html break line tag --> 
+ <ul> <!-- ul defines a unordered list, or bulleted list with li as bullets -->
+    <li param="msg1">Message 1</li>
+    <li param="msg2">Message 2</li>
+    <li param="msg3">Message 3</li>
+ </ul>
+</def>
+
+<def tag="more-messages"> <!-- To show how 'merge' works -->
+ <br/><br/>
+ <li param="msg0">Message 0</li>
+  <messages merge> <!-- merge: you have told Hobo to use everything from the <messages> tag except for the change -->
+       <msg2: param>Message 2 Changed in merge</msg2:> <!-- what we have done here is to edit <msg2:> parameter tag of the <messages> tag so that it has different default content -->
+  </messages>
+</def>
+
+<def tag="bd-it">
+ <br/>
+ <b><i><span param="default"></span></i></b> <!-- b is bold and i is italic --> <!--span in html tag provides a way to add a hook to part of a text or document-->
+</def>
+  
+<page title="Home">
+
+  <body: class="front-page"/>
+
+  <content:>
+    <header class="content-header">
+      <h1>Welcome to <app-name/></h1> <!-- h1 is heading 1 --> 
+      <section class="welcome-message">
+        <h3>This database aims to help reduce influenza morbidity and mortality in the six South American countries:</h3> <!-- Enter something for header 3 -->
+        <ul>
+           <li><h3>Argentina</h3></li>
+           <li><h3>Brazil</h3></li>
+           <li><h3>Chile</h3></li>
+           <li><h3>Colombia</h3></li>
+           <li><h3>Peru</h3></li>
+           <li><h3>Uruguay</h3></li>
+        </ul>
+        <h3>This projects aims to set up a collaborative network with these countries which are National Influenza Centres depending of World Health Organisation (WHO), to develop their capacity for surveillance of the emergence of antiviral resistance in pandemic influenza.
+        We hope that this database can link  virological, clinical and epidemiological information from all patience tested enabling to share data within the network.
+        </h3>
+<!--        <messages>
+        <msg2:>Collecting and exchanging timely information</msg2:>  This order does not change as above we have defined the tags 
+        <msg1:>Contributing to the annual determination of vaccine content</msg1:>  Whenever you add msg number: it will add it as a bullet point as you defined above 
+        <msg3:>Providing relevant information to health professionals and the general public</msg3:>
+        </messages>
+        <more-messages/>  So, you can tag from here (with merge) or from application with 'extend'.  If you do it in application, you can just add <messagex/> in the views/patients for example and the same output will come. 
+         <messagex/> This we have tagged in the application.dryml file  
+        <bd-it/>
+        <bd-it>More stuff</bd-it>  You don't have to call span as its automatically assumed when you put param=default and you call the bg-t taf 
+        <bd-it>More and More stuff</bd-it> --> 
+ 
+        <% if User.count == 0 -%>
+          <h3 style="margin-top: 20px;">There are no user accounts - please provide the details of the site administrator</h3>
+          <do with="&User.new"><% this.exempt_from_edit_checks = true %>
+            <signup-form/>
+          </do>
+        <% end -%>
+        
+      
+      </section>
+    </header>
+
+<!--    <section class="content-body"> 
+       <section with="&current_user" class="content-body" if="&logged_in?">
+          <h3>Your Projects</h3>
+          <collection:suseptibilities><card without-creator-link/></collection>
+
+          <a:suseptibilities action="new">New Suseptibility</a>
+
+         <h3>Projects you have joined</h3>
+         <collection:joined-suseptibilities><card without-creator-link/></collection>   
+   </section> -->
+  
+  </content:>
+  
+</page>

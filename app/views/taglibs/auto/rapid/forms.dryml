@@ -1,0 +1,119 @@
+<!-- AUTOMATICALLY GENERATED FILE - DO NOT EDIT -->
+
+<def tag="form" for="Country">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name" param/>
+    <div param="actions">
+      <submit label="#{ht 'countries.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Ic50Data">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, suseptibility" param/>
+    <div param="actions">
+      <submit label="#{ht 'ic50_datas.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Mutation">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="description, sequence" param/>
+    <div param="actions">
+      <submit label="#{ht 'mutations.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Patient">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, location, dob, gender, date_onset_of_illness, vaccinated, suseptibility" param/>
+    <div param="actions">
+      <submit label="#{ht 'patients.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Sequence">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, na_sequence, ha_sequence, m2_sequence, comment, suseptibility" param/>
+    <div param="actions">
+      <submit label="#{ht 'sequences.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Suseptibility">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, season, isolate_name, virus_type, source_virus, hospitalised, institution, community, other, not_known, date_specimen_collected, country, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, location, dob, gender, date_onset_of_illness, vaccinated" param/>
+    <div param="actions">
+      <submit label="#{ht 'suseptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Threshold">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="season, virus_type, description_of_how_cuttoff_values_were_calculated" param/>
+    <div param="actions">
+      <submit label="#{ht 'thresholds.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="User">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, administrator, state" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="signup-form" polymorphic/>
+<def tag="signup-form" for="User">
+  <form lifecycle="signup" merge param="default">
+    <error-messages param/>
+    <field-list fields="name, email_address, password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.reset_password', :default=>['Reset Password']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+

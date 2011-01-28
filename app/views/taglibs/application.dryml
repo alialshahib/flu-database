@@ -1,0 +1,630 @@
+<include src="rapid" plugin="hobo"/>
+
+<include src="taglibs/auto/rapid/cards"/>
+<include src="taglibs/auto/rapid/pages"/>
+<include src="taglibs/auto/rapid/forms"/>
+
+<set-theme name="clean"/>
+
+<def tag="app-name">South American Influenza Database</def>
+
+<def tag="nav-panel">
+  <div class="nav-panel" param="default">
+   <h3 param="heading"></h3>
+   <div param="body">
+     <ul param="items"/>
+  </div>
+ </div>
+</def>
+
+<extend tag="page">
+  <old-page  merge without-live-search>
+   <content: replace>
+    <section-group class="page-content">
+      <aside param="aside1"><search-and-browse/></aside>
+      <section param="content"/>
+    </section-group>
+   </content:>
+     <footer: param><footer-nav/></footer:> 
+  </old-page>
+</extend>
+
+
+<def tag="search-and-browse" attrs="current-subject">
+ <div class="search-and-browse">
+  <div param="search">
+   <h3>Search SAID</h3>
+    <form action="">
+    <input type="text" class="search-field"/>
+    <submit label="Go"/>
+    </form>
+      <p class="help"><a href="">Search Help</a></p>
+   </div>
+   <div param="background_and_contacts">
+    <h3>Background and Contacts</h3>
+      <navigation current="&current_subject">
+        <nav-item href="/">SAID</nav-item>
+        <nav-item href="/">Contact</nav-item>
+        <nav-item href="/">Members</nav-item>
+        <nav-item href="/">Reports</nav-item>
+        <nav-item href="/">Annual Reports</nav-item>
+        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/">Site Index</nav-item>
+      </navigation>
+   </div>
+  </div>
+</def>
+
+<def tag="main-nav">
+  <navigation class="main-nav" >
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
+    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Susceptibility</ht></nav-item>
+    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item>
+    <nav-item href="">Tools</nav-item>
+  </navigation>
+</def> 
+
+<def tag="footer-nav">
+    <ul>
+	<nav-item href="/">SAID</nav-item>
+	<nav-item href="/">hap.org.uk</nav-item>
+	<nav-item href="/">Site Map</nav-item>
+	<nav-item href="/">Policies and Links</nav-item>
+	<nav-item href="/">Contacts</nav-item>
+    </ul>
+</def>
+
+<!-- <def tag="search-and-browse" attrs="current-subject">
+ <div class="search-and-browse">
+  <div param="search">
+   <h3>Search SAID</h3>
+   <form action="">
+     <input type="text" class="search-field"/>
+     <submit label="Go"/>
+   </form>
+   <p class="help"><a href="">Search Help</a></p>
+  </div>
+ <div param="background-and-contacts">
+  <h3>Background and Contacts</h3>
+    <navigation current="&current_subject">
+        <nav-item href="/">SAID</nav-item>
+        <nav-item href="/">Contact</nav-item>
+        <nav-item href="/">Members</nav-item>
+        <nav-item href="/">Reports</nav-item>
+        <nav-item href="/">Annual Reports</nav-item>
+        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/">Site Index</nav-item>
+    </navigation>
+  </div>
+   <div param="bulletins-and-data">
+  <h3>Bulletins and Data</h3>
+  <select-menu first-option="SAID Bulletins" options="&[]"/>
+ </div>
+ </div>
+</def> -->
+
+
+<!-- <extend tag="page">
+ <old-page merge>
+  <after-scripts:>
+   <javascript name="ckeditor/ckeditor"/>
+   <javascript name="load_ckeditor"/>
+  </after-scripts:>
+ </old-page>
+</extend>  -->
+
+<!-- <def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Suseptibilities</ht></nav-item>
+    <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">Ic50 Datas</ht></nav-item>
+    <nav-item with="&Sequence"><ht key="sequences.nav_item">Sequences</ht></nav-item>
+    <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item> 
+  </navigation>
+</def> -->
+
+<extend tag="input" for="date"> <!--The <extend> tag is used to extend any tag that.s already defined. The body of <extend> is our new definition. It.s very common to want to base the new definition on the old one, for example, we often want to insert a bit of extra content as we.ve done here. We can do that by calling the .old. definition, which is available as <old-card> -->
+   <old-input merge include-blank="&true" order="day,month,year" />
+</extend>
+
+<include src="paperclip" plugin="paperclip_with_hobo"/>
+
+<!-- Suseptibility.  Here, I am modifying the 'new susceptibility data' page.  The form tag defines the fields and the <form param> calls the tag.  If you want to modify the entry form, you will have to change the new-page tag.   -->
+
+<def tag="form" for="Suseptibility">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="title, season, isolate_name, virus_type"/>
+    <field-list fields="hospitalised"/>
+
+
+<!-- source_virus, date_specimen_collected, country"/>  -->
+    <h2>Please enter the sensitivity for each data source</h2>
+    <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um"/> 
+    <h2>Please enter Accession number for sequence data</h2>
+
+    <field-list fields="na_sequence, ha_sequence, m2_sequence, comment"/> 
+    
+    <h2>Please enter data on patient from which virus has been isolated</h2>
+     <field-list fields="location, dob, gender, date_onset_of_illness, vaccinated"/>
+  
+
+<!--    hospitalised :boolean
+    institution :boolean
+    community :boolean
+    other :string
+    not_known :boolean -->
+ 
+
+<!--<table border="1">
+  <tr>
+  <th>Source Data</th>
+  <th>Sensitivity</th>
+  </tr>
+  <td><field-list fields="title"/></td>
+<tr>
+<td>row 1, cell 1</td>
+<td>row 1, cell 2</td>
+</tr>
+<tr>
+<td>row 2, cell 1</td>
+<td>row 2, cell 2</td>
+</tr>
+</table>  -->
+    <div param="actions">
+      <submit label="#{ht 'suseptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+<def tag="new-page" for="Suseptibility">
+  <page merge title="#{ht 'suseptibilities.new.title', :default=>[' New Susceptibility Data'] }">
+    <body: class="new-page suseptibility" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h1 param="heading">
+          <ht key="suseptibilities.new.heading">
+            Antiviral Susceptibility Data 
+          </ht>
+        </h1>
+      </section>
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'suseptibilities.actions.create', :default=>['Save Data']}"/>
+        </form> 
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Suseptibility">
+  <page merge title="#{ht 'suseptibilities.show.title', :default=>['Suseptibility'] }">
+
+    <body: class="show-page suseptibility" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="suseptibilities.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+            <record-flags fields="vaccinated" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Susceptibility
+              </ht>
+            </a>
+          </header>
+          <section param="content-body">
+            <field-list fields="season, isolate_name, virus_type, source_virus, date_specimen_collected, country, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, location, dob, gender, date_onset_of_illness" param/>
+            <section param="collection-section">
+<!--              <h3 param="collection-heading">
+                <ht key="suseptibilities.collection.heading.other" >
+                  Sequences
+                </ht>
+              </h3>
+
+              <collection:sequences param/> -->
+            </section>
+         </section>
+    </content:>
+ </page>
+</def>
+
+<def tag="edit-page" for="Suseptibility">
+  <page merge title="#{ht 'suseptibilities.edit.title', :default=>['Edit Suseptibility'] }">
+
+    <body: class="edit-page suseptibility" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="suseptibilities.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit Susceptibility Data 
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'suseptibilities.actions.delete', :default=>['Remove This Susceptibility Data']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="messagex">
+ <br/> <br/>
+ <ul>
+       <li param="msg1">Message 1</li>
+       <li param="msg2">Message 2</li>
+       <li param="msg3">Message 3</li>
+ </ul>
+</def>
+
+<extend tag="messagex">
+ <old-messagex merge>
+      <msg2: param>Message 2 Extended</msg2:>
+ </old-messagex>
+</extend>
+
+
+<!-- Threshold --> 
+
+<def tag="new-page" for="Threshold">
+  <page merge title="#{ht 'thresholds.new.title', :default=>[' New Antiviral Season Thresholds'] }">
+    <body: class="new-page threshold" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="thresholds.new.heading">
+            New Antiviral Season Thresholds
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param> 
+          <submit: label="#{ht 'thresholds.actions.create', :default=>['Save Thresholds']}"/>
+        </form> 
+      </section>
+    </content:>
+  </page>
+</def>
+
+<def tag="form" for="Threshold">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="season, virus_type" param/>
+   <form>
+   <br />
+<!--    <table>
+  <tr>
+   <th></th>
+   <th>MUNANA</th>
+   <th>NA-Star</th>
+   <th>Other</th>
+  </tr>
+  <tr>
+    <td><p><b>Zanamivir</b></p></td>
+    </tr>
+    <tr>
+    <td>Minor outlier cuttoff (nM) <input type="text" name="z-munana1"/></td>
+    <td><input type="text" name="z-na-star2"/></td>
+    <td><input type="text" name="z-other3"/><br /></td>
+   </tr> 
+   </table> -->
+    
+    <p><b>Zanamivir</b></p>
+    Minor outlier cuttoff (nM) <input type="text" name="z-munana1"/>
+    <input type="text" name="z-na-star2"/>
+    <input type="text" name="z-other3"/><br />
+    Major outlier cuttoff (nM) <input type="text" name="z-munana1"/>
+    <input type="text" name="z-na-star2"/>
+    <input type="text" name="z-other3"/><br />
+     <br />
+    <p><b>Oseltamivir</b></p>
+    Minor outlier cuttoff (nM) <input type="text" name="z-munana1"/>
+    <input type="text" name="z-na-star2"/>
+    <input type="text" name="z-other3"/><br />
+    Major outlier cuttoff (nM) <input type="text" name="z-munana1"/>
+    <input type="text" name="z-na-star2"/>
+    <input type="text" name="z-other3"/><br />
+    <br />
+    <p><b>Amantadine</b></p> 
+    Minor outlier cuttoff (nM) <input type="text" name="z-munana1"/><br />
+    Major outlier cuttoff (nM) <input type="text" name="z-munana1"/><br />
+    <br />
+    <p><b>Rimantadine</b></p>
+    Minor outlier cuttoff (nM) <input type="text" name="z-munana1"/><br />
+    Major outlier cuttoff (nM) <input type="text" name="z-munana1"/><br />
+    <br />
+    <p><b>Description of how cutoff values were calculated</b></p>
+    <textarea rows="2" cols="50" wrap="physical" name="comments">
+    </textarea>
+
+   </form>
+
+<!--   <field-list fields="description_of_how_cuttoff_values_were_calculated" param/> -->
+<!--   <br />
+<table>
+  <tr>
+   <th></th>
+   <th>MUNANA</th>
+   <th>NA-Star</th>
+   <th>Other</th>
+  </tr>
+  <tr>
+   <td>Zanamivir</td>
+   </tr>
+   <tr>
+   <td>Minor outlier cuttoff (nM)</td>
+   <td>
+    <form>
+    <input type="text" name="z-munana" /><br />
+    </form>
+   </td> 
+   <td>
+    <form>
+    <input type="text" name="z-na-star" /><br />
+   </form>
+   </td>
+   <td>
+   <form>
+   <input type="text" name="z-other" /><br />
+   </form>
+   </td>
+  </tr>
+   <tr>
+   <td>Major outlier cuttoff (nM)</td>
+   <td>
+    <form>
+    <input type="text" name="z-munana" /><br />
+    </form>
+   </td>
+   <td>
+    <form>
+    <input type="text" name="z-na-star" /><br />
+   </form>
+   </td>
+   <td>
+   <form>
+   <input type="text" name="z-other" /><br />
+   </form>
+   </td>
+  </tr>
+
+</table> -->
+
+    <div param="actions">
+      <submit label="#{ht 'thresholds.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+<def tag="show-page" for="Threshold">
+  <page merge title="#{ht 'thresholds.show.title', :default=>['Threshold'] }">
+
+    <body: class="show-page threshold" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="thresholds.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="thresholds.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Threshold
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="season, virus_type" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="edit-page" for="Threshold">
+  <page merge title="#{ht 'thresholds.edit.title', :default=>['Edit Threshold'] }">
+
+    <body: class="edit-page threshold" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="thresholds.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This Threshold']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<!-- ====== User Pages ====== -->
+
+<def tag="index-page" for="User">
+  <page merge title="#{ht 'users.index.title', :default=>['Users'] }">
+    <body: class="index-page user" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.index.heading">
+            Users
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="users.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="users.actions.new">New User</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="User">
+  <page merge title="#{ht 'users.new.title', :default=>[' New User'] }">
+    <body: class="new-page user" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.new.heading">
+            New User
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'users.actions.create', :default=>['Create User']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="User">
+  <page merge title="#{ht 'users.show.title', :default=>['User'] }">
+
+    <body: class="show-page user" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="administrator" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="users.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit User
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="email_address, state" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="edit-page" for="User">
+  <page merge title="#{ht 'users.edit.title', :default=>['Edit User'] }">
+
+    <body: class="edit-page user" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="users.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'users.actions.delete', :default=>['Remove This User']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="signup-page" polymorphic/>
+<def tag="signup-page" for="User">
+
+  <page title="#{ht 'users.signup.title', :default=>['Signup']}" merge>
+
+    <body: class="lifecycle-start-page signup-page" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.signup.heading">
+            Signup
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="#{ht 'users.reset_password.title', :default=>['Reset Password']}" merge>
+
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.reset_password.heading">
+            Reset Password
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <reset-password-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+

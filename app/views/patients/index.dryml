@@ -1,0 +1,58 @@
+<index-page>
+ <collection:><h4><a><view:title/></a></h4>
+<!-- <repeat:suseptibilities><a/></repeat> -->
+ <repeat:suseptibilities join=", "><view:title/></repeat> <!--The repeat tag with the colon (:) tells Hobo to loop through the records in the implicit context and to display what is in the body of the tag, namely <a/>. So here if you go to suseptibility then you will find a link to the patient-->
+ </collection:> 
+
+ <collection: replace>
+      <div>
+           <table-plus fields="this,title,location,dob,gender,date_onset_of_illness,vaccinated">
+             <controls:/>
+           </table-plus>
+    </div>
+ </collection:>
+
+  <!--<def tag="index-page" for="Patient">  we added <index-page/> in views/patients/index.dryml. Hobo looks at that first finds the index-page and then looks for tags to index-page.  couldnt find it in so it looks for it here and has found it 
+  <page merge title="#{ht 'patients.index.title', :default=>['Patients'] }">
+    <body: class="index-page patient" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="patients.index.heading">
+            Patients
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="patients.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="patients.actions.new">New Patient</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/> This is for collecting the records.  If you delete it you will get no information on the records of patients 
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def> -->
+ 
+</index-page>
+
+<!-- <collection:><a/></collection:>  Here you are calling the parameter tag in application.dryml. notice the ':' is for calling a tag. The <a/> tag is a Rapid tag that is similar to the HTML <a>, but it also automatically provides a hyperlink to the route to show a particular record of the model.  If we add a body to the tag (between the collection) then Hobo will no longer use the <card> tag. Remember that when Hobo wants to list the records from a table, tags in the pages.dryml file call tags in the cards.dryml file.  Card tags define how individual database table records are rendered. -->
+  <!-- <collection:><h4><a><view:title/></a></h4>....<h4> heading tag is Hobo's bold and large font tag acoording to Hobo's CSS files.  The view tag is Rapid's <view> tag. -->
+    <!-- <view:gender/>  Here you call the <view> tag and under each record you can show its geneder or anything else you want from the attributes.  -->
+<!--         <repeat:gender join=", "><a/></repeat> -->
+<!--   </collection:> -->
+ 

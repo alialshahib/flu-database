@@ -1,0 +1,61 @@
+<def tag="messages">
+ <br/><br/> <!-- This is html break line tag --> 
+ <ul> <!-- ul defines a unordered list, or bulleted list with li as bullets -->
+    <li param="msg1">Message 1</li>
+    <li param="msg2">Message 2</li>
+    <li param="msg3">Message 3</li>
+ </ul>
+</def>
+
+<def tag="more-messages"> <!-- To show how 'merge' works -->
+ <br/><br/>
+ <li param="msg0">Message 0</li>
+  <messages merge> <!-- merge: you have told Hobo to use everything from the <messages> tag except for the change -->
+       <msg2: param>Message 2 Changed in merge</msg2:> <!-- what we have done here is to edit <msg2:> parameter tag of the <messages> tag so that it has different default content -->
+  </messages>
+</def>
+
+<def tag="bd-it">
+ <br/>
+ <b><i><span param="default"></span></i></b> <!-- b is bold and i is italic --> <!--span in html tag provides a way to add a hook to part of a text or document-->
+</def>
+ 
+<page title="Home">
+  <body: class="front-page"/>
+<!--  <aside1:>
+   <nav-panel>
+    <heading:>Background and Contacts</heading:>
+    <items:>
+        <nav-item href="/">SAID</nav-item>
+        <nav-item href="/">Contact</nav-item>
+        <nav-item href="/">Members</nav-item>
+        <nav-item href="/">Reports</nav-item>
+        <nav-item href="/">Annual Reports</nav-item>
+        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/">Site Index</nav-item>
+    </items:>
+    </nav-panel>
+   </aside1:> -->
+  <content:>
+      <h2>Welcome to the South American Influenza Database</h2> 
+
+        <p>This database aims to help reduce influenza morbidity and mortality in the six South American countries:</p> <!-- Enter something for header 3 -->
+        <ul>
+           <li><p>Argentina</p></li>
+           <li><p>Brazil</p></li>
+           <li><p>Chile</p></li>
+           <li><p>Colombia</p></li>
+           <li><p>Peru</p></li>
+           <li><p>Uruguay</p></li>
+        </ul>
+        <p>This projects aims to set up a collaborative network with these countries which are National Influenza Centres depending of World Health Organisation (WHO), to develop their capacity for surveillance of the emergence of antiviral resistance in pandemic influenza.
+        We hope that this database can link  virological, clinical and epidemiological information from all patients tested enabling to share data within the network.
+        </p>
+  <br />
+      <p> 
+        If you are already a member, please log in <nav-item with="&User"><ht key="users.nav_item">here</ht></nav-item>
+        </p>
+  </content:>
+</page>
+
+

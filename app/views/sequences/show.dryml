@@ -1,0 +1,20 @@
+<show-page>
+<!--  <collection: replace> -->
+  <field-list: tag="editor"/>
+</show-page>
+
+<!--    <empty-message:>No equipment  match your criteria</empty-message:> 
+  </table-plus>
+  </collection:> -->
+
+<!--<show-page>
+  <collection: replace>
+   <table>
+    <tr>
+       <th></th>
+       <th>ISD_Number</th>
+       <th>AA_resistance_mutations</th> 
+    </tr>
+   </table>
+  </collection:>
+</show-page> -->
