@@ -257,24 +257,28 @@ ul.collection > li { margin-left: 0; list-style: none;}
 	padding: 15px 0; margin-bottom: 20px; border-bottom: 1px dotted #888;
 }
 
+
+
 .table-plus .header {_zoom: 1; overflow: hidden;}
 .table-plus .header a {float: left; margin-right: 20px;}
 .table-plus div.search {float: right;}
 .table-plus div.search span {color: #444;}
 .table-plus div.search input.search {margin: 0 5px;}
-.table-plus div.search .button {padding: 2px 4px;}
+.table-plus div.search .button {padding: 2px 4px; color: white; background:  #E67E00;}
+
+
 
 .table-plus table {width: 100%; margin: 20px 0;}
 .table-plus table th {
 	padding: 2px 10px;
-	color: white; background: #444;
+	color: white; background: #E67E00;
 	font-weight: bold; font-size: 10px;
 }
 .table-plus table th a {color: white;}
 .table-plus table td {
 	padding: 6px 10px; border-bottom: 1px solid #e2e2e2; color: #666;
 }
-.table-plus table td input.button, .collection .button {padding: 1px 3px; margin-left: 10px; margin-top: 0;}
+.table-plus table td input.button, .collection .button {padding: 1px 3px; margin-left: 10px; margin-top: 0;  background: #E67E00;}
 .table-plus table td.controls {width: 100px;}
 .table-plus .even {background: #f8f8f8;}
 .table-plus a {background: none;}

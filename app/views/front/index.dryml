@@ -53,7 +53,7 @@
         </p>
   <br />
       <p> 
-        If you are already a member, please log in <nav-item with="&User"><ht key="users.nav_item">here</ht></nav-item>
+        If you are already a member, please log in <ht key="users.index.heading">here</ht> 
         </p>
   </content:>
 </page>

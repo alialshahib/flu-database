@@ -32,6 +32,14 @@
   </card>
 </def>
 
+<def tag="card" for="Season">
+  <card class="season" param="default" merge>
+    <header: param>
+      <h4 param="heading"><name/></h4>
+    </header:>
+  </card>
+</def>
+
 <def tag="card" for="Sequence">
   <card class="sequence" param="default" merge>
     <header: param>

@@ -75,7 +75,7 @@
 <def tag="form" for="Threshold">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="season, virus_type, description_of_how_cuttoff_values_were_calculated" param/>
+    <field-list fields="virus_type, description_of_how_cuttoff_values_were_calculated, season" param/>
     <div param="actions">
       <submit label="#{ht 'thresholds.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
