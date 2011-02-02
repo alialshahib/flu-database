@@ -67,24 +67,24 @@ color: black;
 div.page-content, div.page-content .aside { background: white; }
 .aside1 { width: 173px; padding: 10px;}
 .search-and-browse {
- background: #E67E00;
+ background: #F4A460;
  border: 1px solid #313367;
  font-size: 11px;
  margin: 4px;
 }
 .search-and-browse h3 {
- background: white; color: #E67E00;
+ background: #E67E00; color: black;
  margin: 0; padding: 3px 5px;
  font-weight: normal; font-size: 13px;
 }
-.search-and-browse a { background: none; color: white;}
+.search-and-browse a { background: none; color: black;}
 .search-and-browse .navigation { list-style-type: circle; }
-.search-and-browse .navigation li { padding: 3px 0; font-size: 11px; lineheight:14px;}
+.search-and-browse .navigation li { padding: 3px 0; font-size: 11px; lineheight:14px; color: white;}
 .search-and-browse .navigation li a { border:none;}
 .search-and-browse .search form { margin: 0 3px 3px 3px;}
 .search-and-browse .search p { margin: 3px;}
 .search-and-browse .search-field { width: 120px;}
-.search-and-browse .submit-button { padding: 2px;}
+.search-and-browse .submit-button { padding: 2px; color: white; background:  #E67E00}
 .search-and-browse .browse-by-audience select { margin: 5px 3px; width: 92%;}
 
 
@@ -100,14 +100,15 @@ div.page-content, div.page-content .aside { background: white; }
 */
 
 .page-footer {
-	background: white no-repeat bottom center; 
+	background: white no-repeat bottom right; 
 	overflow: hidden; height: 100%;
 	border-top: 1px solid  #E67E00;
 	font-size: 12px; line-height: 10px;
-	padding: 5px 0px 10px 40px;
+	padding: 5px 0px 10px 240px;
+        position: right;
 }
 .page-footer ul { list-style-type: none; }
-.page-footer ul li { float: left; border-right: 1px solid  #E67E00; margin: 0;padding: 0 5px;}
+.page-footer ul li { float: left; border-right: 1px solid  #E67E00; margin: 10;padding: 0 15px 0px 0px;}
 .page-footer ul li a {border:none; color: black;}
 
 /*

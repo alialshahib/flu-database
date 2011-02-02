@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110126112729) do
+ActiveRecord::Schema.define(:version => 20110131144611) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20110126112729) do
   end
 
   add_index "patients", ["suseptibility_id"], :name => "index_patients_on_suseptibility_id"
+
+  create_table "seasons", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sequences", :force => true do |t|
     t.datetime "created_at"
@@ -113,12 +119,14 @@ ActiveRecord::Schema.define(:version => 20110126112729) do
   add_index "task_assignments", ["user_id"], :name => "index_task_assignments_on_user_id"
 
   create_table "thresholds", :force => true do |t|
-    t.string   "season"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "virus_type"
     t.text     "description_of_how_cuttoff_values_were_calculated"
+    t.integer  "season_id"
   end
+
+  add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
 
   create_table "users", :force => true do |t|
     t.string   "crypted_password",          :limit => 40

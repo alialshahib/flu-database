@@ -821,7 +821,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="season, virus_type, description_of_how_cuttoff_values_were_calculated" param/>
+            <field-list fields="virus_type, description_of_how_cuttoff_values_were_calculated, season" param/>
           </section>
     </content:>
 
@@ -878,9 +878,6 @@
       </header>
 
       <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="users.actions.new">New User</ht>
-        </a>
 
         <page-nav param="top-page-nav"/>
 
