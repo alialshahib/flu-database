@@ -1,3 +1,19 @@
 This is a web-enabled databse for the tracking of influenza drug resistance in
 South America.
 
+For developers: How to get this running
+
+Install the 2.3.9 version of rails
+
+Install Hobo
+
+Follow the instruction for installing paperclip and paperclip_with_hobo from this webpage
+
+http://cookbook.hobocentral.net/plugins/paperclip_with_hobo
+
+Install the less gem
+
+Install the less plugin for rails as per this page
+
+https://github.com/cloudhead/more/
+
