@@ -938,7 +938,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="email_address, state" param/>
+            <field-list fields="user_name, email_address, state" param/>
           </section>
     </content:>
 
@@ -988,29 +988,6 @@
 
       <section param="content-body">
         <signup-form param="form"/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-<def tag="reset-password-page" polymorphic/>
-<def tag="reset-password-page" for="User">
-  <page title="#{ht 'users.reset_password.title', :default=>['Reset Password']}" merge>
-
-    <body: class="lifecycle-transition-page reset-password-page" param/>
-
-    <content:>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="users.reset_password.heading">
-            Reset Password
-          </ht>
-        </h2>
-      </header>
-
-      <section param="content-body">
-        <reset-password-form param="form"/>
       </section>
     </content:>
 

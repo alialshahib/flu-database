@@ -1,46 +1,64 @@
 class User < ActiveRecord::Base
 
   hobo_user_model # Don't put anything above this
- 
 
   fields do
     name          :string, :required, :unique
-    email_address :email_address, :login => true
+    user_name     :string, :unique, :login => true
+    email_address :email_address, :required, :unique
     administrator :boolean, :default => false
     timestamps
   end
-
-  attr_accessor :password, :password_confirmation
    
-  
-  has_many :task_assignments, :dependent => :destroy
-  has_many :tasks, :through => :task_assignments
+  #has_many :task_assignments, :dependent => :destroy
+  #has_many :tasks, :through => :task_assignments
 
 
   # This gives admin rights to the first sign-up.
   # Just remove it if you don't want that
-  before_create { |user| user.administrator = true if !Rails.env.test? && count == 0 }
+  before_create { |user|
+    user.administrator = true if !Rails.env.test? && count == 0
+  }
 
   
   # --- Signup lifecycle --- #
 
+  #lifecycle do
+  #
+  #  state :active, :default => true
+  #
+  #  create :signup, :available_to => "Guest",
+  #         :params => [:name, :email_address, :password, :password_confirmation],
+  #         :become => :active
+  #           
+  #  transition :request_password_reset, { :active => :active }, :new_key => true do
+  #    UserMailer.deliver_forgot_password(self, lifecycle.key)
+  #  end
+  #
+  #  transition :reset_password, { :active => :active }, :available_to => :key_holder,
+  #             :params => [ :password, :password_confirmation ]
+  #
+  #end
+
   lifecycle do
-
     state :active, :default => true
-
     create :signup, :available_to => "Guest",
-           :params => [:name, :email_address, :password, :password_confirmation],
+           :params => [:name, :user_name, :email_address, :password, :password_confirmation],
            :become => :active
-             
-    transition :request_password_reset, { :active => :active }, :new_key => true do
-      UserMailer.deliver_forgot_password(self, lifecycle.key)
-    end
-
-    transition :reset_password, { :active => :active }, :available_to => :key_holder,
-               :params => [ :password, :password_confirmation ]
-
   end
-  
+
+  def create_permitted?
+    false
+  end
+  def update_permitted?
+    false
+  end
+  def destroy_permitted?
+    false
+  end
+  def view_permitted?(field)
+    true
+  end
 
   # --- Permissions --- #
 
