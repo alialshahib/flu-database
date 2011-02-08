@@ -1,0 +1,6 @@
+*.swp
+*.tmp
+*.log
+vendor/plugins/more
+*.sqllite3
+log/*

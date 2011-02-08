@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110131144611) do
+ActiveRecord::Schema.define(:version => 20110207163904) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -140,6 +140,7 @@ ActiveRecord::Schema.define(:version => 20110131144611) do
     t.datetime "updated_at"
     t.string   "state",                                   :default => "active"
     t.datetime "key_timestamp"
+    t.string   "user_name"
   end
 
   add_index "users", ["state"], :name => "index_users_on_state"

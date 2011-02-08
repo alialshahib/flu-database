@@ -1,0 +1,267 @@
+/*
+General stylesheet for application.
+
+This should be placed in app/stylesheets and will generate the equivalent .css
+file in public/stylesheets.
+*/
+
+/* IMPORTS */
+
+/* CONSTANTS & DEFINES */
+
+@page-clr: #A8ACB7; /* TODO: not required? */
+@body-clr: #E67E00;
+@menu-clr: #E67E00;
+@discrete-text-clr: gray;
+
+@gutter-width: 8%;
+
+@logo-ht: 160px;
+
+
+/*** IMPLEMENTATION */
+
+/* OVERALL LAYOUT */
+
+body {
+	color: @body-clr;
+	width: auto;
+	padding-left: @gutter-width;
+	padding-right: @gutter-width;
+}
+
+
+/* HEADER */
+
+/* clickable logo and header */
+div.page-header h1.app-name {
+	background: white url('../images/SAD_logo.png') no-repeat 20px 10px;
+	padding: 0; margin: 0; 
+	height: @logo-ht;
+	
+	a {
+		display:block;  
+		width:100%;  
+		height:100%;  
+		color: transparent;  
+	}
+}
+
+/* navigation tabs */
+div.page-header .main-nav {
+	position: relative;
+	top: 0px;
+	height: 21px;
+	width: 100%;
+	line-height: 21px;
+	padding: 0;
+	text-align: right;
+	background: @menu-clr;
+
+	li {
+		margin: 0;
+		padding: 0;
+		display:inline;
+		float:none;
+		width:100%;  
+		height:100%;
+
+		a {
+			margin: 0;
+			font-weight: normal;
+			display:inline;
+			font-size: 1.1em;
+			background: transparent !important;
+			color: white;
+		}
+	}
+	
+	/* TODO: merge into declaration above */
+	li.current a {
+		color: black;
+	}
+
+	li a:hover {
+		background: white !important;
+		color: @menu-clr;
+	}
+}
+
+
+/* FORM ELEMENTS & ACTIONS */
+
+.button {
+	color: white;
+	background: @menu-clr;
+	border: 1px solid @menu-clr;
+	:hover {
+		color: @menu-clr;
+		background: white;
+	}
+}
+
+a.edit-link, a.new-link, a.cancel {
+	color: @menu-clr;
+	border: 1px solid @menu-clr;
+	padding: 0px 2px;
+	:hover {
+		color: white;
+		background: black;
+		border-color: black;
+	}
+}
+
+.field-list textarea, .field-list input[type=text], .field-list input[type=password] { width: 50%; margin: 0; }
+
+
+/* MAIN CONTENT */
+
+div.page-content, div.page-content .aside { background: white; }
+
+.aside1 { width: 173px; padding: 10px;}
+
+.search-and-browse  {
+	background: #F4A460;
+	border: 1px solid #313367;
+	font-size: 11px;
+	margin: 4px;
+ 
+	h3 {
+		background: #E67E00; color: black;
+		margin: 0; padding: 3px 5px;
+		font-weight: normal; font-size: 13px;
+	}
+	
+	a { background: none; color: black;}
+	
+	.navigation {
+		list-style-type: circle;
+		
+		.li {
+			padding: 3px 0;
+			font-size: 11px;
+			lineheight:14px;
+			color: white;
+			
+			a { border:none;}
+		}
+		
+	}
+	
+	.search {
+		form { margin: 0 3px 3px 3px;}
+		.search p { margin: 3px;}
+	}
+	
+	.search-field { width: 120px;}
+	.submit-button { padding: 2px; color: white; background:  #E67E00}
+	.browse-by-audience select { margin: 5px 3px; width: 92%;}
+}
+
+
+/* FOOTER */
+
+.page-footer {
+	background: white no-repeat bottom right; 
+	overflow: hidden;
+	height: 100%;
+	border-top: 1px solid  #E67E00;
+	font-size: 12px;
+	line-height: 10px;
+	padding: 5px 0px 10px 240px;
+	margin-top: 1.0em;
+   position: right;
+
+	ul {
+		list-style-type: none;
+		
+		li {
+			float: left;
+			border-right: 1px solid #E67E00;
+			margin: 10;
+			padding: 0 15px 0px 0px;
+			
+			a {
+				border:none;
+				color: @discrete-text-clr;
+			}
+		}
+	}
+
+}
+
+
+
+
+/*** DETRITUS */
+
+/*
+div.page-content, div.page-content .aside { background: white; }
+.aside1 { margin: 0; padding: 12px 10px; width: 182px;}
+.nav-panel {border: 1px solid #C9C9C9; margin-bottom: 10px;}
+.nav-panel h3 {background:#A9BACF; color: #313131; font-size: 13px; padding:3px 8px; margin: 0;}
+.nav-panel .body {background: white; color: #00059A; padding: 5px;}
+.nav-panel .body a {color: #E67E00; background: none;}
+.nav-panel ul {color: #E67E00; list-style-type: circle;}
+.nav-panel ul li { margin: 5px 0 5px 20px;}
+*/
+
+/*
+div.page-content, div.page-content .aside { background: white; }
+ .aside1 { width: 173px; padding: 10px;}
+  .search-and-browse {
+   background: #E67E00;
+   border: 1px solid #313367;
+   font-size: 11px;
+   margin: 4px;
+}
+ .search-and-browse h3 {
+   background: #FFFFFF; color: #E67E00;
+   margin: 0; padding: 3px 5px;
+   font-weight: normal; font-size: 13px;
+}
+ .search-and-browse a { background: none; color: #000483;}
+ .search-and-browse .navigation { list-style-type: circle; }
+ .search-and-browse .navigation li { padding: 3px 0; font-size: 11px; line-height:14px;}
+ .search-and-browse .navigation li a { border:none;}
+ .search-and-browse .search form { margin: 0 3px 3px 3px;}
+ .search-and-browse .search p { margin: 3px;}
+ .search-and-browse .search-field { width: 120px;}
+ .search-and-browse .submit-button { padding: 2px;}
+ .search-and-browse .browse-by-audience select { margin: 5px 3px; width: 92%;}
+
+*/
+
+/*
+div.page-header .navigation.main-nav li a:hover {
+	background: #A9BACF;
+	color: black;
+}
+*/
+/*
+div.page-header { 
+
+	padding: 0;
+	background: url('../images/health-protection-agency.jpg') no-repeat 0px 62px;
+	height: 300px;
+        background-position:right top;
+}
+*/
+
+/*
+div.page-header {
+	padding: 0;
+	background: red; 
+	height: 138px;
+}
+*/
+/*
+div.page-header {
+padding: 0;
+        text-indent: -10000px;
+background: white url('../images/SAD_logo.png') no-repeat 0px 0px;
+height: 160px;
+}
+*/
+
+/*** END */
