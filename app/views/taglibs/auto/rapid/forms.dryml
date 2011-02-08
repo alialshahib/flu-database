@@ -48,6 +48,18 @@
 
 
 
+<def tag="form" for="Season">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name" param/>
+    <div param="actions">
+      <submit label="#{ht 'seasons.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Sequence">
   <form merge param="default">
     <error-messages param/>

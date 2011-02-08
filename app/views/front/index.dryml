@@ -69,16 +69,13 @@
          reminder mailed to you</a>.
          Otherwise <a href="&signup_url">signup</a> for an account.
       </p>   
-   <% else %>
-      <!-- if logged in, remind them who they are -->
-      <p>You are logged into <app-name /> as <%= current_user.name -%>.</p>
    <% end -%>
    
    <% if current_user.administrator? -%>
       <!-- provide quick links to editting -->
       <h3>Administration tools</h3> 
       <p>
-         Browse and edit:
+         Browse and edit (be careful, this provides access to the raw data):
          <ul>
             <nav-item with="&Country">countries</nav-item>
             <nav-item with="&Threshold">thresholds</nav-item>
@@ -86,10 +83,7 @@
             <nav-item with="&Season">seasons</nav-item>
             <nav-item with="&Patient">patients</nav-item>
             <nav-item with="&Sequence">sequences</nav-item>
-         </ul>
-         <span class="bold">
-            Be careful, this provides access to the raw data.
-         </span>
+         </ul>            
       </p>   
    <% end -%>
    
