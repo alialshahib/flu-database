@@ -36,26 +36,64 @@
     </items:>
     </nav-panel>
    </aside1:> -->
-  <content:>
+   <content:>
       <h2>Welcome to the South American Influenza Database</h2> 
-
-        <p>This database aims to help reduce influenza morbidity and mortality in the six South American countries:</p> <!-- Enter something for header 3 -->
-        <ul>
-           <li><p>Argentina</p></li>
-           <li><p>Brazil</p></li>
-           <li><p>Chile</p></li>
-           <li><p>Colombia</p></li>
-           <li><p>Peru</p></li>
-           <li><p>Uruguay</p></li>
-        </ul>
-        <p>This projects aims to set up a collaborative network with these countries which are National Influenza Centres depending of World Health Organisation (WHO), to develop their capacity for surveillance of the emergence of antiviral resistance in pandemic influenza.
-        We hope that this database can link  virological, clinical and epidemiological information from all patients tested enabling to share data within the network.
-        </p>
-  <br />
-      <p> 
-        If you are already a member, please log in <ht key="users.index.heading">here</ht> 
-        </p>
-  </content:>
+      
+      <p>This database aims to help reduce influenza morbidity and mortality in
+      the six South American countries:</p>
+      
+      <ul>
+         <li>Argentina</li>
+         <li>Brazil</li>
+         <li>Chile</li>
+         <li>Colombia</li>
+         <li>Peru</li>
+         <li>Uruguay</li>
+      </ul>
+      
+      <p>This projects aims to set up a collaborative network with these
+      countries which are National Influenza Centres depending of World Health
+      Organisation (WHO), to develop their capacity for surveillance of the
+      emergence of antiviral resistance in pandemic influenza. We hope that this
+      database can link virological, clinical and epidemiological information
+      from all patients tested enabling to share data within the network.
+      </p>
+      
+      <br />
+   
+   <% if current_user.guest? -%>
+      <!-- if not logged in, prompt -->
+      <p>
+         If you are already a member, please <a href="&login_url">login</a>.
+         If you've forgotten your password, <a href="/forgot_password">get a
+         reminder mailed to you</a>.
+         Otherwise <a href="&signup_url">signup</a> for an account.
+      </p>   
+   <% else %>
+      <!-- if logged in, remind them who they are -->
+      <p>You are logged into <app-name /> as <%= current_user.name -%>.</p>
+   <% end -%>
+   
+   <% if current_user.administrator? -%>
+      <!-- provide quick links to editting -->
+      <h3>Administration tools</h3> 
+      <p>
+         Browse and edit:
+         <ul>
+            <nav-item with="&Country">countries</nav-item>
+            <nav-item with="&Threshold">thresholds</nav-item>
+            <nav-item with="&User">users</nav-item>
+            <nav-item with="&Season">seasons</nav-item>
+            <nav-item with="&Patient">patients</nav-item>
+            <nav-item with="&Sequence">sequences</nav-item>
+         </ul>
+         <span class="bold">
+            Be careful, this provides access to the raw data.
+         </span>
+      </p>   
+   <% end -%>
+   
+   </content:>
 </page>
 
 

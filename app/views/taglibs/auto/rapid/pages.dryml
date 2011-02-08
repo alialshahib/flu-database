@@ -5,11 +5,11 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Country"><ht key="countries.nav_item">countries</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
     <nav-item with="&Sequence"><ht key="sequences.nav_item">Sequences</ht></nav-item>
     <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Suseptibilities</ht></nav-item>
-    <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
   </navigation>
 </def>
 
@@ -19,14 +19,14 @@
 <!-- ====== Country Pages ====== -->
 
 <def tag="index-page" for="Country">
-  <page merge title="#{ht 'countries.index.title', :default=>['Countries'] }">
+  <page merge title="#{ht 'countries.index.title', :default=>['countries'] }">
     <body: class="index-page country" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="countries.index.heading">
-            Countries
+            countries
           </ht>
         </h2>
 
@@ -101,6 +101,15 @@
           </header>
 
           <section param="content-body">
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="countries.collection.heading.other" >
+                  Users
+                </ht>
+              </h3>
+
+              <collection:users param/>
+            </section>
           </section>
     </content:>
 
@@ -922,6 +931,7 @@
 
     <content: param>
           <header param="content-header">
+            <a:countries param="parent-link">&laquo; <ht key="users.actions.back" to="countries"><name/></ht></a:countries>
             <h2 param="heading">
               <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>

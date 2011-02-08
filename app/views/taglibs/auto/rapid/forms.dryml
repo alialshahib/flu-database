@@ -3,7 +3,7 @@
 <def tag="form" for="Country">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name" param/>
+    <field-list fields="name, users" param/>
     <div param="actions">
       <submit label="#{ht 'countries.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
