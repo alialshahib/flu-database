@@ -190,7 +190,7 @@ form .actions input { margin: 0; }
 .login-page .field-list {width: 370px;}
 .login-page form .actions {text-align: left; margin: 0; padding: 10px 0 10px 160px;}
 .signup-page .field-list {width: 370px;}
-.signup-page .content-body, .signup-page .content-header { margin-left: 120px; margin-right: 120px;}
+.signup-page .content-body, .signup-page .content-header { margin-left: 200px; margin-right: 200px;}
 .login-page .field-list td, .signup-page .field-list td {width: auto;}
 .login-page .field-list th, .signup-page .field-list th {width: 150px !important; width: 150px;}
 .login-page .content-header { position: relative; }

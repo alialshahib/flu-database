@@ -60,7 +60,7 @@
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
     <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Susceptibility</ht></nav-item>
-<!--    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> -->
+-    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> 
     <nav-item href="">Tools</nav-item>
   </navigation>
 </def> 
