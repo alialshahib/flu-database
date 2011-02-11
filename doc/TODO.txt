@@ -1,0 +1,60 @@
+============
+Things to do
+============
+
+Must do
+-------
+
+* Security mechanisms with regard to country
+
+* Graphing
+
+* Import excel
+
+* Tools controller
+
+
+Should do
+---------
+
+* Validations?
+
+* There is no site map - make one or delete footer pointer
+
+* Pagination in long listings of users, countries, etc.
+
+* Order listings of seasons by years
+
+
+Like to do
+----------
+
+* Localization / translation?
+
+* "config.load_paths is deprecated and removed in Rails 3, please use
+  autoload_paths instead"
+
+* "Backto/upto" menu named appropriately
+
+* Proper parent link possible?
+
+* Normalize style sheet & colors
+
+* Indexes show bad capitalization "There are 3 Countries"
+
+* Give every country an icon or whatever for easy visuals
+
+* Search / side box styling needs a bit of tweaking. 
+
+  
+Have done
+---------
+
+* Gravatar picture on member card
+
+* "Users" become "members"
+
+* Countries to upper case (and in proper domain table)
+
+* Record modification date byline
+

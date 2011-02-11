@@ -9,16 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(:version => 20110210144938) do
-=======
-ActiveRecord::Schema.define(:version => 20110208144516) do
->>>>>>> 981bd061cd514743729fbf297ace96092fdc11c8
+ActiveRecord::Schema.define(:version => 20110211152037) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+  end
+
+  create_table "drugs", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "ic50_datas", :force => true do |t|
@@ -62,9 +65,9 @@ ActiveRecord::Schema.define(:version => 20110208144516) do
   add_index "patients", ["suseptibility_id"], :name => "index_patients_on_suseptibility_id"
 
   create_table "seasons", :force => true do |t|
-    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year"
   end
 
   create_table "sequences", :force => true do |t|
@@ -148,10 +151,12 @@ ActiveRecord::Schema.define(:version => 20110208144516) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "virus_type"
-    t.text     "description_of_how_cuttoff_values_were_calculated"
+    t.text     "description"
     t.integer  "season_id"
+    t.integer  "country_id"
   end
 
+  add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
 
   create_table "user_countries", :force => true do |t|
@@ -180,5 +185,12 @@ ActiveRecord::Schema.define(:version => 20110208144516) do
   end
 
   add_index "users", ["state"], :name => "index_users_on_state"
+
+  create_table "virustypes", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

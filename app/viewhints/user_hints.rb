@@ -13,7 +13,10 @@ class UserHints < Hobo::ViewHints
       :email_address => "The user's email address, required for sending
          password reminders, etc.",
       :country => "What country or region the user belongs to and has access
-         privileges for."
+         privileges for.",
+      :countries => "foo bar"
    )
+
+   children :countries
 
 end

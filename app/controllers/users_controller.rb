@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   hobo_user_controller
 
-  auto_actions :all, :except => [:view, :new, :create ] 
+  auto_actions(:all)  #, :except => [:view, :new, :create ] 
   
 #  :except => [ :index, :new, :create ]
 
