@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
    
-   hobo_user_model # Don't put anything above this
+  hobo_user_model # Don't put anything above this
    
    ## Fields & relationships:
    fields do
@@ -22,24 +22,6 @@ class User < ActiveRecord::Base
       user.administrator = true if !Rails.env.test? && count == 0
    }
    
-   # TODO: enable password rest & password reminder?
-   #lifecycle do
-   #
-   #  state :active, :default => true
-   #
-   #  create :signup, :available_to => "Guest",
-   #         :params => [:name, :email_address, :password, :password_confirmation],
-   #         :become => :active
-   #           
-   #  transition :request_password_reset, { :active => :active }, :new_key => true do
-   #    UserMailer.deliver_forgot_password(self, lifecycle.key)
-   #  end
-   #
-   #  transition :reset_password, { :active => :active }, :available_to => :key_holder,
-   #             :params => [ :password, :password_confirmation ]
-   #
-   #end
-
    lifecycle do
       state(:active, :default => true)
       
