@@ -6,10 +6,10 @@
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Country"><ht key="countries.nav_item">Countries</ht></nav-item>
+    <nav-item with="&Drug"><ht key="drugs.nav_item">Drugs</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
     <nav-item with="&Season"><ht key="seasons.nav_item">Seasons</ht></nav-item>
-    <nav-item with="&Sequence"><ht key="sequences.nav_item">Sequences</ht></nav-item>
   </navigation>
 </def>
 
@@ -131,6 +131,126 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'countries.actions.delete', :default=>['Remove This Country']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Drug Pages ====== -->
+
+<def tag="index-page" for="Drug">
+  <page merge title="#{ht 'drugs.index.title', :default=>['Drugs'] }">
+    <body: class="index-page drug" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="drugs.index.heading">
+            Drugs
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="drugs.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="drugs.actions.new">New Drug</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Drug">
+  <page merge title="#{ht 'drugs.new.title', :default=>[' New Drug'] }">
+    <body: class="new-page drug" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="drugs.new.heading">
+            New Drug
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Drug']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Drug">
+  <page merge title="#{ht 'drugs.show.title', :default=>['Drug'] }">
+
+    <body: class="show-page drug" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="drugs.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="drugs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Drug
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Drug">
+  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Drug'] }">
+
+    <body: class="edit-page drug" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="drugs.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Drug']}" param/>
       </section>
 
       <section param="content-body">
@@ -821,7 +941,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="hospitalised, institution, community, other, not_known, source_virus_sentinel, source_virus_non_sentinel, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, not_known_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_household_contact, not_known_exposure_to_flu_antivirals_household_contact, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_not_known, no_exposure_to_flu_antivirals_household_contact" param/>
+            <record-flags fields="vaccinated, hospitalised, institution, community, not_known" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -831,7 +951,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="season, isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at" param/>
+            <field-list fields="season, isolate_name, virus_type, other, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness" param/>
           </section>
     </content:>
 
@@ -951,7 +1071,8 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="virus_type, description_of_how_cuttoff_values_were_calculated, season" param/>
+            <view:description param="description"/>
+            <field-list fields="virus_type, country, season" param/>
           </section>
     </content:>
 
@@ -1159,5 +1280,125 @@
 
   </page>
 </def>
+
+
+
+<!-- ====== Virustype Pages ====== -->
+
+<def tag="index-page" for="Virustype">
+  <page merge title="#{ht 'virustypes.index.title', :default=>['Virustypes'] }">
+    <body: class="index-page virustype" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="virustypes.index.heading">
+            Virustypes
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="virustypes.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="virustypes.actions.new">New Virustype</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Virustype">
+  <page merge title="#{ht 'virustypes.new.title', :default=>[' New Virustype'] }">
+    <body: class="new-page virustype" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="virustypes.new.heading">
+            New Virustype
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'virustypes.actions.create', :default=>['Create Virustype']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Virustype">
+  <page merge title="#{ht 'virustypes.show.title', :default=>['Virustype'] }">
+
+    <body: class="show-page virustype" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="virustypes.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="virustypes.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Virustype
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Virustype">
+  <page merge title="#{ht 'virustypes.edit.title', :default=>['Edit Virustype'] }">
+
+    <body: class="edit-page virustype" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="virustypes.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'virustypes.actions.delete', :default=>['Remove This Virustype']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
 
 
