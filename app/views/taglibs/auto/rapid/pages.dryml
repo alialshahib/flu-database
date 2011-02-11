@@ -941,7 +941,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="vaccinated, hospitalised, institution, community, not_known" param/>
+            <record-flags fields="vaccinated, hospitalised, institution, community, other, not_known, source_virus_sentinel, source_virus_non_sentinel, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, not_known_exposure_to_flu_antivirals_patient, no_exposure_to_flu_antivirals_household_contact, yes_exposure_to_flu_antivirals_household_contact, not_known_exposure_to_flu_antivirals_household_contact, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_not_known" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -951,7 +951,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="season, isolate_name, virus_type, other, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness" param/>
+            <field-list fields="season, isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at" param/>
           </section>
     </content:>
 
@@ -972,6 +972,126 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'suseptibilities.actions.delete', :default=>['Remove This Suseptibility']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Thresholdentry Pages ====== -->
+
+<def tag="index-page" for="Thresholdentry">
+  <page merge title="#{ht 'thresholdentries.index.title', :default=>['threshold entries'] }">
+    <body: class="index-page thresholdentry" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="thresholdentries.index.heading">
+            threshold entries
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="thresholdentries.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="thresholdentries.actions.new">New threshold entry</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Thresholdentry">
+  <page merge title="#{ht 'thresholdentries.new.title', :default=>[' New threshold entry'] }">
+    <body: class="new-page thresholdentry" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="thresholdentries.new.heading">
+            New threshold entry
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'thresholdentries.actions.create', :default=>['Create threshold entry']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Thresholdentry">
+  <page merge title="#{ht 'thresholdentries.show.title', :default=>['threshold entry'] }">
+
+    <body: class="show-page thresholdentry" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="thresholdentries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="thresholdentries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit threshold entry
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <field-list fields="minor, major, drug, threshold" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Thresholdentry">
+  <page merge title="#{ht 'thresholdentries.edit.title', :default=>['Edit threshold entry'] }">
+
+    <body: class="edit-page thresholdentry" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="thresholdentries.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'thresholdentries.actions.delete', :default=>['Remove This threshold entry']}" param/>
       </section>
 
       <section param="content-body">
@@ -1072,7 +1192,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="virus_type, country, season" param/>
+            <field-list fields="country, season, virustype" param/>
           </section>
     </content:>
 

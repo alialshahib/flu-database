@@ -8,7 +8,10 @@
 
 
 
-*/html, body { background: #737373; }
+*/html, body {
+  background: #737373;
+  font-size: 1em;
+}
 body {
   background: beige;
   color: #e67e00;
@@ -116,6 +119,14 @@ div.section.content {
 }
 div.section.content .content-header { margin: 0 0 15px 0; }
 div.section.content .content-body { margin: 0 0 15px 0; }
+div.section.content p { margin-bottom: 0.5em; }
+div.section.content ul { margin-bottom: 0.5em; }
+div.section.content ol { margin-bottom: 0.5em; }
+div.section.content h1 { margin-bottom: 0.5em; }
+div.section.content h2 { margin-bottom: 0.5em; }
+div.section.content h3 { margin-bottom: 0.5em; }
+div.section.content h4 { margin-bottom: 0.5em; }
+div.section.content h5 { margin-bottom: 0.5em; }
 div.section.content p.byline {
   margin-top: 1.5em;
   padding-top: 0.25em;
