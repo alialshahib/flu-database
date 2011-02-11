@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
       timestamps
    end
    
-   has_many :countries, :through => :user_countries
+   has_many :countries, :through => :user_countries, :accessible => true
    has_many :user_countries, :dependent => :destroy
 
    ## Lifecycle & transitions:
@@ -42,6 +42,7 @@ class User < ActiveRecord::Base
 
    lifecycle do
       state(:active, :default => true)
+      
       create(:signup,
          :available_to => "Guest",
          :params => [
@@ -54,6 +55,14 @@ class User < ActiveRecord::Base
          ],
          :become => :active
       )
+      
+      transition(:request_password_reset, { :active => :active }, :new_key => true) do
+         UserMailer.deliver_forgot_password(self, lifecycle.key)
+      end
+      
+      transition(:reset_password, { :active => :active }, :available_to => :key_holder,
+               :params => [ :password, :password_confirmation ])
+   
    end
 
    ## Permissions:
@@ -90,5 +99,8 @@ class User < ActiveRecord::Base
       # TODO: maybe change so only viewable by other country members?
       true
    end
+   
+   ## Accessors:
+
 
 end

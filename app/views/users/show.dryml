@@ -1,0 +1,38 @@
+<%#
+Customize the appearance of a page showing a single user.
+
+* Remember you can't define tags here.
+* Params (e.g. "<foo:>) are slots to be replaced.
+
+TODO: created_at, updated_at? best handled in general page override?
+NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
+  in erb-style comments in Ruby 1.8.7+ means that comments will sometimes eat
+  the following line. The first header comment like this seems to be fine, but
+  one-liners in the code are a no go. Xml/html style comments don't stripped
+  from the code.
+%>
+<show-page>
+
+  <heading:>
+	 <h2><name /> (<%= @this.user_name %>)</h2>
+  </heading:>
+
+  <record-flags: replace></record-flags:>	
+
+  <content-body:>
+	 <div>
+		<ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
+		<div style="float: left">
+		  <field-list fields="user_name, email_address, countries, administrator, state" />
+		</div>
+	 </div>
+	 <br />
+  </content-body:>
+
+<!--<collection-section:>
+  <p if test="&0 < this.countries.count">
+  Member of <view:countries />
+  </p>
+  <field-list fields="user_name, email_address, countries" />
+</collection-section:>-->	
+</show-page>

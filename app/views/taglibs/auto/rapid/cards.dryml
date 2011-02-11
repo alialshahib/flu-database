@@ -82,6 +82,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="countries.collection.count" count="&this.countries.size">
+         <count:countries param/>
+      </ht>
+    </body:>
   </card>
 </def>
 

@@ -1,0 +1,11 @@
+<%#
+Customize the appearance of a page showing a single country.
+
+This is needed to customize the listing of country members as "members" instead
+of "users", as view hints apparently cannot override the naming.
+%>
+<show-page>
+
+  <collection-heading:>Members</collection-heading:>
+
+</show-page>

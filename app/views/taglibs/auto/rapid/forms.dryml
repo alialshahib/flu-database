@@ -51,7 +51,7 @@
 <def tag="form" for="Season">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name" param/>
+    <field-list fields="year" param/>
     <div param="actions">
       <submit label="#{ht 'seasons.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -99,7 +99,7 @@
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name, user_name, email_address, administrator, state" param/>
+    <field-list fields="name, user_name, email_address, administrator, state, countries" param/>
     <div param="actions">
       <submit label="#{ht 'users.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -117,4 +117,15 @@
   </form>
 </def>
 
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.reset_password', :default=>['Reset Password']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
 

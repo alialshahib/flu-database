@@ -5,7 +5,7 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
-    <nav-item with="&Country"><ht key="countries.nav_item">countries</ht></nav-item>
+    <nav-item with="&Country"><ht key="countries.nav_item">Countries</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
     <nav-item with="&Season"><ht key="seasons.nav_item">Seasons</ht></nav-item>
@@ -19,14 +19,14 @@
 <!-- ====== Country Pages ====== -->
 
 <def tag="index-page" for="Country">
-  <page merge title="#{ht 'countries.index.title', :default=>['countries'] }">
+  <page merge title="#{ht 'countries.index.title', :default=>['Countries'] }">
     <body: class="index-page country" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="countries.index.heading">
-            countries
+            Countries
           </ht>
         </h2>
 
@@ -85,6 +85,7 @@
 
     <content: param>
           <header param="content-header">
+            <a:users param="parent-link">&laquo; <ht key="countries.actions.back" to="users"><name/></ht></a:users>
             <h2 param="heading">
               <ht key="countries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -590,6 +591,7 @@
           </header>
 
           <section param="content-body">
+            <field-list fields="year" param/>
           </section>
     </content:>
 
@@ -867,14 +869,14 @@
 <!-- ====== Threshold Pages ====== -->
 
 <def tag="index-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.index.title', :default=>['Thresholds'] }">
+  <page merge title="#{ht 'thresholds.index.title', :default=>['season thresholds'] }">
     <body: class="index-page threshold" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="thresholds.index.heading">
-            Thresholds
+            season thresholds
           </ht>
         </h2>
 
@@ -887,7 +889,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="thresholds.actions.new">New Threshold</ht>
+          <ht key="thresholds.actions.new">New season threshold</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -904,21 +906,21 @@
 
 
 <def tag="new-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.new.title', :default=>[' New Threshold'] }">
+  <page merge title="#{ht 'thresholds.new.title', :default=>[' New season threshold'] }">
     <body: class="new-page threshold" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="thresholds.new.heading">
-            New Threshold
+            New season threshold
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'thresholds.actions.create', :default=>['Create Threshold']}"/>
+          <submit: label="#{ht 'thresholds.actions.create', :default=>['Create season threshold']}"/>
         </form>
       </section>
     </content:>
@@ -927,7 +929,7 @@
 
 
 <def tag="show-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.show.title', :default=>['Threshold'] }">
+  <page merge title="#{ht 'thresholds.show.title', :default=>['season threshold'] }">
 
     <body: class="show-page threshold" param/>
 
@@ -943,7 +945,7 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="thresholds.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Threshold
+                Edit season threshold
               </ht>
             </a>
           </header>
@@ -958,7 +960,7 @@
 
 
 <def tag="edit-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.edit.title', :default=>['Edit Threshold'] }">
+  <page merge title="#{ht 'thresholds.edit.title', :default=>['Edit season threshold'] }">
 
     <body: class="edit-page threshold" param/>
 
@@ -969,7 +971,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This Threshold']}" param/>
+        <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This season threshold']}" param/>
       </section>
 
       <section param="content-body">
@@ -1006,6 +1008,9 @@
       </header>
 
       <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="users.actions.new">New User</ht>
+        </a>
 
         <page-nav param="top-page-nav"/>
 
@@ -1068,6 +1073,15 @@
 
           <section param="content-body">
             <field-list fields="user_name, email_address, state" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="users.collection.heading.your" >
+                  <Your/>Countries
+                </ht>
+              </h3>
+
+              <collection:countries param/>
+            </section>
           </section>
     </content:>
 
@@ -1117,6 +1131,29 @@
 
       <section param="content-body">
         <signup-form param="form"/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+<def tag="reset-password-page" polymorphic/>
+<def tag="reset-password-page" for="User">
+  <page title="#{ht 'users.reset_password.title', :default=>['Reset Password']}" merge>
+
+    <body: class="lifecycle-transition-page reset-password-page" param/>
+
+    <content:>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="users.reset_password.heading">
+            Reset Password
+          </ht>
+        </h2>
+      </header>
+
+      <section param="content-body">
+        <reset-password-form param="form"/>
       </section>
     </content:>
 

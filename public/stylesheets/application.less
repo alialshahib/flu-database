@@ -9,10 +9,22 @@ file in public/stylesheets.
 
 /* CONSTANTS & DEFINES */
 
+/*
+According to our color tool, 4 magic colors that work together.
+
+TODO: change element colors to match these.
+*/
+@orangebrown:   #e67e00;
+@darkbrown:     #4d2a00;
+@salmon:        #ffc580;
+@darkgray:      #737373;
+
 @page-clr: #A8ACB7; /* TODO: not required? */
-@body-clr: #E67E00;
-@menu-clr: #E67E00;
-@discrete-text-clr: gray;
+@body-clr: @orangebrown;
+@menu-clr: @orangebrown;
+@discrete-text-clr: @darkgray;
+
+@discrete-border-style:  1px dotted @discrete-text-clr;
 
 @gutter-width: 8%;
 
@@ -23,7 +35,12 @@ file in public/stylesheets.
 
 /* OVERALL LAYOUT */
 
+html, body {
+	background: #737373;
+}
+
 body {
+	background: beige;
 	color: @body-clr;
 	width: auto;
 	padding-left: @gutter-width;
@@ -34,56 +51,59 @@ body {
 /* HEADER */
 
 /* clickable logo and header */
-div.page-header h1.app-name {
-	background: white url('../images/SAD_logo.png') no-repeat 20px 10px;
-	padding: 0; margin: 0; 
-	height: @logo-ht;
+div.page-header {
 	
-	a {
-		display:block;  
-		width:100%;  
-		height:100%;  
-		color: transparent;  
-	}
-}
-
-/* navigation tabs */
-div.page-header .main-nav {
-	position: relative;
-	top: 0px;
-	height: 21px;
-	width: 100%;
-	line-height: 21px;
-	padding: 0;
-	text-align: right;
-	background: @menu-clr;
-
-	li {
-		margin: 0;
-		padding: 0;
-		display:inline;
-		float:none;
-		width:100%;  
-		height:100%;
-
+	h1.app-name {
+		background: white url('../images/SAD_logo.png') no-repeat 20px 10px;
+		padding: 0; margin: 0; 
+		height: @logo-ht;
+		
 		a {
-			margin: 0;
-			font-weight: normal;
-			display:inline;
-			font-size: 1.1em;
-			background: transparent !important;
-			color: white;
+			display:block;  
+			width:100%;  
+			height:100%;  
+			color: transparent;  
 		}
 	}
-	
-	/* TODO: merge into declaration above */
-	li.current a {
-		color: black;
-	}
 
-	li a:hover {
-		background: white !important;
-		color: @menu-clr;
+	/* navigation tabs */
+	.main-nav {
+		position: relative;
+		top: 0px;
+		height: 21px;
+		width: 100%;
+		line-height: 21px;
+		padding: 0;
+		text-align: right;
+		background: @menu-clr;
+	
+		li {
+			margin: 0;
+			padding: 0;
+			display:inline;
+			float:none;
+			width:100%;  
+			height:100%;
+	
+			a {
+				margin: 0;
+				font-weight: normal;
+				display:inline;
+				font-size: 1.1em;
+				background: transparent !important;
+				color: white;
+			}
+		}
+		
+		/* TODO: merge into declaration above */
+		li.current a {
+			color: black;
+		}
+	
+		li a:hover {
+			background: white !important;
+			color: @menu-clr;
+		}
 	}
 }
 
@@ -111,10 +131,44 @@ a.edit-link, a.new-link, a.cancel {
 	}
 }
 
-.field-list textarea, .field-list input[type=text], .field-list input[type=password] { width: 50%; margin: 0; }
+.field-list {
+	textarea, input[type=text], input[type=password] {
+		width: 50%;
+		margin: 0;
+	}
+}
 
 
 /* MAIN CONTENT */
+
+/*
+The main body, the page area with varying content.
+
+Thsi normalizes the original over-complicated formatting where each block within
+content had to be individually indented. Now we just let them fill the enclosing
+block, and set internal padding on it.
+*/
+div.section.content {
+	margin: 0;
+	padding: 0 45px 15px 45px;
+	
+	.content-header {
+		margin: 0 0 15px 0;
+	}
+	
+	.content-body {
+		margin: 0 0 15px 0;
+	}
+	
+	p.byline {
+		margin-top: 1.5em;
+		padding-top: 0.25em;
+		border-top: @discrete-border-style;
+		font-style: italic;
+	}
+}
+
+
 
 div.page-content, div.page-content .aside { background: white; }
 
@@ -169,7 +223,7 @@ div.page-content, div.page-content .aside { background: white; }
 	font-size: 12px;
 	line-height: 10px;
 	padding: 5px 0px 10px 240px;
-	margin-top: 1.0em;
+	margin-top: 0;
    position: right;
 
 	ul {
