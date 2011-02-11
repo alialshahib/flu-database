@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
     administrator :boolean, :default => false
     timestamps
   end
+
+#   attr_accessor :password, :password_confirmation
+
    
   #has_many :task_assignments, :dependent => :destroy
   #has_many :tasks, :through => :task_assignments
@@ -23,42 +26,36 @@ class User < ActiveRecord::Base
   
   # --- Signup lifecycle --- #
 
-  #lifecycle do
-  #
-  #  state :active, :default => true
-  #
-  #  create :signup, :available_to => "Guest",
-  #         :params => [:name, :email_address, :password, :password_confirmation],
-  #         :become => :active
-  #           
-  #  transition :request_password_reset, { :active => :active }, :new_key => true do
-  #    UserMailer.deliver_forgot_password(self, lifecycle.key)
-  #  end
-  #
-  #  transition :reset_password, { :active => :active }, :available_to => :key_holder,
-  #             :params => [ :password, :password_confirmation ]
-  #
-  #end
-
   lifecycle do
-    state :active, :default => true
+  
+   state :active, :default => true
+  
     create :signup, :available_to => "Guest",
-           :params => [:name, :user_name, :email_address, :password, :password_confirmation],
+           :params => [:name, :email_address, :password, :password_confirmation],
            :become => :active
+             
+    transition :request_password_reset, { :active => :active }, :new_key => true do
+      UserMailer.deliver_forgot_password(self, lifecycle.key)
+    end
+
+    transition :reset_password, { :active => :active }, :available_to => :key_holder,
+               :params => [ :password, :password_confirmation ]
+  
   end
 
-  def create_permitted?
-    false
-  end
-  def update_permitted?
-    false
-  end
-  def destroy_permitted?
-    false
-  end
-  def view_permitted?(field)
-    true
-  end
+
+#  def create_permitted?
+#    false
+#  end
+#  def update_permitted?
+#    false
+#  end
+#  def destroy_permitted?
+#    false
+#  end
+#  def view_permitted?(field)
+#    true
+#  end
 
   # --- Permissions --- #
 

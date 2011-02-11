@@ -63,7 +63,7 @@
 <def tag="form" for="Suseptibility">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, season, isolate_name, virus_type, source_virus, hospitalised, institution, community, other, not_known, date_specimen_collected, country, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, location, dob, gender, date_onset_of_illness, vaccinated" param/>
+    <field-list fields="title, season, isolate_name, virus_type, source_virus_sentinel, source_virus_non_sentinel, hospitalised, institution, community, other, other_namely, not_known, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient_which_drug, not_known_exposure_to_flu_antivirals_patient, no_exposure_to_flu_antivirals_household_contact, yes_exposure_to_flu_antivirals_household_contact, yes_exposure_to_flu_antivirals_household_contact_which_drug, not_known_exposure_to_flu_antivirals_household_contact, geographic_location, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_complicated_namely, disease_progression_not_known, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at" param/>
     <div param="actions">
       <submit label="#{ht 'suseptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -98,11 +98,22 @@
 <def tag="signup-form" for="User">
   <form lifecycle="signup" merge param="default">
     <error-messages param/>
-    <field-list fields="name, user_name, email_address, password, password_confirmation" param/>
+    <field-list fields="name, email_address, password, password_confirmation" param/>
     <div param="actions">
       <submit label="#{ht 'users.actions.signup', :default=>['Signup']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
 
+<def tag="reset-password-form" polymorphic/>
+<def tag="reset-password-form" for="User">
+  <form lifecycle="reset_password" merge param="default">
+    <error-messages param/>
+    <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
+    <field-list fields="password, password_confirmation" param/>
+    <div param="actions">
+      <submit label="#{ht 'users.actions.reset_password', :default=>['Reset Password']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
 

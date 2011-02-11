@@ -6,7 +6,10 @@
 
 <set-theme name="clean"/>
 
-<def tag="app-name">South American Influenza Database</def>
+<def tag="app-name"></def> 
+
+<include src="paperclip" plugin="paperclip_with_hobo"/>
+
 
 <def tag="nav-panel">
   <div class="nav-panel" param="default">
@@ -60,7 +63,7 @@
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
     <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Susceptibility</ht></nav-item>
--    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> 
+<!--    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> -->
     <nav-item href="">Tools</nav-item>
   </navigation>
 </def> 
@@ -128,33 +131,131 @@
    <old-input merge include-blank="&true" order="day,month,year" />
 </extend>
 
-<include src="paperclip" plugin="paperclip_with_hobo"/>
-
 <!-- Suseptibility.  Here, I am modifying the 'new susceptibility data' page.  The form tag defines the fields and the <form param> calls the tag.  If you want to modify the entry form, you will have to change the new-page tag.   -->
 
 <def tag="form" for="Suseptibility">
-  <form merge param="default">
+  <form merge multipart param="default">
     <error-messages param/>
+    <h3><b>If you like to upload your data then please upload it here</b></h3>
+    <field-list fields="csv"/> 
+    <h3><b>Otherwise insert data manually using the fields below</b></h3>
     <field-list fields="title, season, isolate_name, virus_type"/>
-    <field-list fields="source_virus, hospitalised, date_specimen_collected, country"/>  
-    <h2>Please enter the sensitivity for each data source</h2>
-    <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um"/> 
-    <h2>Please enter Accession number for sequence data</h2>
+	<table>
+		<tr>
+		<td><field-list fields="source_virus_sentinel"/></td><td>Sentinel patient</td>
+		</tr>
+	</table>
+
+	<table>
+		<tr>
+		<td width="130"></td><td><field-list fields="source_virus_non_sentinel"/></td><td>Non-sentinel patient</td><td width ="100"></td><td><field-list fields="hospitalised"/></td><td>Hospitalised</td>
+		</tr>
+	</table>
+	
+	<table>
+		<tr>
+		<td width="364"></td><td><field-list fields="institution"/></td><td>Institution (e.g. nursing home)</td>
+		</tr>
+		<tr>
+		<td width="364"></td><td><field-list fields="community"/></td><td>Community (e.g. consulting GP)</td>
+		</tr>
+		<tr>
+		<td width="364"></td><td><field-list fields="other"/></td><td>Other, namely</td><td><field-list fields="other_namely"/></td>
+		</tr>
+		<tr>
+		<td width="364"></td><td><field-list fields="not_known"/></td><td>Not known</td>
+		</tr>
+		</table>
+
+     <field-list fields="date_specimen_collected"/> 
+
+	<br />
+
+        <hr />
+
+    
+	<h3><b>Please enter the sensitivity for each data source</b></h3>
+    <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um"/>
+
+	<br />
+ 
+	<h3><b>Please enter Accession number for sequence data</b></h3>
 
     <field-list fields="na_sequence, ha_sequence, m2_sequence, comment"/> 
-    
-    <h2>Please enter data on patient from which virus has been isolated</h2>
-     <field-list fields="location, dob, gender, date_onset_of_illness, vaccinated"/>
-  
 
-<!--    hospitalised :boolean
-    institution :boolean
-    community :boolean
-    other :string
-    not_known :boolean -->
+	<br />   
  
+        <hr /> 
+
+    <h3><b>Please enter data on patient from which virus has been isolated</b></h3>
+
+	<br />
+<!-- This is messy, I will change -->
+	<table>
+                <tr>
+                <td>Date of Birth</td><td width="50"></td><td><field-list fields="dob"/></td>
+                </tr>
+		<tr>
+ 		<td>Gender</td><td width="50"></td><td><field-list fields="gender"/></td>
+                </tr>
+ 		<tr>
+		<td>Date onset of illness</td><td width="50"></td><td><field-list fields="date_onset_of_illness"/></td>
+       		</tr>
+		<tr>
+		<td>Vaccinated for current flu season</td><td width="50"></td><td><field-list fields="vaccinated_for_current_flu_season"/></td>
+ 		</tr>
+    	</table>
+                
+
+	<table>
+		<tr>
+		<td>Exposure to flu antivirals for patient</td><td><field-list fields="no_exposure_to_flu_antivirals_patient"/></td><td>No</td>
+		</tr>
+                <tr>
+                <td width ="218"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient"/></td><td>Yes, which drugs</td><td width="20"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient_which_drug"/></td>
+                </tr>
+                <tr>
+                <td width ="218"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_patient"/></td><td>Not known</td>
+                </tr>
+                <tr>
+                <td>Exposure to flu antivirals for Household contact</td><td><field-list fields="no_exposure_to_flu_antivirals_household_contact"/></td><td>No</td>
+                </tr>
+                <tr>
+                <td width ="218"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact"/></td><td>Yes, which drugs</td><td width="10"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact_which_drug"/></td>
+                </tr>
+                <tr>
+                <td width ="218"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_household_contact"/></td><td>Not known</td>
+                </tr>
+         </table>
+         <table>
+		<td>Geographic Location</td><td><field-list fields="geographic_location"/></td>
+		<tr>
+		<td>Disease Progression</td><td><field-list fields="disease_progression_uncomplicated"/></td><td>Uncomplicated</td>
+		</tr>
+		<tr>
+		<td width ="218"></td><td><field-list fields="disease_progression_complicated"/></td><td>complicated</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_pneumonia"/></td>
+		</tr>
+		<tr>
+		<td width ="218"></td><td><field-list fields="disease_progression_complicated_otitis_media"/></td><td>Otitis media</td>
+		</tr>
+		<tr>
+		<td width ="218"></td><td><field-list fields="disease_progression_complicated_other"/></td><td>Other, namley</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_namely"/></td>
+		</tr>
+		<tr>
+		<td width ="218"></td><td><field-list fields="disease_progression_not_known"/></td><td>Not known</td>
+		</tr>
+                <tr>
+		<td>Hospitalisation</td><td><field-list fields="hospitalisation"/></td>
+                </tr>
+                <tr>
+		<td>Death</td><td><field-list fields="death"/></td>
+                </tr>
+</table>
+
+
 
 <!--<table border="1">
+  <td width="200"> </td>
   <tr>
   <th>Source Data</th>
   <th>Sensitivity</th>
@@ -218,7 +319,7 @@
             </a>
           </header>
           <section param="content-body">
-            <field-list fields="season, isolate_name, virus_type, source_virus, date_specimen_collected, country, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, location, dob, gender, date_onset_of_illness" param/>
+            <field-list fields="season, isolate_name, virus_type, source_virus, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness" param/>
             <section param="collection-section">
 <!--              <h3 param="collection-heading">
                 <ht key="suseptibilities.collection.heading.other" >
@@ -255,6 +356,13 @@
 
   </page>
 </def>
+
+<!-- <extend tag="form" for="Suseptibility">
+  <old-form merge multipart>
+    <field-list: fields="csv"/>
+  </old-form>
+</extend> -->
+
 
 <def tag="messagex">
  <br/> <br/>

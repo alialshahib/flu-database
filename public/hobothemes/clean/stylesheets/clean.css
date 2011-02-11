@@ -185,9 +185,9 @@ form .actions input { margin: 0; }
 .content-body .nav {margin-bottom: 10px; font-size: 11px;}
 .content-body .nav a {margin-right: 5px;}
 
-.login-page, .forgot-password-page {width: 470px; margin-top: 40px;}
+.login-page, .forgot-password-page {width: 1100px; margin-top: 40px;}
 .login-page .content-header {padding-bottom: 0;}
-.login-page .field-list {width: 370px;}
+.login-page .field-list {width: 470px;}
 .login-page form .actions {text-align: left; margin: 0; padding: 10px 0 10px 160px;}
 .signup-page .field-list {width: 370px;}
 .signup-page .content-body, .signup-page .content-header { margin-left: 200px; margin-right: 200px;}
