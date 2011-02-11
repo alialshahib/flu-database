@@ -4,7 +4,6 @@ class Threshold < ActiveRecord::Base
 
 
   fields do
-   # season :string
     virus_type enum_string(:A_H1N1, :A_H1N2, :A_H3N2, :A_H5N1, :A_H7N7, :B, :A_H1N1v)
     description :text
 
