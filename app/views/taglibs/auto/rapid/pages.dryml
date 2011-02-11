@@ -5,11 +5,11 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Country"><ht key="countries.nav_item">countries</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
+    <nav-item with="&Season"><ht key="seasons.nav_item">Seasons</ht></nav-item>
     <nav-item with="&Sequence"><ht key="sequences.nav_item">Sequences</ht></nav-item>
-    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Suseptibilities</ht></nav-item>
-    <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
   </navigation>
 </def>
 
@@ -19,14 +19,14 @@
 <!-- ====== Country Pages ====== -->
 
 <def tag="index-page" for="Country">
-  <page merge title="#{ht 'countries.index.title', :default=>['Countries'] }">
+  <page merge title="#{ht 'countries.index.title', :default=>['countries'] }">
     <body: class="index-page country" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="countries.index.heading">
-            Countries
+            countries
           </ht>
         </h2>
 
@@ -101,6 +101,15 @@
           </header>
 
           <section param="content-body">
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="countries.collection.heading.other" >
+                  Users
+                </ht>
+              </h3>
+
+              <collection:users param/>
+            </section>
           </section>
     </content:>
 
@@ -482,6 +491,125 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'patients.actions.delete', :default=>['Remove This Patient']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Season Pages ====== -->
+
+<def tag="index-page" for="Season">
+  <page merge title="#{ht 'seasons.index.title', :default=>['Seasons'] }">
+    <body: class="index-page season" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="seasons.index.heading">
+            Seasons
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="seasons.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="seasons.actions.new">New Season</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Season">
+  <page merge title="#{ht 'seasons.new.title', :default=>[' New Season'] }">
+    <body: class="new-page season" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="seasons.new.heading">
+            New Season
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'seasons.actions.create', :default=>['Create Season']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Season">
+  <page merge title="#{ht 'seasons.show.title', :default=>['Season'] }">
+
+    <body: class="show-page season" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="seasons.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="seasons.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Season
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Season">
+  <page merge title="#{ht 'seasons.edit.title', :default=>['Edit Season'] }">
+
+    <body: class="edit-page season" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="seasons.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'seasons.actions.delete', :default=>['Remove This Season']}" param/>
       </section>
 
       <section param="content-body">
@@ -922,6 +1050,7 @@
 
     <content: param>
           <header param="content-header">
+            <a:countries param="parent-link">&laquo; <ht key="users.actions.back" to="countries"><name/></ht></a:countries>
             <h2 param="heading">
               <ht key="users.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>

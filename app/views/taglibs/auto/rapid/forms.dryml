@@ -3,7 +3,7 @@
 <def tag="form" for="Country">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="name" param/>
+    <field-list fields="name, users" param/>
     <div param="actions">
       <submit label="#{ht 'countries.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -42,6 +42,18 @@
     <field-list fields="title, location, dob, gender, date_onset_of_illness, vaccinated, suseptibility" param/>
     <div param="actions">
       <submit label="#{ht 'patients.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Season">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name" param/>
+    <div param="actions">
+      <submit label="#{ht 'seasons.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>

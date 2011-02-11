@@ -1,7 +1,10 @@
 class CountryHints < Hobo::ViewHints
-
-  # model_name "My Model"
-  # field_names :field1 => "First Field", :field2 => "Second Field"
-  # field_help :field1 => "Enter what you want in this field"
-  # children :primary_collection1, :aside_collection1, :aside_collection2
+  # TODO: farm this off toe translations?
+  
+  model_name_plural "countries"
+  
+  children :users
+  
+  # TODO: point to data for every year?
+  # children :users, :thresholds, 
 end
