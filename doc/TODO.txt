@@ -31,9 +31,6 @@ Like to do
 
 * Localization / translation?
 
-* "config.load_paths is deprecated and removed in Rails 3, please use
-  autoload_paths instead"
-
 * "Backto/upto" menu named appropriately
 
 * Proper parent link possible?
@@ -58,3 +55,5 @@ Have done
 
 * Record modification date byline
 
+* "config.load_paths is deprecated and removed in Rails 3, please use
+  autoload_paths instead"

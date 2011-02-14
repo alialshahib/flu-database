@@ -96,10 +96,22 @@
 
 
 
+<def tag="form" for="Thresholdentry">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="minor, major, drug, threshold" param/>
+    <div param="actions">
+      <submit label="#{ht 'thresholdentries.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
 <def tag="form" for="Threshold">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="virus_type, description, country, season" param/>
+    <field-list fields="description, country, season, threshold_entries, virustype" param/>
     <div param="actions">
       <submit label="#{ht 'thresholds.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

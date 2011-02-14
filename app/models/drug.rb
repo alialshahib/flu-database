@@ -5,6 +5,7 @@ class Drug < ActiveRecord::Base
   fields do
     name        :string
     description :text
+    
     timestamps
   end
 

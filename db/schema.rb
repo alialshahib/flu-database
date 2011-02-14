@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211152037) do
+ActiveRecord::Schema.define(:version => 20110211175148) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -89,7 +89,9 @@ ActiveRecord::Schema.define(:version => 20110211152037) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "season"
+    t.string   "country"
     t.string   "virus_type"
+    t.string   "source_virus"
     t.string   "title"
     t.decimal  "iC50_zanamivir_MUNANA_nm"
     t.decimal  "iC50_zanamivir_na_star_nm"
@@ -103,30 +105,29 @@ ActiveRecord::Schema.define(:version => 20110211152037) do
     t.string   "ha_sequence"
     t.string   "m2_sequence"
     t.text     "comment"
+    t.string   "location"
     t.date     "dob"
     t.string   "gender"
     t.date     "date_onset_of_illness"
+    t.boolean  "vaccinated"
     t.boolean  "hospitalised"
     t.boolean  "institution"
     t.boolean  "community"
     t.boolean  "other"
     t.boolean  "not_known"
-    t.string   "csv_file_name"
-    t.string   "csv_content_type"
-    t.integer  "csv_file_size"
-    t.datetime "csv_updated_at"
-    t.string   "vaccinated_for_current_flu_season"
-    t.string   "geographic_location"
     t.boolean  "source_virus_sentinel"
     t.boolean  "source_virus_non_sentinel"
     t.string   "other_namely"
+    t.string   "vaccinated_for_current_flu_season"
     t.boolean  "no_exposure_to_flu_antivirals_patient"
     t.boolean  "yes_exposure_to_flu_antivirals_patient"
     t.string   "yes_exposure_to_flu_antivirals_patient_which_drug"
     t.boolean  "not_known_exposure_to_flu_antivirals_patient"
+    t.boolean  "no_exposure_to_flu_antivirals_household_contact"
     t.boolean  "yes_exposure_to_flu_antivirals_household_contact"
     t.string   "yes_exposure_to_flu_antivirals_household_contact_which_drug"
     t.boolean  "not_known_exposure_to_flu_antivirals_household_contact"
+    t.string   "geographic_location"
     t.boolean  "disease_progression_uncomplicated"
     t.boolean  "disease_progression_complicated"
     t.boolean  "disease_progression_complicated_pneumonia"
@@ -136,7 +137,10 @@ ActiveRecord::Schema.define(:version => 20110211152037) do
     t.boolean  "disease_progression_not_known"
     t.string   "hospitalisation"
     t.string   "death"
-    t.boolean  "no_exposure_to_flu_antivirals_household_contact"
+    t.string   "csv_file_name"
+    t.string   "csv_content_type"
+    t.integer  "csv_file_size"
+    t.datetime "csv_updated_at"
   end
 
   create_table "task_assignments", :force => true do |t|
@@ -147,17 +151,30 @@ ActiveRecord::Schema.define(:version => 20110211152037) do
 
   add_index "task_assignments", ["user_id"], :name => "index_task_assignments_on_user_id"
 
+  create_table "thresholdentries", :force => true do |t|
+    t.float    "minor"
+    t.float    "major"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "threshold_id"
+    t.integer  "drug_id"
+  end
+
+  add_index "thresholdentries", ["drug_id"], :name => "index_thresholdentries_on_drug_id"
+  add_index "thresholdentries", ["threshold_id"], :name => "index_thresholdentries_on_threshold_id"
+
   create_table "thresholds", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "virus_type"
     t.text     "description"
     t.integer  "season_id"
     t.integer  "country_id"
+    t.integer  "virustype_id"
   end
 
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
+  add_index "thresholds", ["virustype_id"], :name => "index_thresholds_on_virustype_id"
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"

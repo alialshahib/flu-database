@@ -1,7 +1,12 @@
 class ThresholdHints < Hobo::ViewHints
 
   model_name "season threshold"
-  # field_names :field1 => "First Field", :field2 => "Second Field"
-  # field_help :field1 => "Enter what you want in this field"
-  # children :primary_collection1, :aside_collection1, :aside_collection2
+
+  field_help(
+	 :description => "How were the cutoff values arrived at."
+  )
+  
+  
+  # TODO: how do we name this?
+  #children :thresholdentry
 end
