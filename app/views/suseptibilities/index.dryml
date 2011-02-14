@@ -6,7 +6,7 @@
 <index-page>
  <collection: replace>
       <div>
-           <table-plus fields="this,csv,season,isolate_name,virus_type,date_specimen_collected">
+           <table-plus fields="this,season,isolate_name,virus_type,date_specimen_collected">
              <controls:/>
            </table-plus>
       </div>
