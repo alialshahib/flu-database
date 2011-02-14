@@ -941,7 +941,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="vaccinated, hospitalised, institution, community, not_known" param/>
+            <record-flags fields="hospitalised, institution, community, other, not_known, source_virus_sentinel, source_virus_non_sentinel, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, not_known_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_household_contact, not_known_exposure_to_flu_antivirals_household_contact, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_not_known, no_exposure_to_flu_antivirals_household_contact" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -951,7 +951,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="season, isolate_name, virus_type, other, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness" param/>
+            <field-list fields="season, isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at" param/>
           </section>
     </content:>
 
