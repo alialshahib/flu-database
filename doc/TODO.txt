@@ -23,7 +23,9 @@ Should do
 
 * Pagination in long listings of users, countries, etc.
 
-* Order listings of seasons by years
+* Patient table doesn't need both "patient" and "title"
+
+* Think: should patient location be user editable / addable
 
 
 Like to do
@@ -41,7 +43,15 @@ Like to do
 
 * Give every country an icon or whatever for easy visuals
 
-* Search / side box styling needs a bit of tweaking. 
+* Search / side box styling needs a bit of tweaking.
+
+* Replace Thresholdentry with ThresholdReportEntry & Suseptibility with SuseptibilityReport
+
+* On a "new" page, have a "save and create another"?
+
+* "Cancel" on edit page goes to where?
+
+* All genes or just the ones they are using? And do they want genes or chromosomes?
 
   
 Have done
@@ -57,3 +67,11 @@ Have done
 
 * "config.load_paths is deprecated and removed in Rails 3, please use
   autoload_paths instead"
+
+* Full admin page / options
+
+* Need objects for suseptibility report entry, genes & locations
+
+* Enter vocabulary for countries, seasons, drugs, genes
+
+* Ordered indexes of country, season, drug, gene, virus types

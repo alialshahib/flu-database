@@ -16,14 +16,16 @@ class Country < ActiveRecord::Base
       # brazil    :string # :name => true
       # you put :name => true if you want a drop down list in the belongs_to
       # (e.g. here susceptibility belong_to country).
-      name  :string, :unique, :required
+      name  :string, :required, :unique
       
       timestamps
    end
    
    has_many :users, :through => :user_countries, :accessible => true
    has_many :user_countries, :dependent => :destroy
-   
+ 
+   set_default_order :name
+  
    ## Permissions:
    
    # Who is allowed to view the country?

@@ -18,16 +18,16 @@ class Threshold < ActiveRecord::Base
 	
 	belongs_to :season
 	belongs_to :country
-	belongs_to :virustype
+	belongs_to :virus_type
 	has_many :threshold_entries, :dependent => :destroy, :accessible => true
 
 	# TODO: unclear if this assures a unique combination of virus, season and
 	# country in all directions. Something like this:
 	#  add_index :A, [:B, :C], :unique => true
 	# to ensure uniqueness on db level?
-	validates_uniqueness_of(:virustype_id, :scope => [
+	validates_uniqueness_of(:virus_type_id, :scope => [
          :country_id,
-         :virustype_id,
+         :virus_type_id,
       ]
    )
 

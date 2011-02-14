@@ -74,17 +74,39 @@
    <% if current_user.administrator? -%>
       <!-- provide quick links to editting -->
       <h3>Administration tools</h3> 
-      <p>
-         Browse and edit (be careful, this provides access to the raw data):
+      
+         <p>From here you can browse and edit all data. Be careful, this
+         provides access to the full, raw data.</p>
+      
+         <p>Entered data:</p>
+         
          <ul>
-            <nav-item with="&Country">countries</nav-item>
-            <nav-item with="&Threshold">thresholds</nav-item>
-            <nav-item with="&User">users</nav-item>
-            <nav-item with="&Season">seasons</nav-item>
             <nav-item with="&Patient">patients</nav-item>
             <nav-item with="&Sequence">sequences</nav-item>
-         </ul>            
-      </p>   
+            <nav-item with="&Mutation">mutations</nav-item>
+            <nav-item with="&Threshold">season threshold reports</nav-item>
+            <nav-item with="&Thresholdentry">season threshold report entries</nav-item>
+            <nav-item with="&Suseptibility">suseptibility reports</nav-item>
+            <nav-item with="&SuseptibilityReportEntry">suseptibility report entries</nav-item>
+         </ul>
+         
+         <p>Vocabularies and domain tables:</p>
+         
+         <ul>
+            <nav-item with="&Country">countries</nav-item>
+            <nav-item with="&Drug">drugs</nav-item>
+            <nav-item with="&VirusType">virus types</nav-item>
+            <nav-item with="&Season">seasons</nav-item>
+            <nav-item with="&Gene">genes</nav-item>
+            <nav-item with="&PatientLocation">patient locations</nav-item>
+         </ul>
+
+         <p>User administration:</p>
+         
+         <ul>
+            <nav-item with="&User">users</nav-item>
+         </ul>
+         
    <% end -%>
    
    </content:>

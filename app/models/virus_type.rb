@@ -1,12 +1,14 @@
-class Virustype < ActiveRecord::Base
+class VirusType < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-	 name        :string
+	 name        :string, :required, :unique
 	 description :text
 	 timestamps
   end
+
+  set_default_order :name
 
 
   # --- Permissions --- #

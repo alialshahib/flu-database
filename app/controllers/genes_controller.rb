@@ -1,4 +1,4 @@
-class VirustypesController < ApplicationController
+class GenesController < ApplicationController
 
   hobo_model_controller
 

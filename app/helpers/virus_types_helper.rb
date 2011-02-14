@@ -1,0 +1,2 @@
+module VirusTypesHelper
+end

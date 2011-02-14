@@ -1,15 +1,12 @@
-class Drug < ActiveRecord::Base
+class SuseptibilityReportEntry < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
   fields do
-    name        :string
-    description :text
-    
+    result :float
     timestamps
   end
 
-  set_default_order :name
 
   # --- Permissions --- #
 

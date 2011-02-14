@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110211175148) do
+ActiveRecord::Schema.define(:version => 20110214133207) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -18,6 +18,13 @@ ActiveRecord::Schema.define(:version => 20110211175148) do
   end
 
   create_table "drugs", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "genes", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"
@@ -49,6 +56,13 @@ ActiveRecord::Schema.define(:version => 20110211175148) do
   end
 
   add_index "mutations", ["sequence_id"], :name => "index_mutations_on_sequence_id"
+
+  create_table "patient_locations", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "patients", :force => true do |t|
     t.string   "title"
@@ -143,6 +157,12 @@ ActiveRecord::Schema.define(:version => 20110211175148) do
     t.datetime "csv_updated_at"
   end
 
+  create_table "suseptibility_report_entries", :force => true do |t|
+    t.float    "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "task_assignments", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -169,12 +189,12 @@ ActiveRecord::Schema.define(:version => 20110211175148) do
     t.text     "description"
     t.integer  "season_id"
     t.integer  "country_id"
-    t.integer  "virustype_id"
+    t.integer  "virus_type_id"
   end
 
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
-  add_index "thresholds", ["virustype_id"], :name => "index_thresholds_on_virustype_id"
+  add_index "thresholds", ["virus_type_id"], :name => "index_thresholds_on_virus_type_id"
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"
@@ -203,7 +223,7 @@ ActiveRecord::Schema.define(:version => 20110211175148) do
 
   add_index "users", ["state"], :name => "index_users_on_state"
 
-  create_table "virustypes", :force => true do |t|
+  create_table "virus_types", :force => true do |t|
     t.string   "name"
     t.text     "description"
     t.datetime "created_at"

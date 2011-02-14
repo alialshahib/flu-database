@@ -11,6 +11,8 @@ class Season < ActiveRecord::Base
 
 	has_many :thresholds
 
+   set_default_order "year DESC"
+
 	## Permissions:
 	# XXX: seasons can only be created by adminstrators. Seem right?
 	

@@ -5,7 +5,7 @@ class CountryHints < Hobo::ViewHints
   
   field_names(
 	 # NOTE: curious - this is not used. works for for fields
-	 :users => "members"
+	 :users => "Members"
   )
   
   children :users
