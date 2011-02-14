@@ -4,3 +4,4 @@
 vendor/plugins/more
 *.sqllite3
 log/*
+db/migrate/*
