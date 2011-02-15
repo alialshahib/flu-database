@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110214133207) do
+ActiveRecord::Schema.define(:version => 20110215150334) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -195,6 +195,15 @@ ActiveRecord::Schema.define(:version => 20110214133207) do
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
   add_index "thresholds", ["virus_type_id"], :name => "index_thresholds_on_virus_type_id"
+
+  create_table "tools", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "parameters"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tooltype"
+  end
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"

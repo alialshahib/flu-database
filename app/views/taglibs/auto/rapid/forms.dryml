@@ -159,7 +159,7 @@
 <def tag="form" for="Tool">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="file, dry_run" param/>
+    <field-list fields="title, description, tooltype, parameters" param/>
     <div param="actions">
       <submit label="#{ht 'tools.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>

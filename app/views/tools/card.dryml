@@ -1,0 +1,13 @@
+<%#
+Override listing of country to show the countries they belong to.
+
+TODO: make less space consuming
+TODO: include gravatar
+????: it would be more orthogonal for this to appear in the model view folder
+%>
+
+<extend tag="card" for="Tool">
+  <old-card  merge>
+
+  </old-card>
+</extend>

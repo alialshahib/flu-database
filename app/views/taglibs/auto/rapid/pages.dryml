@@ -1662,9 +1662,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="dry_run" param/>
-
-            <view:get-creator param="creator-name"/>
+            <record-flags fields="" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="tools.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -1674,8 +1672,8 @@
           </header>
 
           <section param="content-body">
-            <view:primary_content_attribute param="description"/>
-            <field-list fields="file" param/>
+            <view:description param="description"/>
+            <field-list fields="tooltype, parameters" param/>
           </section>
     </content:>
 
