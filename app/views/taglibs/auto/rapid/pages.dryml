@@ -1673,7 +1673,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="tooltype, parameters" param/>
+            <field-list fields="title, tooltype, parameters" param/>
           </section>
     </content:>
 

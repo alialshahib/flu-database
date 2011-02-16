@@ -18,7 +18,6 @@ TODO: allow other gravatar options?
 TODO: neater option merging (hash & join)?
 NOTE: hobo bitched about "email_address" below until I changed it to "address".
 %>
-
 <def tag="ex-gravatar" attrs="size, rating, altimg, ext, address">
   <%
 	 size ||= 80;
@@ -36,26 +35,54 @@ NOTE: hobo bitched about "email_address" below until I changed it to "address".
 </def>
 
 
-<extend tag="input" for="date"> <!--The <extend> tag is used to extend any tag that.s already defined. The body of <extend> is our new definition. It.s very common to want to base the new definition on the old one, for example, we often want to insert a bit of extra content as we.ve done here. We can do that by calling the .old. definition, which is available as <old-card> -->
+<%#
+An extended tag for fieldsets.
+
+Taken from "feckless fieldsets" in the Hobo Cookbook. See:
+http://cookbook.hobocentral.net/api_taglibs/feckless-fieldset
+
+It takes the same attributes & parameters as field-list, with the addition of a
+legend parameter and a required attribute.
+
+The required attribute is a list of methods. If the current field is included in
+the list, the field div has the required class added to it.
+
+The accompanying css allows this fieldset to be rendered in three different
+ways. You may trigger these by setting a class of horizontal, vertical or
+inline-vertical. inline-vertical fieldset’s may also be nested inside of a
+horizontal fieldset.
+
+%>
+<def attrs='tag, no-edit, required' tag='ex-fieldset'>
+  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
+  <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
+  <fieldset class='feckless-fields' merge-attrs='&amp;attributes - attrs_for(:with_fields)'>
+    <legend param if='&all_parameters[:legend]'/>
+    <with-fields merge-attrs='&amp;attributes &amp; attrs_for(:with_fields)'>
+    <% field_name = this_field_name 
+       input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+       field_method = this_field.to_s.sub('?', '')
+       id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+    -%>
+      <div class='field #{field_method}-field #{&apos;required&apos; if required.include?(field_method)} ' unless='&tag == &apos;input&apos; && no_edit == &apos;skip&apos; && !can_edit?'>
+        <label param='#{field_method}-label' unless='&field_name.blank?' for='&id_for_this'>
+          <%= field_name %>
+        </label>
+        <do param='#{field_method}-view'>
+          <do param='view'><call-tag tag='&tag' param='#{field_method}-tag' merge-attrs='&amp;input_attrs'/></do>
+        </do>
+        <span class='input-help' param='#{field_method}-help' if='&tag.to_sym == :input && !this_field_help.blank?'>
+          <%= this_field_help %>
+        </span>
+      </div>
+    </with-fields>
+  </fieldset>
+</def>
+
+
+<extend tag="input" for="date"> 
    <old-input merge include-blank="&true" order="day,month,year" />
 </extend>
 
 
 
-<!--
-XXX: what is this shit?
--->
-<def tag="messagex">
- <br/> <br/>
- <ul>
-       <li param="msg1">Message 1</li>
-       <li param="msg2">Message 2</li>
-       <li param="msg3">Message 3</li>
- </ul>
-</def>
-
-<extend tag="messagex">
- <old-messagex merge>
-      <msg2: param>Message 2 Extended</msg2:>
- </old-messagex>
-</extend>

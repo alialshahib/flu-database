@@ -1,7 +1,17 @@
 class ToolHints < Hobo::ViewHints
 
   # model_name "My Model"
-  # field_names :field1 => "First Field", :field2 => "Second Field"
-  # field_help :field1 => "Enter what you want in this field"
-  # children :primary_collection1, :aside_collection1, :aside_collection2
+  
+  field_names(
+	 :tooltype => "Tool interface"
+  )
+  
+  field_help(
+	 :title => "What will the tool page be called? If none is supplied, the
+		description of the tool interface will be used.",
+	 :description => "How will the tool be described? If none is supplied, the
+		description of the tool interface will be used.",
+	 :tooltype => "What backend tool do you want this to attach to?"
+  )
+
 end

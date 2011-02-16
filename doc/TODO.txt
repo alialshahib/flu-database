@@ -57,6 +57,12 @@ Like to do
 
 * Set string field lengths
 
+* Choose font styling
+
+* Style sidebar better
+
+* Static docs for help
+
 
 Have done
 ---------
