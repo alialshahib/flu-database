@@ -105,6 +105,7 @@
          
          <ul>
             <nav-item with="&User">users</nav-item>
+            <nav-item with="&Tool">tools</nav-item>
          </ul>
          
    <% end -%>
