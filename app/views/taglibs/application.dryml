@@ -47,7 +47,7 @@ TODO: sort, refactor and arrange in a suitable place
 
 	<table>
 		<tr>
-		<td width="130"></td><td><field-list fields="source_virus_non_sentinel"/></td><td>Non-sentinel patient</td><td width ="100"></td><td><field-list fields="hospitalised"/></td><td>Hospitalised</td>
+		<td width="130"></td><td><field-list fields="source_virus_non_sentinel"/></td><td>Non-sentinel patient</td><td width ="70"></td><td><field-list fields="hospitalised"/></td><td>Hospitalised</td>
 		</tr>
 	</table>
 	
@@ -58,8 +58,10 @@ TODO: sort, refactor and arrange in a suitable place
 		<tr>
 		<td width="364"></td><td><field-list fields="community"/></td><td>Community (e.g. consulting GP)</td>
 		</tr>
+	</table>
+	<table>
 		<tr>
-		<td width="364"></td><td><field-list fields="other"/></td><td>Other, namely</td><td><field-list fields="other_namely"/></td>
+		<td width="364"></td><td><field-list fields="other"/></td><td>Other, namely</td><td width="10"></td><td width="200"><field-list fields="other_namely"/></td>
 		</tr>
 		<tr>
 		<td width="364"></td><td><field-list fields="not_known"/></td><td>Not known</td>
@@ -108,46 +110,52 @@ TODO: sort, refactor and arrange in a suitable place
 
 	<table>
 		<tr>
-		<td>Exposure to flu antivirals for patient</td><td><field-list fields="no_exposure_to_flu_antivirals_patient"/></td><td>No</td>
+		<td>Exposure to flu antivirals for patient</td><td width="50"></td><td><field-list fields="no_exposure_to_flu_antivirals_patient"/></td><td>No</td>
 		</tr>
                 <tr>
-                <td width ="218"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient"/></td><td>Yes, which drugs</td><td width="20"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient_which_drug"/></td>
+                <td width ="218"></td><td width="60"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient"/></td><td>Yes, which drugs</td><td width="20"></td><td><field-list fields="yes_exposure_to_flu_antivirals_patient_which_drug"/></td>
                 </tr>
                 <tr>
-                <td width ="218"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_patient"/></td><td>Not known</td>
+                <td width ="218"></td><td width="60"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_patient"/></td><td>Not known</td>
                 </tr>
                 <tr>
-                <td>Exposure to flu antivirals for Household contact</td><td><field-list fields="no_exposure_to_flu_antivirals_household_contact"/></td><td>No</td>
+                <td>Exposure to flu antivirals for Household contact</td><td width="60"></td><td><field-list fields="no_exposure_to_flu_antivirals_household_contact"/></td><td>No</td>
                 </tr>
                 <tr>
-                <td width ="218"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact"/></td><td>Yes, which drugs</td><td width="10"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact_which_drug"/></td>
+                <td width ="218"></td><td width="60"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact"/></td><td>Yes, which drugs</td><td width="10"></td><td><field-list fields="yes_exposure_to_flu_antivirals_household_contact_which_drug"/></td>
                 </tr>
                 <tr>
-                <td width ="218"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_household_contact"/></td><td>Not known</td>
+                <td width ="218"></td><td width="60"></td><td><field-list fields="not_known_exposure_to_flu_antivirals_household_contact"/></td><td>Not known</td>
                 </tr>
          </table>
          <table>
-		<td>Geographic Location</td><td><field-list fields="geographic_location"/></td>
+		<td>Geographic Location</td><td width="135"></td><td width="400"><field-list fields="geographic_location"/></td>
+	</table>
+	<table>
 		<tr>
-		<td>Disease Progression</td><td><field-list fields="disease_progression_uncomplicated"/></td><td>Uncomplicated</td>
+		<td>Disease Progression</td><td width="60"></td><td><field-list fields="disease_progression_uncomplicated"/></td><td>Uncomplicated</td>
 		</tr>
 		<tr>
-		<td width ="218"></td><td><field-list fields="disease_progression_complicated"/></td><td>complicated</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_pneumonia"/></td>
+		<td width ="218"></td><td width="60"></td><td><field-list fields="disease_progression_complicated"/></td><td>complicated</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_pneumonia"/></td><td>pneumonia</td>
+		</tr>
+	</table>
+	<table>
+		<tr>
+		<td width ="218"></td><td width="195"></td><td><field-list fields="disease_progression_complicated_otitis_media"/></td><td>Otitis media</td>
 		</tr>
 		<tr>
-		<td width ="218"></td><td><field-list fields="disease_progression_complicated_otitis_media"/></td><td>Otitis media</td>
+		<td width ="218"></td><td width="195"></td><td><field-list fields="disease_progression_complicated_other"/></td><td>Other, namley</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_namely"/></td>
 		</tr>
 		<tr>
-		<td width ="218"></td><td><field-list fields="disease_progression_complicated_other"/></td><td>Other, namley</td><td width ="10"></td><td><field-list fields="disease_progression_complicated_namely"/></td>
+		<td width ="218"></td><td width="195"></td><td><field-list fields="disease_progression_not_known"/></td><td>Not known</td>
 		</tr>
-		<tr>
-		<td width ="218"></td><td><field-list fields="disease_progression_not_known"/></td><td>Not known</td>
-		</tr>
+	</table>
+	<table>
                 <tr>
-		<td>Hospitalisation</td><td><field-list fields="hospitalisation"/></td>
+		<td>Hospitalisation</td><td width="180"></td><td><field-list fields="hospitalisation"/></td>
                 </tr>
                 <tr>
-		<td>Death</td><td><field-list fields="death"/></td>
+		<td>Death</td><td width="180"></td><td><field-list fields="death"/></td>
                 </tr>
 </table>
 

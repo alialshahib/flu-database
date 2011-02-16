@@ -4,9 +4,8 @@ class Suseptibility < ActiveRecord::Base
 
   fields do
     title :string, :required
-    season :string, :required
     isolate_name    :string, :required, :unique #unique prevents the entry of duplicates
-    virus_type enum_string(:A_H1N1, :A_H1N2, :A_H3N2, :A_H5N1, :A_H7N7, :B, :A_H1N1v)
+    virus_type enum_string(:A_H1N1, :A_H1N2, :A_H3N2, :A_H5N1, :A_H7N7, :B, :A_H1N1v) 
     source_virus_sentinel :boolean 
     source_virus_non_sentinel :boolean
     hospitalised :boolean
@@ -55,7 +54,10 @@ class Suseptibility < ActiveRecord::Base
 #    note :html
     timestamps
   end
-  
+	
+    belongs_to :season
+
+ 
     # Paperclip
    has_attached_file :csv
 #   before_post_process :image?

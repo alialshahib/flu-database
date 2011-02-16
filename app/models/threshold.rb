@@ -12,6 +12,7 @@ class Threshold < ActiveRecord::Base
 	## Fields & relationships:
 	fields do
 		description :text
+ 			
 
 		timestamps
 	end

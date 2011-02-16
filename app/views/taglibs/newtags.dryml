@@ -80,9 +80,18 @@ horizontal fieldset.
 </def>
 
 
-<extend tag="input" for="date"> 
-   <old-input merge include-blank="&true" order="day,month,year" />
-</extend>
+<def tag="input" for="date" attrs="order">
+  <% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
+  <%= select_date(this || Time.now, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => true)) %>
+</def>
 
 
+<def tag="input" for="HoboFields::EnumString" attrs="labels,titleize,blank">
+  <% labels ||= {} 
+   titleize = true if titleize.nil? %>
+  <select name="#{param_name_for_this}" merge-attrs>
+  <option value=''/>  
+   <%= options_for_select(this_type.values.map {|v| [labels.fetch(v.to_sym, titleize ? v.titleize : v), v] }, this) %> 
+  </select>
+</def>
 
