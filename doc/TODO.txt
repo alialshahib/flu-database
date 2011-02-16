@@ -63,6 +63,10 @@ Like to do
 
 * Static docs for help
 
+* Tool icons
+
+* User head shots
+
 
 Have done
 ---------

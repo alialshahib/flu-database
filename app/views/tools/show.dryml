@@ -1,1 +1,22 @@
-<show-page />
+<show-page>
+	
+	<content-body:>
+		
+		<!-- pre-ramble -->
+		<view:desc class="description" />
+		
+		<!-- if there are results, put them here -->
+		<div class="tool-results">
+			<h3>RESULTS</h3>
+		
+		</div>
+		
+		<!-- put the form here -->
+		<div class="tool-form">
+			<h3>FORM</h3>
+		
+		</div>
+	
+	</content-body:>	
+
+</show-page>

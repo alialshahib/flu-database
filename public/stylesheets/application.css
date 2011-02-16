@@ -128,7 +128,7 @@ div.section.content h3 { margin-bottom: 0.5em; }
 div.section.content h4 { margin-bottom: 0.5em; }
 div.section.content h5 { margin-bottom: 0.5em; }
 div.section.content p.byline {
-  margin-top: 1.5em;
+  margin-top: 0.5em;
   padding-top: 0.25em;
   border-top: 1px dotted #737373;
   font-style: italic;
@@ -176,6 +176,11 @@ div.page-content .aside { background: white; }
 .search-and-browse .browse-by-audience select {
   margin: 5px 3px;
   width: 92%;
+}
+div.tool-results, div.tool-form {
+  border-top: 1px dotted #737373;
+  margin-top: 1em;
+  padding-top: 1em;
 }
 .page-footer {
   background: white no-repeat bottom right;
