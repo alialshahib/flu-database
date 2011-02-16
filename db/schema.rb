@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110214133207) do
+ActiveRecord::Schema.define(:version => 20110216103219) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -102,10 +102,7 @@ ActiveRecord::Schema.define(:version => 20110214133207) do
     t.date     "date_specimen_collected"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "season"
-    t.string   "country"
     t.string   "virus_type"
-    t.string   "source_virus"
     t.string   "title"
     t.decimal  "iC50_zanamivir_MUNANA_nm"
     t.decimal  "iC50_zanamivir_na_star_nm"
@@ -119,11 +116,9 @@ ActiveRecord::Schema.define(:version => 20110214133207) do
     t.string   "ha_sequence"
     t.string   "m2_sequence"
     t.text     "comment"
-    t.string   "location"
     t.date     "dob"
     t.string   "gender"
     t.date     "date_onset_of_illness"
-    t.boolean  "vaccinated"
     t.boolean  "hospitalised"
     t.boolean  "institution"
     t.boolean  "community"
@@ -155,7 +150,10 @@ ActiveRecord::Schema.define(:version => 20110214133207) do
     t.string   "csv_content_type"
     t.integer  "csv_file_size"
     t.datetime "csv_updated_at"
+    t.integer  "season_id"
   end
+
+  add_index "suseptibilities", ["season_id"], :name => "index_suseptibilities_on_season_id"
 
   create_table "suseptibility_report_entries", :force => true do |t|
     t.float    "result"
