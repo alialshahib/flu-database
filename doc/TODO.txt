@@ -13,6 +13,8 @@ Must do
 
 * Tools controller
 
+* Decide on user-joining model: anyone join, or invite only?
+
 
 Should do
 ---------
@@ -23,9 +25,9 @@ Should do
 
 * Pagination in long listings of users, countries, etc.
 
-* Patient table doesn't need both "patient" and "title"
-
 * Think: should patient location be user editable / addable
+
+* Unify names
 
 
 Like to do
@@ -53,7 +55,9 @@ Like to do
 
 * All genes or just the ones they are using? And do they want genes or chromosomes?
 
-  
+* Set string field lengths
+
+
 Have done
 ---------
 
@@ -75,3 +79,5 @@ Have done
 * Enter vocabulary for countries, seasons, drugs, genes
 
 * Ordered indexes of country, season, drug, gene, virus types
+
+* Patient table doesn't need both "patient" and "title"
