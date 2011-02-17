@@ -1,0 +1,159 @@
+<%# general page changes and extensions %>
+
+<%#
+Place a link at the top of all show pages that points to the index.
+
+There's some confusion here: a "parent-link" appears at the top of several show
+pages, but is a little cryptic (e.g. "2 Countries" on the user page? and
+something hinky seems to be going on with context as this resolves to a list of
+countries. It turns out that this is done just for objects that belong to a
+collection (:belongs_to) and the link is being generated to point to other
+objects of that collection. So this scrubs the collection link in favour of an
+index link.
+
+TODO: some better styling?
+TODO: using the relative url is a bit suspect
+TODO: making naming/wording a bit better
+FIXME: not showing up for seasons?
+%>
+<extend tag="show-page">
+	<old-show-page merge>
+	 
+		<prepend-content-header:>
+		  &laquo; <a href="." class="discrete">browse all records</a>
+		</prepend-content-header:>
+	 
+		<parent-link:>
+          <!--&laquo; <a href="." class="discrete">browse all records</a>-->
+		</parent-link:>
+		
+		<after-content-body:>
+		  <br clear="all" />
+		  <if test="&this.respond_to?(:created_at)">
+			 <p class="byline">
+				Created <view:created_at />. Last modified <view:updated_at />.
+			 </p>
+		  </if>
+		</after-content-body:>
+		
+	</old-show-page>
+</extend>
+
+
+
+
+<def tag="nav-panel">
+  <div class="nav-panel" param="default">
+   <h3 param="heading"></h3>
+   <div param="body">
+     <ul param="items"/>
+  </div>
+ </div>
+</def>
+
+<extend tag="page">
+  <old-page  merge without-live-search>
+   <content: replace>
+    <section-group class="page-content">
+      <aside param="aside1"><search-and-browse/></aside>
+      <section param="content"/>
+    </section-group>
+   </content:>
+     <footer: param><footer-nav/></footer:> 
+  </old-page>
+</extend>
+
+
+<def tag="search-and-browse" attrs="current-subject">
+ <div class="search-and-browse">
+  <div param="search">
+   <h3>Search SAID</h3>
+    <form action="">
+    <input type="text" class="search-field"/>
+    <submit label="Go"/>
+    </form>
+      <p class="help"><a href="">Search Help</a></p>
+   </div>
+   <div param="background_and_contacts">
+    <h3>Background and Contacts</h3>
+      <navigation current="&current_subject">
+        <nav-item href="/">SAID</nav-item>
+        <nav-item href="/">Contact</nav-item>
+        <nav-item href="/">Members</nav-item>
+        <nav-item href="/">Reports</nav-item>
+        <nav-item href="/">Annual Reports</nav-item>
+        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/">Site Index</nav-item>
+      </navigation>
+   </div>
+  </div>
+</def>
+
+<def tag="main-nav">
+  <navigation class="main-nav" >
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
+    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Susceptibility</ht></nav-item>
+<!--    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> -->
+    <nav-item href="">Tools</nav-item>
+  </navigation>
+</def> 
+
+<def tag="footer-nav">
+    <ul>
+	<nav-item href="/">SAID</nav-item>
+	<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
+	<nav-item href="/">Site Map</nav-item>
+	<nav-item href="/">Policies and Links</nav-item>
+	<nav-item href="/">Contacts</nav-item>
+    </ul>
+</def>
+
+<!-- <def tag="search-and-browse" attrs="current-subject">
+ <div class="search-and-browse">
+  <div param="search">
+   <h3>Search SAID</h3>
+   <form action="">
+     <input type="text" class="search-field"/>
+     <submit label="Go"/>
+   </form>
+   <p class="help"><a href="">Search Help</a></p>
+  </div>
+ <div param="background-and-contacts">
+  <h3>Background and Contacts</h3>
+    <navigation current="&current_subject">
+        <nav-item href="/">SAID</nav-item>
+        <nav-item href="/">Contact</nav-item>
+        <nav-item href="/">Members</nav-item>
+        <nav-item href="/">Reports</nav-item>
+        <nav-item href="/">Annual Reports</nav-item>
+        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/">Site Index</nav-item>
+    </navigation>
+  </div>
+   <div param="bulletins-and-data">
+  <h3>Bulletins and Data</h3>
+  <select-menu first-option="SAID Bulletins" options="&[]"/>
+ </div>
+ </div>
+</def> -->
+
+
+<!-- <extend tag="page">
+ <old-page merge>
+  <after-scripts:>
+   <javascript name="ckeditor/ckeditor"/>
+   <javascript name="load_ckeditor"/>
+  </after-scripts:>
+ </old-page>
+</extend>  -->
+
+<!-- <def tag="main-nav">
+  <navigation class="main-nav" merge-attrs param="default">
+    <nav-item href="#{base_url}/">Home</nav-item>
+    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Suseptibilities</ht></nav-item>
+    <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">Ic50 Datas</ht></nav-item>
+    <nav-item with="&Sequence"><ht key="sequences.nav_item">Sequences</ht></nav-item>
+    <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item> 
+  </navigation>
+</def> -->

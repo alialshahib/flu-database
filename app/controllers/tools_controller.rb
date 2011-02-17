@@ -1,4 +1,4 @@
-class CountriesController < ApplicationController
+class ToolsController < ApplicationController
 
   hobo_model_controller
 

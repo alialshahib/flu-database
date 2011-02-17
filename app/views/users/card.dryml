@@ -1,0 +1,30 @@
+<%#
+Override listing of users to show the countries they belong to.
+
+TODO: make less space consuming
+TODO: include gravatar
+????: it would be more orthogonal for this to appear in the model view folder
+%>
+<extend tag="card" for="User">
+  <old-card  merge>
+    <default: replace>
+		<div>
+		  <ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
+		  <div style="float: left">
+			 <header: param>
+				<h4 param="heading"><a><name/></a></h4>
+			 </header:>
+			 <body: param>
+				<if test="&0 < this.countries.count">
+				  Member of <view:countries />
+				</if>
+		   </body:>
+		  </div>
+		</div>
+		<br clear="all"/>
+    </default:>
+  </old-card>
+</extend>
+
+
+

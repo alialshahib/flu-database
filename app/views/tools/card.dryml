@@ -1,0 +1,12 @@
+<%#
+Override listing of tool calculated title and description.
+
+%>
+
+<extend tag="card" for="Tool">
+  <old-card  merge>
+	 <heading:><a><name/></a></heading:>
+	 <body:><%= this.desc %></body:>
+  </old-card>
+</extend>
+

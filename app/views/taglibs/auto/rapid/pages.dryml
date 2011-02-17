@@ -1587,6 +1587,127 @@
 
 
 
+<!-- ====== Tool Pages ====== -->
+
+<def tag="index-page" for="Tool">
+  <page merge title="#{ht 'tools.index.title', :default=>['Tools'] }">
+    <body: class="index-page tool" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="tools.index.heading">
+            Tools
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="tools.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="tools.actions.new">New Tool</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Tool">
+  <page merge title="#{ht 'tools.new.title', :default=>[' New Tool'] }">
+    <body: class="new-page tool" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="tools.new.heading">
+            New Tool
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'tools.actions.create', :default=>['Create Tool']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Tool">
+  <page merge title="#{ht 'tools.show.title', :default=>['Tool'] }">
+
+    <body: class="show-page tool" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="tools.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="tools.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Tool
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="title, tooltype, parameters" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Tool">
+  <page merge title="#{ht 'tools.edit.title', :default=>['Edit Tool'] }">
+
+    <body: class="edit-page tool" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="tools.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'tools.actions.delete', :default=>['Remove This Tool']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
 <!-- ====== User Pages ====== -->
 
 <def tag="index-page" for="User">

@@ -6,7 +6,7 @@
 
  <collection: replace>
       <div>
-           <table-plus fields="this,title,location,dob,gender,date_onset_of_illness,vaccinated">
+           <table-plus fields="this,location,dob,gender,date_onset_of_illness,vaccinated">
              <controls:/>
            </table-plus>
     </div>

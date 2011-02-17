@@ -1,0 +1,97 @@
+<%#
+Various tags to be used across a variety of models & pages.
+%>
+
+<%#
+An extended tag for showing gravatar images
+
+While DRYML supplies a gravatar image out of the box, it doesn't allow for
+several gravatar options. This local version allows the setting of alternative
+images (an url to an image file or the name of a Gravatar default image) and
+the setting of an image extension.
+
+@param [url or string] altimg   url or name of image to use if no avatar found
+@param [string] ext             extension of image type to return
+@param [email] email_address    address to render avatar for
+
+TODO: allow other gravatar options?
+TODO: neater option merging (hash & join)?
+NOTE: hobo bitched about "email_address" below until I changed it to "address".
+%>
+<def tag="ex-gravatar" attrs="size, rating, altimg, ext, address">
+  <%
+	 size ||= 80;
+	 rating ||= 'g';
+	 altimg ||= 'mm';
+	 altimg = CGI::escape(altimg);
+	 ext ||= '';
+	 digest = Digest::MD5.hexdigest(address || this.email_address);
+  -%>
+  <a class="gravatar">
+	 <img class="gravatar"
+		src="http://www.gravatar.com/avatar/#{digest}#{ext}?s=#{size}&r=#{rating}&d=#{altimg}"
+			merge-attrs/>
+  </a>
+</def>
+
+
+<%#
+An extended tag for fieldsets.
+
+Taken from "feckless fieldsets" in the Hobo Cookbook. See:
+http://cookbook.hobocentral.net/api_taglibs/feckless-fieldset
+
+It takes the same attributes & parameters as field-list, with the addition of a
+legend parameter and a required attribute.
+
+The required attribute is a list of methods. If the current field is included in
+the list, the field div has the required class added to it.
+
+The accompanying css allows this fieldset to be rendered in three different
+ways. You may trigger these by setting a class of horizontal, vertical or
+inline-vertical. inline-vertical fieldset’s may also be nested inside of a
+horizontal fieldset.
+
+%>
+<def attrs='tag, no-edit, required' tag='ex-fieldset'>
+  <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
+  <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
+  <fieldset class='feckless-fields' merge-attrs='&amp;attributes - attrs_for(:with_fields)'>
+    <legend param if='&all_parameters[:legend]'/>
+    <with-fields merge-attrs='&amp;attributes &amp; attrs_for(:with_fields)'>
+    <% field_name = this_field_name 
+       input_attrs = {:no_edit => no_edit} if tag == "input" && no_edit == "disable"
+       field_method = this_field.to_s.sub('?', '')
+       id_for_this = param_name_for_this.gsub('[', '_').gsub(']', '')
+    -%>
+      <div class='field #{field_method}-field #{&apos;required&apos; if required.include?(field_method)} ' unless='&tag == &apos;input&apos; && no_edit == &apos;skip&apos; && !can_edit?'>
+        <label param='#{field_method}-label' unless='&field_name.blank?' for='&id_for_this'>
+          <%= field_name %>
+        </label>
+        <do param='#{field_method}-view'>
+          <do param='view'><call-tag tag='&tag' param='#{field_method}-tag' merge-attrs='&amp;input_attrs'/></do>
+        </do>
+        <span class='input-help' param='#{field_method}-help' if='&tag.to_sym == :input && !this_field_help.blank?'>
+          <%= this_field_help %>
+        </span>
+      </div>
+    </with-fields>
+  </fieldset>
+</def>
+
+
+<def tag="input" for="date" attrs="order">
+  <% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
+  <%= select_date(this || Time.now, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => true)) %>
+</def>
+
+
+<def tag="input" for="HoboFields::EnumString" attrs="labels,titleize,blank">
+  <% labels ||= {} 
+   titleize = true if titleize.nil? %>
+  <select name="#{param_name_for_this}" merge-attrs>
+  <option value=''/>  
+   <%= options_for_select(this_type.values.map {|v| [labels.fetch(v.to_sym, titleize ? v.titleize : v), v] }, this) %> 
+  </select>
+</def>
+
