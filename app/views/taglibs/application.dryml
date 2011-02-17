@@ -126,18 +126,18 @@
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item> 
   </navigation>
 </def> -->
-
+<!--
 <def tag="input" for="date" attrs="order">
   <% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
   <%= select_date(this || Time.now, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => true)) %>
 </def>
+-->
 
-
-<!--<extend tag="input" for="date"> -->
+<extend tag="input" for="date"> 
 <!--The <extend> tag is used to extend any tag that.s already defined. The body of <extend> is our new definition. It.s very common to want to base the new definition on the old one, for example, we often want to insert a bit of extra content as we.ve done here. We can do that by calling the .old. definition, which is available as <old-card> -->
 <!--    <old-input:my-date-field include-blank/> -->
-  <!-- <old-input merge include-blank="&true" order="day,month,year" default="0" /> -->
-<!--</extend> -->
+   <old-input merge include-blank="&true" order="day,month,year" default="nil" /> 
+</extend> 
 
 <!-- Here we add a blank field to all enum string drop down menu's -->
 
