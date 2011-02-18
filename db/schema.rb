@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110216103219) do
+ActiveRecord::Schema.define(:version => 20110217153143) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -188,11 +188,40 @@ ActiveRecord::Schema.define(:version => 20110216103219) do
     t.integer  "season_id"
     t.integer  "country_id"
     t.integer  "virus_type_id"
+    t.float    "zanamivir_munana_minor_outlier"
+    t.float    "zanamivir_munana_major_outlier"
+    t.float    "zanamivir_nastar_minor_outlier"
+    t.float    "zanamivir_nastar_major_outlier"
+    t.float    "zanamivir_other_minor_outlier"
+    t.float    "zanamivir_other_major_outlier"
+    t.float    "oseltamivir_munana_minor_outlier"
+    t.float    "oseltamivir_munana_major_outlier"
+    t.float    "oseltamivir_nastar_minor_outlier"
+    t.float    "oseltamivir_nastar_major_outlier"
+    t.float    "oseltamivir_other_minor_outlier"
+    t.float    "oseltamivir_other_major_outlier"
+    t.float    "amantadine_munana_minor_outlier"
+    t.float    "amantadine_munana_major_outlier"
+    t.float    "rimantadine_munana_minor_outlier"
+    t.float    "rimantadine_munana_major_outlier"
   end
 
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
   add_index "thresholds", ["virus_type_id"], :name => "index_thresholds_on_virus_type_id"
+
+  create_table "tools", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.text     "parameters"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "tooltype"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
+  end
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"

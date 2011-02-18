@@ -14,13 +14,13 @@
 }
 body {
   background: beige;
-  color: #e67e00;
+  color: #000000; 
   width: auto;
   padding-left: 8%;
   padding-right: 8%;
 }
 div.page-header h1.app-name {
-  background: white url('../images/SAD_logo.png') no-repeat 20px 10px;
+  background: white url('../images/said_logo_new.png') no-repeat 20px 10px;
   padding: 0;
   margin: 0;
   height: 160px;

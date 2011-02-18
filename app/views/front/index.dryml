@@ -37,7 +37,7 @@
     </nav-panel>
    </aside1:> -->
    <content:>
-      <h2>Welcome to the South American Influenza Database</h2> 
+      <h2>Welcome to the South American Influenza Resistance Database</h2> 
       
       <p>This database aims to help reduce influenza morbidity and mortality in
       the six South American countries:</p>
@@ -81,31 +81,31 @@
          <p>Entered data:</p>
          
          <ul>
-            <nav-item with="&Patient">patients</nav-item>
-            <nav-item with="&Sequence">sequences</nav-item>
-            <nav-item with="&Mutation">mutations</nav-item>
-            <nav-item with="&Threshold">season threshold reports</nav-item>
-            <nav-item with="&Thresholdentry">season threshold report entries</nav-item>
-            <nav-item with="&Suseptibility">suseptibility reports</nav-item>
-            <nav-item with="&SuseptibilityReportEntry">suseptibility report entries</nav-item>
+            <nav-item with="&Patient">Patients</nav-item>
+            <nav-item with="&Sequence">Sequences</nav-item>
+            <nav-item with="&Mutation">Mutations</nav-item>
+            <nav-item with="&Threshold">Season threshold reports</nav-item>
+            <nav-item with="&Thresholdentry">Season threshold report entries</nav-item>
+            <nav-item with="&Suseptibility">Suseptibility reports</nav-item>
+            <nav-item with="&SuseptibilityReportEntry">Suseptibility report entries</nav-item>
          </ul>
          
          <p>Vocabularies and domain tables:</p>
          
          <ul>
-            <nav-item with="&Country">countries</nav-item>
-            <nav-item with="&Drug">drugs</nav-item>
-            <nav-item with="&VirusType">virus types</nav-item>
-            <nav-item with="&Season">seasons</nav-item>
-            <nav-item with="&Gene">genes</nav-item>
-            <nav-item with="&PatientLocation">patient locations</nav-item>
+            <nav-item with="&Country">Countries</nav-item>
+            <nav-item with="&Drug">Drugs</nav-item>
+            <nav-item with="&VirusType">Virus types</nav-item>
+            <nav-item with="&Season">Seasons</nav-item>
+            <nav-item with="&Gene">Genes</nav-item>
+            <nav-item with="&PatientLocation">Patient locations</nav-item>
          </ul>
 
          <p>User administration:</p>
          
          <ul>
-            <nav-item with="&User">users</nav-item>
-            <nav-item with="&Tool">tools</nav-item>
+            <nav-item with="&User">Users</nav-item>
+            <nav-item with="&Tool">Tools</nav-item>
          </ul>
          
    <% end -%>

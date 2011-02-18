@@ -55,6 +55,8 @@ class Suseptibility < ActiveRecord::Base
     timestamps
   end
 	
+#	validates_date :date_specimen_collected => Date.nil
+
     belongs_to :season
 
  
