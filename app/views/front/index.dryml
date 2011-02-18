@@ -1,24 +1,4 @@
-<def tag="messages">
- <br/><br/> <!-- This is html break line tag --> 
- <ul> <!-- ul defines a unordered list, or bulleted list with li as bullets -->
-    <li param="msg1">Message 1</li>
-    <li param="msg2">Message 2</li>
-    <li param="msg3">Message 3</li>
- </ul>
-</def>
 
-<def tag="more-messages"> <!-- To show how 'merge' works -->
- <br/><br/>
- <li param="msg0">Message 0</li>
-  <messages merge> <!-- merge: you have told Hobo to use everything from the <messages> tag except for the change -->
-       <msg2: param>Message 2 Changed in merge</msg2:> <!-- what we have done here is to edit <msg2:> parameter tag of the <messages> tag so that it has different default content -->
-  </messages>
-</def>
-
-<def tag="bd-it">
- <br/>
- <b><i><span param="default"></span></i></b> <!-- b is bold and i is italic --> <!--span in html tag provides a way to add a hook to part of a text or document-->
-</def>
  
 <page title="Home">
   <body: class="front-page"/>
