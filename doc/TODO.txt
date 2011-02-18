@@ -31,6 +31,8 @@ Should do
 
 * Enhance index page search facilities.
 
+* Do they have some artwork we can use?
+
 
 Like to do
 ----------

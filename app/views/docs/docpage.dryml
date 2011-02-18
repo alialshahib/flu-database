@@ -1,0 +1,9 @@
+
+<def tag="docpage" attrs="title, content">
+	<page title="&title" merge-attrs>
+		<content:>
+			<h2><%= title %></h2>
+			<div param="doc-content" />
+		</content:>
+	</page>
+</def>

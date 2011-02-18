@@ -1,0 +1,57 @@
+<!--
+## Pages in general
+page
+  head
+    title
+    stylesheets
+      app-stylesheet
+    scripts
+      custom-stylesheets
+  body
+    ajax-progress
+    header
+      account-nav
+      app-name
+      live-search
+      main-nav_item
+    content
+    footer
+    page-scripts
+-->
+ 
+<!--
+## More on show-page:
+page[title]
+  body[class]
+    content
+      section-group if aside
+        main-content if aside
+          content-header
+            parent-link
+            heading
+            record-flags
+            edit-link
+          content-body
+            field-list
+            collection-section
+              collection-heading
+              collection
+              new-link
+        aside
+          <children>-preview
+            more-->
+ 
+<!--
+## More on index-page:
+page[title]
+  body[class]
+    content
+      content-header
+        heading
+        count
+      content-body
+        new-link
+        top-page-nav
+        collection
+        bottom-page-nav
+-->

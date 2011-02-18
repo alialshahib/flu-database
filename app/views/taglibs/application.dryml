@@ -17,6 +17,11 @@
 <include src="taglibs/allpages" />
 <include src="taglibs/newtags" />
 
+<!-- toolforms -->
+<include src="tools/toolforms" />
+<include src="docs/docpage" />
+
+
 <def tag="nav-panel">
   <div class="nav-panel" param="default">
    <h3 param="heading"></h3>
@@ -107,8 +112,6 @@
   </select>
 </def>
 
-<!-- toolforms -->
-<include src="tools/toolforms" />
 
 
 <!-- <def tag="input" for="HoboFields::EnumString" attrs="labels, titleize, first-option, first-value, blank">
