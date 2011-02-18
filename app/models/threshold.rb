@@ -11,9 +11,24 @@ class Threshold < ActiveRecord::Base
 
 	## Fields & relationships:
 	fields do
+ 		zanamivir_munana_minor_outlier :float		
+		zanamivir_munana_major_outlier :float
+		zanamivir_nastar_minor_outlier :float
+		zanamivir_nastar_major_outlier :float
+		zanamivir_other_minor_outlier :float
+		zanamivir_other_major_outlier :float
+		oseltamivir_munana_minor_outlier :float
+                oseltamivir_munana_major_outlier :float
+                oseltamivir_nastar_minor_outlier :float
+                oseltamivir_nastar_major_outlier :float
+                oseltamivir_other_minor_outlier :float
+                oseltamivir_other_major_outlier :float
+		amantadine_munana_minor_outlier :float
+                amantadine_munana_major_outlier :float
+		rimantadine_munana_minor_outlier :float
+                rimantadine_munana_major_outlier :float
 		description :text
- 			
-
+		
 		timestamps
 	end
 	

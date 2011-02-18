@@ -1552,7 +1552,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="country, season, virus_type" param/>
+            <field-list fields="zanamivir_munana_minor_outlier, zanamivir_munana_major_outlier, zanamivir_nastar_minor_outlier, zanamivir_nastar_major_outlier, zanamivir_other_minor_outlier, zanamivir_other_major_outlier, oseltamivir_munana_minor_outlier, oseltamivir_munana_major_outlier, oseltamivir_nastar_minor_outlier, oseltamivir_nastar_major_outlier, oseltamivir_other_minor_outlier, oseltamivir_other_major_outlier, amantadine_munana_minor_outlier, amantadine_munana_major_outlier, rimantadine_munana_minor_outlier, rimantadine_munana_major_outlier, country, season, virus_type" param/>
           </section>
     </content:>
 
@@ -1673,7 +1673,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="title, tooltype, parameters" param/>
+            <field-list fields="title, tooltype, parameters, icon_file_name, icon_content_type, icon_file_size, icon_updated_at" param/>
           </section>
     </content:>
 
