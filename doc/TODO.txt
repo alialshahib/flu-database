@@ -29,6 +29,8 @@ Should do
 
 * Unify names
 
+* Enhance index page search facilities.
+
 
 Like to do
 ----------
@@ -67,6 +69,8 @@ Like to do
 
 * User head shots
 
+* Adjust whitespace in show profiles
+
 
 Have done
 ---------
@@ -91,3 +95,5 @@ Have done
 * Ordered indexes of country, season, drug, gene, virus types
 
 * Patient table doesn't need both "patient" and "title"
+
+* Textbox sizes on account page are bloody small

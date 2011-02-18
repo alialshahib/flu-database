@@ -14,8 +14,8 @@ module ToolForms
 	class ExtendedQueryToolForm < BaseToolForm
 		
 		def self.description
-			return 'Upload multiple suspetibility reports into the database via an
-				Excel spreadsheet.'
+			# TODO: sucky description
+			return 'Search the database with advanced options.'
 		end
 		
 	end

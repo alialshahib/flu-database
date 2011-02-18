@@ -23,6 +23,9 @@
 <include src="tools/card" />
 <include src="users/card" />
 
+<!-- toolforms -->
+<include src="tools/toolforms" />
+
 
 <!--
 CHAFF

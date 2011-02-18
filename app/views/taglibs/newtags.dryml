@@ -80,6 +80,17 @@ horizontal fieldset.
 </def>
 
 
+<%#
+An simple debugging message tag.
+
+This simply used for laying out DRYML and marking where parts are to go.
+%>
+<def tag="dbg-msg">
+	<%# TODO: finish this off %>
+</def>
+
+
+
 <def tag="input" for="date" attrs="order">
   <% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
   <%= select_date(this || Time.now, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => true)) %>
@@ -94,4 +105,7 @@ horizontal fieldset.
    <%= options_for_select(this_type.values.map {|v| [labels.fetch(v.to_sym, titleize ? v.titleize : v), v] }, this) %> 
   </select>
 </def>
+
+
+
 

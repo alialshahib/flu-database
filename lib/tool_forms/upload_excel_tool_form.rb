@@ -18,8 +18,8 @@ module ToolForms
 		end
 		
 		def self.description
-			return 'Upload multiple suspetibility reports into the database via an
-				Excel spreadsheet.'
+			return """Upload multiple suseptibility reports into the database via an
+				Excel spreadsheet."""
 		end
 		
 		def self.id

@@ -3,19 +3,15 @@
 	<content-body:>
 		
 		<!-- pre-ramble -->
-		<view:desc class="description" />
-		
+		<p class="description">
+			<%= this.desc %>
+		</p>
+
 		<!-- if there are results, put them here -->
-		<div class="tool-results">
-			<h3>RESULTS</h3>
-		
-		</div>
-		
+		<tool-results />
+
 		<!-- put the form here -->
-		<div class="tool-form">
-			<h3>FORM</h3>
-		
-		</div>
+		<tool-form />
 	
 	</content-body:>	
 
