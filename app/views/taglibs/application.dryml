@@ -57,13 +57,12 @@
    <div param="background_and_contacts">
     <h3>Background and Contacts</h3>
       <navigation current="&current_subject">
-        <nav-item href="/">SAIRD</nav-item>
-        <nav-item href="/">Contact</nav-item>
-        <nav-item href="/">Members</nav-item>
+        <nav-item href="/docs/about">About SAIRD</nav-item>
+        <nav-item href="/docs/contact">Contact</nav-item>
+        <nav-item href="/docs/help">Help</nav-item>
         <nav-item href="/">Reports</nav-item>
         <nav-item href="/">Annual Reports</nav-item>
         <nav-item href="/">Case Definitions</nav-item>
-        <nav-item href="/">Site Index</nav-item>
       </navigation>
    </div>
   </div>
