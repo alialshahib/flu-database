@@ -87,8 +87,8 @@ This simply used for laying out DRYML and marking where parts are to go.
 %>
 <def tag="dbg-msg">
 	<%# TODO: finish this off %>
+	<p class="dbg-msg"><i><span param="default"></span></i></p>
 </def>
-
 
 
 <def tag="input" for="date" attrs="order">

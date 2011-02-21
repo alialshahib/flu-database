@@ -31,6 +31,13 @@ Should do
 
 * Enhance index page search facilities.
 
+* Do they have some artwork we can use?
+
+* We currently have three "quick-link" areas on the page - the tool / navigation
+  bar, the footer and the sidebar. A bit excessive, really only need two. 
+
+* Admin tools / links in a more discrete place?
+
 
 Like to do
 ----------

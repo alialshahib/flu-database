@@ -14,7 +14,7 @@
 }
 body {
   background: beige;
-  color: #000000; 
+  color: #e67e00;
   width: auto;
   padding-left: 8%;
   padding-right: 8%;
@@ -185,6 +185,7 @@ div.tool-results, div.tool-form {
   margin-top: 1em;
   padding-top: 1em;
 }
+.dbg-msg { color: red; }
 .page-footer {
   background: white no-repeat bottom right;
   overflow: hidden;
