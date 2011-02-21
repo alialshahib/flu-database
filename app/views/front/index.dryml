@@ -73,7 +73,7 @@
    
    <% if current_user.administrator? -%>
       <!-- provide quick links to editting -->
-      <h3>Administration tools</h3> 
+      <h3><b>Administration tools</b></h3> 
       
          <p>From here you can browse and edit all data. Be careful, this
          provides access to the full, raw data.</p>
