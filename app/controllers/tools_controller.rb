@@ -15,11 +15,4 @@ class ToolsController < ApplicationController
 		end
 	end
 
-    def execute
-			pp "execute"
-			pp session
-			pp request
-      redirect_to :action => 'index',
-    end
-    
 end

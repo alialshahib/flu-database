@@ -108,7 +108,7 @@ FIXME: not showing up for seasons?
 <def tag="search-and-browse" attrs="current-subject">
  <div class="search-and-browse">
 	<div param="search">
-	<h3>Search SAID</h3>
+	<h3>Search SAIRD</h3>
 	 <form action="">
 	 <input type="text" class="search-field"/>
 	 <submit label="Go"/>
@@ -118,7 +118,7 @@ FIXME: not showing up for seasons?
 	<div param="background_and_contacts">
 	 <h3>Background and Contacts</h3>
 		<navigation current="&current_subject">
-			<nav-item href="/">SAID</nav-item>
+			<nav-item href="/">SAIRD</nav-item>
 			<nav-item href="/">Contact</nav-item>
 			<nav-item href="/">Members</nav-item>
 			<nav-item href="/">Reports</nav-item>
@@ -134,7 +134,7 @@ FIXME: not showing up for seasons?
 
 <def tag="footer-nav">
 	 <ul>
-	<nav-item href="/">SAID</nav-item>
+	<nav-item href="/">SAIRD</nav-item>
 	<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
 	<nav-item href="/">Site Map</nav-item>
 	<nav-item href="/">Policies and Links</nav-item>
