@@ -18,9 +18,8 @@
 <include src="taglibs/newtags" />
 
 <!-- toolforms -->
-<include src="tools/toolforms" />
 <include src="docs/docpage" />
-<include src="utils/util-page" />
+<include src="tools/page" />
 
 
 <def tag="nav-panel">

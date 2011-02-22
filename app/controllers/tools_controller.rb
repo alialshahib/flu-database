@@ -1,6 +1,6 @@
 
 
-class UtilsController < ApplicationController
+class ToolsController < ApplicationController
 	
 	def index
 	end

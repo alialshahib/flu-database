@@ -156,18 +156,6 @@
 
 
 
-<def tag="form" for="Tool">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, description, tooltype, parameters, icon_file_name, icon_content_type, icon_file_size, icon_updated_at" param/>
-    <div param="actions">
-      <submit label="#{ht 'tools.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
 <def tag="form" for="User">
   <form merge param="default">
     <error-messages param/>
