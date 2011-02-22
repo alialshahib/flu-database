@@ -45,8 +45,8 @@ TODO: allow overriding of result title and no result message.
 <def tag="formbody" polymorphic>
 
 	<form action="#{object_url this_parent}" method="GET">
-		
-		<input type="text" value="fdsdfsd" name="foo">sdfsdfsd</input>
+		<% params = request.parameters %>
+		<input type="text" value="#{params['foo'] || 'foodef'}" name="foo">sdfsdfsd</input>
 		<input type="text" value="fdsdfsd" name="bar">sdfsdfsd</input>
 						<input type="submit" value="this[1]" label="this[0]" class="button submit-button"/> 
 

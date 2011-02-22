@@ -1,0 +1,75 @@
+
+
+<def tag="util-form-body" attrs="parameters">
+		<p><%= parameters %></p>
+		<!--<input type="submit" value="this[1]" label="this[0]" class="button submit-button"/> -->
+		<input type="text" value="#{params['foo'] || 'foodef'}" name="foo">sdfsdfsd</input>
+		<input type="text" value="fdsdfsd" name="bar">sdfsdfsd</input>
+
+</def>
+
+
+
+
+
+
+
+<def tag="util-page" attrs="toolform">
+	<page title="&this.title" merge-attrs>
+		<content:>
+			<h2 param="title"><%= this.title %></h2>
+		
+			<%# pre-ramble %>
+			<p param="description"><%= this.description %></p>
+			
+			<%#
+			If there are results, put them here. If non-nil, are responding to
+			submission & there's something to render. Else, this is a first view.
+			%>
+			<% results = session[:results] %>
+			<if test="&!results.nil?">
+				<div class="tool-results">
+					<h3>Results</h3>
+						<%
+							# put results in array to render one by one
+							# Zero-length array means no results.
+							if results.class != Array
+								results = [results]
+							end	
+						%>
+						<if test="&0 < results.size">
+							<p>
+								No results were returned. Try changing criteria or broadening
+								parameters.
+							</p>
+						</if>
+						<else>
+							<div repeat="&results">
+								iterating over results
+							</div>
+						</else>
+				</div>
+			</if>
+			
+			
+			<%# put the form here %>
+			<div class="tool-form">
+				<form action="" method="GET">
+					<util-form-body parameters="&request.parameters" />
+					<br clear="all" />
+					<div class="tool-buttons">
+						<repeat:submit_buttons>
+							<input type="submit" value="this[1]" label="this[0]"
+								class="button submit-button"/>
+						</repeat>
+						<if test="&this.has_reset_button">
+							<input type="reset" />
+						</if>
+					</div>
+				</form>
+			</div>
+		
+		</content:>
+	</page>
+</def>
+

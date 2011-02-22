@@ -24,7 +24,7 @@ module ToolForms
 		# lowercase and hyphenated.
 		#
 		def self.id
-			return self.title.downcase.gsub(' ', '-')
+			return self.title.downcase.gsub(' ', '-').gsub('-', '_')
 		end
 		
 		# A default title, to be overidden in subclass

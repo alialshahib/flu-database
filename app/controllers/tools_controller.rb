@@ -10,8 +10,7 @@ class ToolsController < ApplicationController
 	def show
 		hobo_show do
 			pp "here"
-			pp session
-			pp request
+			pp request.parameters
 		end
 	end
 

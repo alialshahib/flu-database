@@ -20,6 +20,7 @@
 <!-- toolforms -->
 <include src="tools/toolforms" />
 <include src="docs/docpage" />
+<include src="utils/util-page" />
 
 
 <def tag="nav-panel">
