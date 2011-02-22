@@ -72,7 +72,6 @@
          
          <ul>
             <nav-item with="&User">Users</nav-item>
-            <nav-item with="&Tool">Tools</nav-item>
          </ul>
          
    <% end -%>
