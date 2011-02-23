@@ -13,6 +13,8 @@ module ToolForms
 	class GraphResistToolForm < BaseToolForm
 		# TODO: we need a lot better description about this sucker
 		
+		@@submit_buttons = ['Graph']
+		
 		def self.title
 			return 'Graph resistance data'
 		end
@@ -22,7 +24,7 @@ module ToolForms
 		end
 		
 		def self.id
-			return 'bulk-susp-upload'
+			return 'graphresist'
 		end
 	end
 

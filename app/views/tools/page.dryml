@@ -1,19 +1,15 @@
 
 
-<def tag="tool-form-body" attrs="parameters">
-		<p><%= parameters %></p>
-		<!--<input type="submit" value="this[1]" label="this[0]" class="button submit-button"/> -->
-		<input type="text" value="#{params['foo'] || 'foodef'}" name="foo">sdfsdfsd</input>
-		<input type="text" value="fdsdfsd" name="bar">sdfsdfsd</input>
+<%#
+The page for a tool form.
 
-</def>
-
-
+This includes the overall page layout, and the content including the
+front-matter (the title and leading description), and slots for the results
+and the form. Each individual result and the actual form fields are rendered
+elsewhere.
 
 
-
-
-
+%>
 <def tag="tool-page" attrs="toolform">
 	<page title="&this.title" merge-attrs>
 		<content:>
@@ -55,7 +51,9 @@
 			<%# put the form here %>
 			<div class="tool-form">
 				<form action="" method="GET">
-					<tool-form-body parameters="&request.parameters" />
+					<div param="tool-form-body" parameters="&request.parameters">
+						THIS IS WHERE THE FORM FIELDS GO
+					</div>
 					<br clear="all" />
 					<div class="tool-buttons">
 						<repeat:submit_buttons>
@@ -71,5 +69,63 @@
 		
 		</content:>
 	</page>
+</def>
+
+
+<def tag="form-field" attrs="name, type, value, title, options">
+	<%
+		# name must be provided
+		# type is assumed to be 'text' unless otherwise said
+		type ||= "text"
+		# title is derived from the name if need be
+		title ||= title || name.capitalize()
+		# grab the value from the request if possible, otherwise default
+		value = request.parameters[name] || value
+		# formid from context
+		formid = this.id
+	%>
+	<tr> 
+		<th class="#{name}-label"> <%= title %></th> 
+		<td class="#{name}-view">
+			
+			<if test="&type == 'text'">
+				<input class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}" name="#{name}" type="#{type}"
+					value="#{value}" />
+			</if>
+			
+			<if test="&type == 'boolean'">
+				<%=
+					# TODO: set id?
+					checked = (value == '0')? false : true
+					cb_tag = check_box_tag(name, '1', checked, attributes)
+					cb_hidden_tag = hidden_field_tag(name, '0', :id => nil)
+					HoboSupport::RAILS_AT_LEAST_23 ? cb_hidden_tag + cb_tag : cb_tag + cb_hidden_tag
+				%>
+			</if>
+			
+			<if test="&type == 'selectone'">
+				<%
+				# TODO: a way to set disabled choices and accept null answers?
+				%>
+				<select name="#{name}"
+					class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}">
+				  <%= options_for_select(options, value.to_i) %>
+				</select>
+			</if>
+			
+		</td> 
+	</tr>
+</def>
+
+
+<def tag="form-section" attrs="name, title">
+	<%
+		# This generates a useful label for form sections
+		# name must be provided
+		# title is derived from the name if need be
+	%>
+	<tr><th class="#{name}-label section-label"><%= title %></th></tr>
 </def>
 
