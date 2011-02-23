@@ -38,7 +38,7 @@
 							end	
 						%>
 						<if test="&0 < results.size">
-							<p>
+							<p param="no-result-message">
 								No results were returned. Try changing criteria or broadening
 								parameters.
 							</p>
@@ -59,7 +59,7 @@
 					<br clear="all" />
 					<div class="tool-buttons">
 						<repeat:submit_buttons>
-							<input type="submit" value="this[1]" label="this[0]"
+							<input type="submit" name="_submit" value="&this[1]" label="&this[0]"
 								class="button submit-button"/>
 						</repeat>
 						<if test="&this.has_reset_button">

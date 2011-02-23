@@ -9,7 +9,11 @@ class ToolsController < ApplicationController
 	end
 	
 	def exquery
-		session[:results] = "foo"
+		if request.parameters['_submit'].nil?
+			session[:results] = nil
+		else
+			session[:results] = 'foo'			
+		end
 	end
 	
 	def graphresist

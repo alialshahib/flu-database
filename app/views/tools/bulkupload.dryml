@@ -1,6 +1,4 @@
 
-<tool-page title="Bulk upload of resistance data">
-	<description:>
-		This is a contact page
-	</description:>
+<tool-page with="&ToolForms::UploadExcelToolForm">
+
 </tool-page>

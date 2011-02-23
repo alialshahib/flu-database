@@ -88,7 +88,7 @@ FIXME: not showing up for seasons?
 	<navigation class="main-nav" >
 		<nav-item href="#{base_url}/">Home</nav-item>
 		<nav-item with="&Threshold"><ht key="thresholds.nav_item">Browse threshold reports</ht></nav-item>
-		<nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Browse resistance reports</ht></nav-item>
+		<nav-item with="&Susceptibility"><ht key="susceptibilities.nav_item">Browse resistance reports</ht></nav-item>
 		<nav-item href="#{base_url}/tools/">Tools</nav-item>
 	</navigation>
 </def> 

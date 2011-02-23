@@ -66,10 +66,35 @@ div.page-header .main-nav li a:hover {
   color: white;
   background: #e67e00;
   border: 1px solid #e67e00;
+  padding: 5px 10px;
+  width: auto;
+  fotn-size: 11px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  -webkit-box-align: center;
 }
 .button:hover {
   color: #e67e00;
   background: white;
+  cursor: pointer;
+}
+input[type="reset"] {
+  color: white;
+  background: #e67e00;
+  border: 1px solid #e67e00;
+  padding: 5px 10px;
+  width: auto;
+  fotn-size: 11px;
+  font-weight: bold;
+  margin-top: 10px;
+  text-align: center;
+  -webkit-box-align: center;
+}
+input[type="reset"]:hover {
+  color: #e67e00;
+  background: white;
+  cursor: pointer;
 }
 a.edit-link {
   color: #e67e00;

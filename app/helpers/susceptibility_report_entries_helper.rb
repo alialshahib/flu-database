@@ -1,0 +1,2 @@
+module SusceptibilityReportEntriesHelper
+end

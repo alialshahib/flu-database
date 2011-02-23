@@ -1,4 +1,4 @@
-class SuseptibilityReportEntry < ActiveRecord::Base
+class SusceptibilityReportEntry < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 

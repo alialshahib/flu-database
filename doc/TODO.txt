@@ -62,7 +62,7 @@ Like to do
 
 * Search / side box styling needs a bit of tweaking.
 
-* Replace Thresholdentry with ThresholdReportEntry & Suseptibility with SuseptibilityReport
+* Replace Thresholdentry with ThresholdReportEntry & Susceptibility with SusceptibilityReport
 
 * On a "new" page, have a "save and create another"?
 
@@ -106,7 +106,7 @@ Have done
 
 * Full admin page / options
 
-* Need objects for suseptibility report entry, genes & locations
+* Need objects for susceptibility report entry, genes & locations
 
 * Enter vocabulary for countries, seasons, drugs, genes
 

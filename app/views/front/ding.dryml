@@ -65,12 +65,12 @@
 <!--    <section class="content-body"> 
        <section with="&current_user" class="content-body" if="&logged_in?">
           <h3>Your Projects</h3>
-          <collection:suseptibilities><card without-creator-link/></collection>
+          <collection:susceptibilities><card without-creator-link/></collection>
 
-          <a:suseptibilities action="new">New Suseptibility</a>
+          <a:susceptibilities action="new">New susceptibility</a>
 
          <h3>Projects you have joined</h3>
-         <collection:joined-suseptibilities><card without-creator-link/></collection>   
+         <collection:joined-susceptibilities><card without-creator-link/></collection>   
    </section> -->
   
   </content:>

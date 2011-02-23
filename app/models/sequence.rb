@@ -14,7 +14,7 @@ class Sequence < ActiveRecord::Base
     timestamps
   end
  
-  belongs_to :suseptibility, :dependent => :destroy
+  belongs_to :susceptibility, :dependent => :destroy
 #  has_many :mutations, :dependent => :destroy
 
   # --- Permissions --- #

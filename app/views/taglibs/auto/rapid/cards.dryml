@@ -77,16 +77,16 @@
   </card>
 </def>
 
-<def tag="card" for="Suseptibility">
-  <card class="suseptibility" param="default" merge>
+<def tag="card" for="Susceptibility">
+  <card class="susceptibility" param="default" merge>
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
   </card>
 </def>
 
-<def tag="card" for="SuseptibilityReportEntry">
-  <card class="suseptibility-report-entry" param="default" merge>
+<def tag="card" for="SusceptibilityReportEntry">
+  <card class="susceptibility-report-entry" param="default" merge>
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>

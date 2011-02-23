@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../test_helper'
 
-class SuseptibilitiesControllerTest < ActionController::TestCase
+class SusceptibilityReportEntriesControllerTest < ActionController::TestCase
   # Replace this with your real tests.
   def test_truth
     assert true

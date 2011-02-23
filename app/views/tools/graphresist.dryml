@@ -1,6 +1,4 @@
 
-<tool-page title="Graph resistance data">
-	<description:>
-		This about the site
-	</description:>
+<tool-page with="&ToolForms::ExtendedQueryToolForm">
+
 </tool-page>
