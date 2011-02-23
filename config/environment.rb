@@ -44,8 +44,4 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  Less::More.source_path = "public/stylesheets/less"
-  Less::More.destination_path = "css"
-  Less::More.compression = false
-  Less::More.header = false
 end

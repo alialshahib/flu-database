@@ -32,7 +32,7 @@
 </def>
 
 <extend tag="page">
-  <old-page  merge without-live-search>
+  <old-page  merge without-live-search> 
    <content: replace>
     <section-group class="page-content">
       <aside param="aside1"><search-and-browse/></aside>
@@ -40,7 +40,7 @@
     </section-group>
    </content:>
      <footer: param><footer-nav/></footer:> 
-  </old-page>
+  </old-page> 
 </extend>
 
 
@@ -326,15 +326,19 @@ TODO: sort, refactor and arrange in a suitable place
 	<tr><td><b>Zanamivir</b></td></tr>
 	<tr><td>Minor outlier cuttoff (nM)</td><td><field-list fields="zanamivir_munana_minor_outlier"/></td><td><field-list fields="zanamivir_nastar_minor_outlier"/></td><td><field-list fields="zanamivir_other_minor_outlier"/></td></tr>
 	<tr><td>Major outlier cuttoff (nM)</td><td><field-list fields="zanamivir_munana_major_outlier"/></td><td><field-list fields="zanamivir_nastar_major_outlier"/></td><td><field-list fields="zanamivir_other_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	<tr><td><b>Oseltamivir</b></td></tr>
         <tr><td>Minor outlier cuttoff (nM)</td><td><field-list fields="oseltamivir_munana_minor_outlier"/></td><td><field-list fields="oseltamivir_nastar_minor_outlier"/></td><td><field-list fields="oseltamivir_other_minor_outlier"/></td></tr>
         <tr><td>Major outlier cuttoff (nM)</td><td><field-list fields="oseltamivir_munana_major_outlier"/></td><td><field-list fields="oseltamivir_nastar_major_outlier"/></td><td><field-list fields="oseltamivir_other_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
  	<tr><td><b>Amantadine</b></td></tr>
-        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><field-list fields="amantadine_munana_minor_outlier"/></td></tr>
-	<tr><td>Major outlier cuttoff (&micro;M)</td><td><field-list fields="amantadine_munana_major_outlier"/></td></tr>
+        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="amantadine_munana_minor_outlier"/></td></tr>
+	<tr><td>Major outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="amantadine_munana_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	<tr><td><b>Rimantadine</b></td></tr>
-        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><field-list fields="rimantadine_munana_minor_outlier"/></td></tr>
-        <tr><td>Major outlier cuttoff (&micro;M)</td><td><field-list fields="rimantadine_munana_major_outlier"/></td></tr>
+        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="rimantadine_munana_minor_outlier"/></td></tr>
+        <tr><td>Major outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="rimantadine_munana_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	</table>
    </form>
 	<br /> 

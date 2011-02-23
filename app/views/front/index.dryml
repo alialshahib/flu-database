@@ -66,8 +66,8 @@
             <nav-item with="&Mutation">Mutations</nav-item>
             <nav-item with="&Threshold">Season threshold reports</nav-item>
             <nav-item with="&Thresholdentry">Season threshold report entries</nav-item>
-            <nav-item with="&Suseptibility">Suseptibility reports</nav-item>
-            <nav-item with="&SuseptibilityReportEntry">Suseptibility report entries</nav-item>
+            <nav-item with="&Suseptibility">Susceptibility reports</nav-item>
+            <nav-item with="&SuseptibilityReportEntry">Susceptibility report entries</nav-item>
          </ul>
          
          <p>Vocabularies and domain tables:</p>
@@ -86,6 +86,7 @@
          <ul>
             <nav-item with="&User">Users</nav-item>
             <nav-item with="&Tool">Tools</nav-item>
+		<br />
          </ul>
          
    <% end -%>

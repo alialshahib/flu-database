@@ -2,11 +2,11 @@
   <!-- <collection:><h4><a><view:title/></a></h4>....<h4> heading tag is Hobo's bold and large font tag acoording to Hobo's CSS files.  The view tag is Rapid's <view> tag. -->
     <!-- <view:gender/>  Here you call the <view> tag and under each record you can show its geneder or anything else you want from the attributes.  -->
 <!--         <repeat:gender join=", "><a/></repeat> -->
-<!--   </collection:> -->
+<!--   </collection:> --> 
 <index-page>
  <collection: replace>
       <div>
-           <table-plus fields="this,season,isolate_name,virus_type,date_specimen_collected">
+           <table-plus fields="this,isolate_name,virus_type,date_specimen_collected">
              <controls:/>
            </table-plus>
       </div>

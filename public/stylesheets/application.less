@@ -20,7 +20,7 @@ TODO: change element colors to match these.
 @darkgray:      #737373;
 
 @page-clr: #A8ACB7; /* TODO: not required? */
-@body-clr: @orangebrown;
+@body-clr: black; 
 @menu-clr: @orangebrown;
 @discrete-text-clr: @darkgray;
 
@@ -28,7 +28,7 @@ TODO: change element colors to match these.
 
 @gutter-width: 8%;
 
-@logo-ht: 160px;
+@logo-ht: 180px;
 
 
 /*** IMPLEMENTATION */
@@ -55,7 +55,7 @@ body {
 div.page-header {
 	
 	h1.app-name {
-		background: white url('../images/said_logo_new.png') no-repeat 20px 10px;
+		background: white url('../images/said_logo_new_5.png') no-repeat 20px 10px;
 		padding: 0; margin: 0; 
 		height: @logo-ht;
 		
@@ -108,6 +108,15 @@ div.page-header {
 	}
 }
 
+/* TABLE RULES */ 
+
+table {
+        border-collapse: separate;
+        border-spacing: 0;
+        font-size: 100%
+}
+
+ 
 
 /* FORM ELEMENTS & ACTIONS */
 
@@ -115,8 +124,9 @@ div.page-header {
 	color: white;
 	background: @menu-clr;
 	border: 1px solid @menu-clr;
+	font-size: 80%;
 	:hover {
-		color: @menu-clr;
+		color: black;
 		background: white;
 	}
 }
@@ -125,6 +135,7 @@ a.edit-link, a.new-link, a.cancel {
 	color: @menu-clr;
 	border: 1px solid @menu-clr;
 	padding: 0px 2px;
+	font-size: 80%;
 	:hover {
 		color: white;
 		background: black;
