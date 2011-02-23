@@ -18,8 +18,8 @@
 <include src="taglibs/newtags" />
 
 <!-- toolforms -->
-<include src="tools/toolforms" />
-<include src="docs/docpage" />
+<include src="docs/page" />
+<include src="tools/page" />
 
 
 <def tag="nav-panel">
@@ -68,15 +68,7 @@
   </div>
 </def>
 
-<def tag="main-nav">
-  <navigation class="main-nav" >
-    <nav-item href="#{base_url}/">Home</nav-item>
-    <nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
-    <nav-item with="&Suseptibility"><ht key="suseptibilities.nav_item">Susceptibility</ht></nav-item>
-<!--    <nav-item with="&User"><ht key="users.nav_item">User</ht></nav-item> -->
-    <nav-item with="&Tool"><ht key="tools.nav_item">Tool</ht></nav-item>
-  </navigation>
-</def> 
+
 
 <def tag="footer-nav">
     <ul>
@@ -129,9 +121,9 @@
 TODO: sort, refactor and arrange in a suitable place
 -->
 
-<!-- Suseptibility.  Here, I am modifying the 'new susceptibility data' page.  The form tag defines the fields and the <form param> calls the tag.  If you want to modify the entry form, you will have to change the new-page tag.   -->
+<!-- susceptibility.  Here, I am modifying the 'new susceptibility data' page.  The form tag defines the fields and the <form param> calls the tag.  If you want to modify the entry form, you will have to change the new-page tag.   -->
 
-<def tag="form" for="Suseptibility">
+<def tag="form" for="Susceptibility">
   <form merge multipart param="default">
     <error-messages param/>
     <h3><b>If you like to upload your data then please upload it here</b></h3>
@@ -196,26 +188,26 @@ TODO: sort, refactor and arrange in a suitable place
                 <tr><td>Death</td><td width="180"></td><td><field-list fields="death"/></td></tr>
 	</table>
     <div param="actions">
-      <submit label="#{ht 'suseptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+      <submit label="#{ht 'susceptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
 
-<def tag="new-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.new.title', :default=>[' New Susceptibility Data'] }">
-    <body: class="new-page suseptibility" param/>
+<def tag="new-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.new.title', :default=>[' New Susceptibility Data'] }">
+    <body: class="new-page susceptibility" param/>
 
     <content: param>
       <section param="content-header">
         <h1 param="heading">
-          <ht key="suseptibilities.new.heading">
+          <ht key="susceptibilities.new.heading">
             Antiviral Susceptibility Data 
           </ht>
         </h1>
       </section>
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'suseptibilities.actions.create', :default=>['Save Data']}"/>
+          <submit: label="#{ht 'susceptibilities.actions.create', :default=>['Save Data']}"/>
         </form> 
       </section>
     </content:>
@@ -223,22 +215,22 @@ TODO: sort, refactor and arrange in a suitable place
 </def>
 
 
-<def tag="show-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.show.title', :default=>['Suseptibility'] }">
+<def tag="show-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.show.title', :default=>['susceptibility'] }">
 
-    <body: class="show-page suseptibility" param/>
+    <body: class="show-page susceptibility" param/>
 
     <content: param>
           <header param="content-header">
             <h2 param="heading">
-              <ht key="suseptibilities.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+              <ht key="susceptibilities.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
               </ht>
             </h2>
             <record-flags fields="vaccinated" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+              <ht key="susceptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
                 Edit Susceptibility
               </ht>
             </a>
@@ -247,7 +239,7 @@ TODO: sort, refactor and arrange in a suitable place
             <field-list fields="season, isolate_name, virus_type, source_virus, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness" param/>
             <section param="collection-section">
 <!--              <h3 param="collection-heading">
-                <ht key="suseptibilities.collection.heading.other" >
+                <ht key="susceptibilities.collection.heading.other" >
                   Sequences
                 </ht>
               </h3>
@@ -259,19 +251,19 @@ TODO: sort, refactor and arrange in a suitable place
  </page>
 </def>
 
-<def tag="edit-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.edit.title', :default=>['Edit Suseptibility'] }">
+<def tag="edit-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.edit.title', :default=>['Edit susceptibility'] }">
 
-    <body: class="edit-page suseptibility" param/>
+    <body: class="edit-page susceptibility" param/>
 
     <content:>
       <section param="content-header">
         <h2 param="heading">
-          <ht key="suseptibilities.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+          <ht key="susceptibilities.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
             Edit Susceptibility Data 
           </ht>
         </h2>
-        <delete-button label="#{ht 'suseptibilities.actions.delete', :default=>['Remove This Susceptibility Data']}" param/>
+        <delete-button label="#{ht 'susceptibilities.actions.delete', :default=>['Remove This Susceptibility Data']}" param/>
       </section>
 
       <section param="content-body">
@@ -282,7 +274,7 @@ TODO: sort, refactor and arrange in a suitable place
   </page>
 </def>
 
-<!-- <extend tag="form" for="Suseptibility">
+<!-- <extend tag="form" for="susceptibility">
   <old-form merge multipart>
     <field-list: fields="csv"/>
   </old-form>

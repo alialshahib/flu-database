@@ -1,4 +1,4 @@
-class SuseptibilityHints < Hobo::ViewHints
+class SusceptibilityHints < Hobo::ViewHints
  
 #  children :patients
 #  children :sequences 

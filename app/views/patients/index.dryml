@@ -1,7 +1,7 @@
 <index-page>
  <collection:><h4><a><view:title/></a></h4>
-<!-- <repeat:suseptibilities><a/></repeat> -->
- <repeat:suseptibilities join=", "><view:title/></repeat> <!--The repeat tag with the colon (:) tells Hobo to loop through the records in the implicit context and to display what is in the body of the tag, namely <a/>. So here if you go to suseptibility then you will find a link to the patient-->
+<!-- <repeat:susceptibilities><a/></repeat> -->
+ <repeat:susceptibilities join=", "><view:title/></repeat> <!--The repeat tag with the colon (:) tells Hobo to loop through the records in the implicit context and to display what is in the body of the tag, namely <a/>. So here if you go to susceptibility then you will find a link to the patient-->
  </collection:> 
 
  <collection: replace>

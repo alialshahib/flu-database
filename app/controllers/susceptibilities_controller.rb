@@ -1,4 +1,4 @@
-class SuseptibilitiesController < ApplicationController
+class SusceptibilitiesController < ApplicationController
 
   hobo_model_controller
 

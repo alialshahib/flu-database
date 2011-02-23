@@ -1,4 +1,4 @@
-class SuseptibilityReportEntryHints < Hobo::ViewHints
+class SusceptibilityReportEntryHints < Hobo::ViewHints
 
   # model_name "My Model"
   # field_names :field1 => "First Field", :field2 => "Second Field"

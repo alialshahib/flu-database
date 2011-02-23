@@ -1,4 +1,4 @@
-class Suseptibility < ActiveRecord::Base
+class Susceptibility < ActiveRecord::Base
 
   hobo_model # Don't put anything above this
 
@@ -74,7 +74,7 @@ class Suseptibility < ActiveRecord::Base
    private
     def parse_csv_file
      FSCV.foreach(csv.path, :headers => true) do |row|
-     Suseptibility.create!(row.to_hash)
+     susceptibility.create!(row.to_hash)
      flash[:notice] = 'CSV data was successfully imported.'
       end
      end

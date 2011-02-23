@@ -1,1 +1,10 @@
-<index-page/>
+
+<docpage title="Tools & utilities">
+	<doc-content:>
+		<ul>
+			<li><a href="bulkupload">Bulk upload of resistance data</a></li>
+			<li><a href="exquery">Extended query</a></li>
+			<li><a href="graphresist">Graph resistance data</a></li>
+		</ul>
+	</doc-content:>
+</docpage>

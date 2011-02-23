@@ -2,20 +2,7 @@
  
 <page title="Home">
   <body: class="front-page"/>
-<!--  <aside1:>
-   <nav-panel>
-    <heading:>Background and Contacts</heading:>
-    <items:>
-        <nav-item href="/">SAID</nav-item>
-        <nav-item href="/">Contact</nav-item>
-        <nav-item href="/">Members</nav-item>
-        <nav-item href="/">Reports</nav-item>
-        <nav-item href="/">Annual Reports</nav-item>
-        <nav-item href="/">Case Definitions</nav-item>
-        <nav-item href="/">Site Index</nav-item>
-    </items:>
-    </nav-panel>
-   </aside1:> -->
+
    <content:>
       <h2>Welcome to the South American Influenza Resistance Database</h2> 
       
@@ -66,8 +53,8 @@
             <nav-item with="&Mutation">Mutations</nav-item>
             <nav-item with="&Threshold">Season threshold reports</nav-item>
             <nav-item with="&Thresholdentry">Season threshold report entries</nav-item>
-            <nav-item with="&Suseptibility">Susceptibility reports</nav-item>
-            <nav-item with="&SuseptibilityReportEntry">Susceptibility report entries</nav-item>
+            <nav-item with="&Susceptibility">Susceptibility reports</nav-item>
+            <nav-item with="&SusceptibilityReportEntry">Susceptibility report entries</nav-item>
          </ul>
          
          <p>Vocabularies and domain tables:</p>

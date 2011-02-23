@@ -1,2 +1,0 @@
-module SuseptibilitiesHelper
-end

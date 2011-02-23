@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217153143) do
+ActiveRecord::Schema.define(:version => 20110223093816) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -43,10 +43,10 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
     t.decimal  "iC50_amantadine_um"
     t.decimal  "iC50_rimantadine_um"
     t.string   "title"
-    t.integer  "suseptibility_id"
+    t.integer  "susceptibility_id"
   end
 
-  add_index "ic50_datas", ["suseptibility_id"], :name => "index_ic50_datas_on_suseptibility_id"
+  add_index "ic50_datas", ["susceptibility_id"], :name => "index_ic50_datas_on_susceptibility_id"
 
   create_table "mutations", :force => true do |t|
     t.integer  "sequence_id"
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "suseptibility_id"
+    t.integer  "susceptibility_id"
     t.boolean  "vaccinated"
     t.date     "date_onset_of_illness"
   end
 
-  add_index "patients", ["suseptibility_id"], :name => "index_patients_on_suseptibility_id"
+  add_index "patients", ["susceptibility_id"], :name => "index_patients_on_susceptibility_id"
 
   create_table "seasons", :force => true do |t|
     t.datetime "created_at"
@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
   create_table "sequences", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "suseptibility_id"
+    t.integer  "susceptibility_id"
     t.string   "na_sequence"
     t.string   "ha_sequence"
     t.string   "m2_sequence"
@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
     t.string   "title"
   end
 
-  add_index "sequences", ["suseptibility_id"], :name => "index_sequences_on_suseptibility_id"
+  add_index "sequences", ["susceptibility_id"], :name => "index_sequences_on_susceptibility_id"
 
-  create_table "suseptibilities", :force => true do |t|
+  create_table "susceptibilities", :force => true do |t|
     t.string   "isolate_name"
     t.date     "date_specimen_collected"
     t.datetime "created_at"
@@ -153,9 +153,9 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
     t.integer  "season_id"
   end
 
-  add_index "suseptibilities", ["season_id"], :name => "index_suseptibilities_on_season_id"
+  add_index "susceptibilities", ["season_id"], :name => "index_susceptibilities_on_season_id"
 
-  create_table "suseptibility_report_entries", :force => true do |t|
+  create_table "susceptibility_report_entries", :force => true do |t|
     t.float    "result"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -209,19 +209,6 @@ ActiveRecord::Schema.define(:version => 20110217153143) do
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
   add_index "thresholds", ["virus_type_id"], :name => "index_thresholds_on_virus_type_id"
-
-  create_table "tools", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.text     "parameters"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "tooltype"
-    t.string   "icon_file_name"
-    t.string   "icon_content_type"
-    t.integer  "icon_file_size"
-    t.datetime "icon_updated_at"
-  end
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"

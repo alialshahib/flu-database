@@ -15,7 +15,7 @@ class Ic50Data < ActiveRecord::Base
     timestamps
 end
 
-  belongs_to :suseptibility
+  belongs_to :susceptibility
 
 #  named_scope :viewable, lambda {|acting_user| {:conditions =>"#{acting_user.signed_up??1:0}=1 or lifecycle_state='published'" }}
   

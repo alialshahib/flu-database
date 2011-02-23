@@ -5,6 +5,6 @@ class PatientsController < ApplicationController
   auto_actions :all
   #auto_actions :all, :except => :modify 
   #auto_actions :read_only
-  #auto_actions_for :suseptibility, [:new, :create]
+  #auto_actions_for :susceptibility, [:new, :create]
 
 end

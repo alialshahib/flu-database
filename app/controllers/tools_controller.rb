@@ -1,25 +1,22 @@
-require 'pp'
+
 
 class ToolsController < ApplicationController
 	
-	hobo_model_controller
+	def index
+	end
 	
-	auto_actions :all
-	show_action :detail
+	def bulkupload
+	end
 	
-	def show
-		hobo_show do
-			pp "here"
-			pp session
-			pp request
+	def exquery
+		if request.parameters['_submit'].nil?
+			session[:results] = nil
+		else
+			session[:results] = 'foo'			
 		end
 	end
+	
+	def graphresist
+	end
 
-    def execute
-			pp "execute"
-			pp session
-			pp request
-      redirect_to :action => 'index',
-    end
-    
 end

@@ -470,7 +470,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, suseptibility" param/>
+            <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, susceptibility" param/>
           </section>
     </content:>
 
@@ -831,7 +831,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="location, dob, gender, date_onset_of_illness, suseptibility" param/>
+            <field-list fields="location, dob, gender, date_onset_of_illness, susceptibility" param/>
           </section>
     </content:>
 
@@ -1071,7 +1071,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="na_sequence, ha_sequence, m2_sequence, comment, suseptibility" param/>
+            <field-list fields="na_sequence, ha_sequence, m2_sequence, comment, susceptibility" param/>
           </section>
     </content:>
 
@@ -1106,22 +1106,22 @@
 
 
 
-<!-- ====== Suseptibility Pages ====== -->
+<!-- ====== Susceptibility Pages ====== -->
 
-<def tag="index-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.index.title', :default=>['Suseptibilities'] }">
-    <body: class="index-page suseptibility" param/>
+<def tag="index-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.index.title', :default=>['Susceptibilities'] }">
+    <body: class="index-page susceptibility" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
-          <ht key="suseptibilities.index.heading">
-            Suseptibilities
+          <ht key="susceptibilities.index.heading">
+            Susceptibilities
           </ht>
         </h2>
 
         <p param="count" if>
-          <ht key="suseptibilities.collection.count" count="&this.size">
+          <ht key="susceptibilities.collection.count" count="&this.size">
             There <count prefix="are"/>
           </ht>
         </p>
@@ -1129,7 +1129,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="suseptibilities.actions.new">New Suseptibility</ht>
+          <ht key="susceptibilities.actions.new">New Susceptibility</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1145,22 +1145,22 @@
 </def>
 
 
-<def tag="new-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.new.title', :default=>[' New Suseptibility'] }">
-    <body: class="new-page suseptibility" param/>
+<def tag="new-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.new.title', :default=>[' New Susceptibility'] }">
+    <body: class="new-page susceptibility" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
-          <ht key="suseptibilities.new.heading">
-            New Suseptibility
+          <ht key="susceptibilities.new.heading">
+            New Susceptibility
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'suseptibilities.actions.create', :default=>['Create Suseptibility']}"/>
+          <submit: label="#{ht 'susceptibilities.actions.create', :default=>['Create Susceptibility']}"/>
         </form>
       </section>
     </content:>
@@ -1168,15 +1168,15 @@
 </def>
 
 
-<def tag="show-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.show.title', :default=>['Suseptibility'] }">
+<def tag="show-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.show.title', :default=>['Susceptibility'] }">
 
-    <body: class="show-page suseptibility" param/>
+    <body: class="show-page susceptibility" param/>
 
     <content: param>
           <header param="content-header">
             <h2 param="heading">
-              <ht key="suseptibilities.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+              <ht key="susceptibilities.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
               </ht>
             </h2>
@@ -1184,8 +1184,8 @@
             <record-flags fields="hospitalised, institution, community, other, not_known, source_virus_sentinel, source_virus_non_sentinel, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, not_known_exposure_to_flu_antivirals_patient, no_exposure_to_flu_antivirals_household_contact, yes_exposure_to_flu_antivirals_household_contact, not_known_exposure_to_flu_antivirals_household_contact, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_not_known" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="suseptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Suseptibility
+              <ht key="susceptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Susceptibility
               </ht>
             </a>
           </header>
@@ -1199,19 +1199,19 @@
 </def>
 
 
-<def tag="edit-page" for="Suseptibility">
-  <page merge title="#{ht 'suseptibilities.edit.title', :default=>['Edit Suseptibility'] }">
+<def tag="edit-page" for="Susceptibility">
+  <page merge title="#{ht 'susceptibilities.edit.title', :default=>['Edit Susceptibility'] }">
 
-    <body: class="edit-page suseptibility" param/>
+    <body: class="edit-page susceptibility" param/>
 
     <content:>
       <section param="content-header">
         <h2 param="heading">
-          <ht key="suseptibilities.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+          <ht key="susceptibilities.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'suseptibilities.actions.delete', :default=>['Remove This Suseptibility']}" param/>
+        <delete-button label="#{ht 'susceptibilities.actions.delete', :default=>['Remove This Susceptibility']}" param/>
       </section>
 
       <section param="content-body">
@@ -1226,22 +1226,22 @@
 
 
 
-<!-- ====== SuseptibilityReportEntry Pages ====== -->
+<!-- ====== SusceptibilityReportEntry Pages ====== -->
 
-<def tag="index-page" for="SuseptibilityReportEntry">
-  <page merge title="#{ht 'suseptibility_report_entries.index.title', :default=>['Suseptibility Report Entries'] }">
-    <body: class="index-page suseptibility-report-entry" param/>
+<def tag="index-page" for="SusceptibilityReportEntry">
+  <page merge title="#{ht 'susceptibility_report_entries.index.title', :default=>['Susceptibility Report Entries'] }">
+    <body: class="index-page susceptibility-report-entry" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
-          <ht key="suseptibility_report_entries.index.heading">
-            Suseptibility Report Entries
+          <ht key="susceptibility_report_entries.index.heading">
+            Susceptibility Report Entries
           </ht>
         </h2>
 
         <p param="count" if>
-          <ht key="suseptibility_report_entries.collection.count" count="&this.size">
+          <ht key="susceptibility_report_entries.collection.count" count="&this.size">
             There <count prefix="are"/>
           </ht>
         </p>
@@ -1249,7 +1249,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="suseptibility_report_entries.actions.new">New Suseptibility Report Entry</ht>
+          <ht key="susceptibility_report_entries.actions.new">New Susceptibility Report Entry</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1265,22 +1265,22 @@
 </def>
 
 
-<def tag="new-page" for="SuseptibilityReportEntry">
-  <page merge title="#{ht 'suseptibility_report_entries.new.title', :default=>[' New Suseptibility Report Entry'] }">
-    <body: class="new-page suseptibility-report-entry" param/>
+<def tag="new-page" for="SusceptibilityReportEntry">
+  <page merge title="#{ht 'susceptibility_report_entries.new.title', :default=>[' New Susceptibility Report Entry'] }">
+    <body: class="new-page susceptibility-report-entry" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
-          <ht key="suseptibility_report_entries.new.heading">
-            New Suseptibility Report Entry
+          <ht key="susceptibility_report_entries.new.heading">
+            New Susceptibility Report Entry
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'suseptibility_report_entries.actions.create', :default=>['Create Suseptibility Report Entry']}"/>
+          <submit: label="#{ht 'susceptibility_report_entries.actions.create', :default=>['Create Susceptibility Report Entry']}"/>
         </form>
       </section>
     </content:>
@@ -1288,15 +1288,15 @@
 </def>
 
 
-<def tag="show-page" for="SuseptibilityReportEntry">
-  <page merge title="#{ht 'suseptibility_report_entries.show.title', :default=>['Suseptibility Report Entry'] }">
+<def tag="show-page" for="SusceptibilityReportEntry">
+  <page merge title="#{ht 'susceptibility_report_entries.show.title', :default=>['Susceptibility Report Entry'] }">
 
-    <body: class="show-page suseptibility-report-entry" param/>
+    <body: class="show-page susceptibility-report-entry" param/>
 
     <content: param>
           <header param="content-header">
             <h2 param="heading">
-              <ht key="suseptibility_report_entries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+              <ht key="susceptibility_report_entries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
               </ht>
             </h2>
@@ -1304,8 +1304,8 @@
             <record-flags fields="" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="suseptibility_report_entries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Suseptibility Report Entry
+              <ht key="susceptibility_report_entries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Susceptibility Report Entry
               </ht>
             </a>
           </header>
@@ -1319,19 +1319,19 @@
 </def>
 
 
-<def tag="edit-page" for="SuseptibilityReportEntry">
-  <page merge title="#{ht 'suseptibility_report_entries.edit.title', :default=>['Edit Suseptibility Report Entry'] }">
+<def tag="edit-page" for="SusceptibilityReportEntry">
+  <page merge title="#{ht 'susceptibility_report_entries.edit.title', :default=>['Edit Susceptibility Report Entry'] }">
 
-    <body: class="edit-page suseptibility-report-entry" param/>
+    <body: class="edit-page susceptibility-report-entry" param/>
 
     <content:>
       <section param="content-header">
         <h2 param="heading">
-          <ht key="suseptibility_report_entries.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+          <ht key="susceptibility_report_entries.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'suseptibility_report_entries.actions.delete', :default=>['Remove This Suseptibility Report Entry']}" param/>
+        <delete-button label="#{ht 'susceptibility_report_entries.actions.delete', :default=>['Remove This Susceptibility Report Entry']}" param/>
       </section>
 
       <section param="content-body">
@@ -1573,127 +1573,6 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This Season threshold report']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
-<!-- ====== Tool Pages ====== -->
-
-<def tag="index-page" for="Tool">
-  <page merge title="#{ht 'tools.index.title', :default=>['Tools'] }">
-    <body: class="index-page tool" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="tools.index.heading">
-            Tools
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="tools.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="tools.actions.new">New Tool</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="Tool">
-  <page merge title="#{ht 'tools.new.title', :default=>[' New Tool'] }">
-    <body: class="new-page tool" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="tools.new.heading">
-            New Tool
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'tools.actions.create', :default=>['Create Tool']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="Tool">
-  <page merge title="#{ht 'tools.show.title', :default=>['Tool'] }">
-
-    <body: class="show-page tool" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="tools.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="tools.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Tool
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <view:description param="description"/>
-            <field-list fields="title, tooltype, parameters, icon_file_name, icon_content_type, icon_file_size, icon_updated_at" param/>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="Tool">
-  <page merge title="#{ht 'tools.edit.title', :default=>['Edit Tool'] }">
-
-    <body: class="edit-page tool" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="tools.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'tools.actions.delete', :default=>['Remove This Tool']}" param/>
       </section>
 
       <section param="content-body">

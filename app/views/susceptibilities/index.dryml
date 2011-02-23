@@ -13,7 +13,7 @@
  </collection:>
 </index-page>
 
-<!--<def tag="card" for="Suseptibility">
+<!--<def tag="card" for="Susceptibility">
   <card class="patient" param="default" merge>
     <header: param>
       <h4 param="heading"><a><name/></a></h4>

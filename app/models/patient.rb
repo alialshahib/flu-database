@@ -17,7 +17,7 @@ class Patient < ActiveRecord::Base
   name", :too_short => "pick a longer name"
 #  validates_numericality_of :age 
   
-  belongs_to :suseptibility
+  belongs_to :susceptibility
   
 
   # --- Permissions --- #

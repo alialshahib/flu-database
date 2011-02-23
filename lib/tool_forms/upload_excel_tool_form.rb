@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
 
-# Tool for bulk uploading of suseptibility data.
+# Tool for bulk uploading of susceptibility data.
 
 ### IMPORTS
 
@@ -14,11 +14,11 @@ module ToolForms
 	class UploadExcelToolForm < BaseToolForm
 		
 		def self.title
-			return 'Bulk upload of suseptibility data'
+			return 'Bulk upload of susceptibility data'
 		end
 		
 		def self.description
-			return """Upload multiple suseptibility reports into the database via an
+			return """Upload multiple susceptibility reports into the database via an
 				Excel spreadsheet."""
 		end
 		
