@@ -24,6 +24,18 @@ module ToolForms
 			return "exquery"
 		end
 		
+		def self.submit_buttons
+			return [['query', 'Query']]
+		end
+		
+		def self.validate_country(param_str)
+			validate(false, "this is an error!")
+		end
+		
+		def self.validate_season(param_str)
+			validate(false, "this is another error!")
+		end
+		
 	end
 
 end

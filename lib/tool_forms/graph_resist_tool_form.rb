@@ -19,6 +19,10 @@ module ToolForms
 			return 'Graph resistance data'
 		end
 		
+		def self.submit_buttons
+			return [['graph', 'Graph']]
+		end
+		
 		def self.description
 			return """Produce box and scatter plots of resistance data."""
 		end

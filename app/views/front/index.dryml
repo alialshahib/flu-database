@@ -38,43 +38,7 @@
       </p>   
    <% end -%>
    
-   <% if current_user.administrator? -%>
-      <!-- provide quick links to editting -->
-      <h3>Administration tools</h3> 
-      
-         <p>From here you can browse and edit all data. Be careful, this
-         provides access to the full, raw data.</p>
-      
-         <p>Entered data:</p>
-         
-         <ul>
-            <nav-item with="&Patient">Patients</nav-item>
-            <nav-item with="&Sequence">Sequences</nav-item>
-            <nav-item with="&Mutation">Mutations</nav-item>
-            <nav-item with="&Threshold">Season threshold reports</nav-item>
-            <nav-item with="&Thresholdentry">Season threshold report entries</nav-item>
-            <nav-item with="&Susceptibility">Susceptibility reports</nav-item>
-            <nav-item with="&SusceptibilityReportEntry">Susceptibility report entries</nav-item>
-         </ul>
-         
-         <p>Vocabularies and domain tables:</p>
-         
-         <ul>
-            <nav-item with="&Country">Countries</nav-item>
-            <nav-item with="&Drug">Drugs</nav-item>
-            <nav-item with="&VirusType">Virus types</nav-item>
-            <nav-item with="&Season">Seasons</nav-item>
-            <nav-item with="&Gene">Genes</nav-item>
-            <nav-item with="&PatientLocation">Patient locations</nav-item>
-         </ul>
 
-         <p>User administration:</p>
-         
-         <ul>
-            <nav-item with="&User">Users</nav-item>
-         </ul>
-         
-   <% end -%>
    
    </content:>
 </page>

@@ -18,6 +18,8 @@ elsewhere.
 			<%# pre-ramble %>
 			<p param="description"><%= this.description %></p>
 			
+			<flash-messages />
+			
 			<%#
 			If there are results, put them here. If non-nil, are responding to
 			submission & there's something to render. Else, this is a first view.
@@ -33,16 +35,14 @@ elsewhere.
 								results = [results]
 							end	
 						%>
-						<if test="&0 < results.size">
+						<if test="&results.size == 0">
 							<p param="no-result-message">
 								No results were returned. Try changing criteria or broadening
 								parameters.
 							</p>
 						</if>
 						<else>
-							<div repeat="&results">
-								iterating over results
-							</div>
+							<tool-result repeat="&results" />
 						</else>
 				</div>
 			</if>
@@ -72,7 +72,7 @@ elsewhere.
 </def>
 
 
-<def tag="form-field" attrs="name, type, value, title, options">
+<def tag="form-field" attrs="name, type, value, title, options, help">
 	<%
 		# name must be provided
 		# type is assumed to be 'text' unless otherwise said
@@ -83,6 +83,8 @@ elsewhere.
 		value = request.parameters[name] || value
 		# formid from context
 		formid = this.id
+		# has helptext been provided?
+		help ||= false
 	%>
 	<tr> 
 		<th class="#{name}-label"> <%= title %></th> 
@@ -115,6 +117,7 @@ elsewhere.
 				</select>
 			</if>
 			
+			<div if="&help" class="input-help"><% help %></div>
 		</td> 
 	</tr>
 </def>
@@ -129,3 +132,24 @@ elsewhere.
 	<tr><th class="#{name}-label section-label"><%= title %></th></tr>
 </def>
 
+<def tag="tool-result" polymorphic>
+	<div class="tool-result" param="result-content">
+		<%= this %>
+	</div>
+</def>
+
+<def tag="tool-result" for="String">
+	<tool-result merge>
+		<result-content:>
+			A string = <%= this %>
+		</result-content>
+	</tool-result>
+</def>
+
+<def tag="tool-result" for="Fixnum">
+	<tool-result merge>
+		<result-content:>
+			A fixnum = <%= this %>
+		</result-content>
+	</tool-result>
+</def>
