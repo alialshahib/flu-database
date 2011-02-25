@@ -48,7 +48,7 @@ FIXME: not showing up for seasons?
 	<old-show-page merge>
 	 
 		<prepend-content-header:>
-			&laquo; <a href="." class="discrete">browse all records</a>
+			&laquo; <a href="." class="discrete">back to all records</a>
 		</prepend-content-header:>
 	 
 		<parent-link:>
