@@ -54,11 +54,11 @@ elsewhere.
 			<div class="tool-form">
 				<% method ||= "GET" -%>
 				<form action="" method="&method">
-					<div param="tool-form-body" parameters="&request.parameters">
+					<div param="tool-form-body">
 						THIS IS WHERE THE FORM FIELDS GO
 					</div>
 					<br clear="all" />
-					<div class="tool-buttons">
+					<div class="tool-buttons" param="tool-buttons">
 						<repeat:submit_buttons>
 							<input type="submit" name="_submit" value="&this[1]" label="&this[0]"
 								class="button submit-button"/>
