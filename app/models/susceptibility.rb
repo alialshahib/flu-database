@@ -25,8 +25,11 @@ class Susceptibility < ActiveRecord::Base
     iC50_amantadine_um :decimal
     iC50_rimantadine_um :decimal
     na_sequence  :string
+    na_sequence_aa :string
     ha_sequence :string
+    ha_sequence_aa :string
     m2_sequence :string
+    m2_sequence_aa :string
     comment :text
   #  location :string
     dob      :date

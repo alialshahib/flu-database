@@ -1191,7 +1191,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, ha_sequence, m2_sequence, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at, season" param/>
+            <field-list fields="isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, na_sequence_aa, ha_sequence, ha_sequence_aa, m2_sequence, m2_sequence_aa, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at, season" param/>
           </section>
     </content:>
 
@@ -1212,126 +1212,6 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'susceptibilities.actions.delete', :default=>['Remove This Susceptibility']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
-<!-- ====== SusceptibilityReportEntry Pages ====== -->
-
-<def tag="index-page" for="SusceptibilityReportEntry">
-  <page merge title="#{ht 'susceptibility_report_entries.index.title', :default=>['Susceptibility Report Entries'] }">
-    <body: class="index-page susceptibility-report-entry" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="susceptibility_report_entries.index.heading">
-            Susceptibility Report Entries
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="susceptibility_report_entries.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="susceptibility_report_entries.actions.new">New Susceptibility Report Entry</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="SusceptibilityReportEntry">
-  <page merge title="#{ht 'susceptibility_report_entries.new.title', :default=>[' New Susceptibility Report Entry'] }">
-    <body: class="new-page susceptibility-report-entry" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="susceptibility_report_entries.new.heading">
-            New Susceptibility Report Entry
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'susceptibility_report_entries.actions.create', :default=>['Create Susceptibility Report Entry']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="SusceptibilityReportEntry">
-  <page merge title="#{ht 'susceptibility_report_entries.show.title', :default=>['Susceptibility Report Entry'] }">
-
-    <body: class="show-page susceptibility-report-entry" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="susceptibility_report_entries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="susceptibility_report_entries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Susceptibility Report Entry
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <field-list fields="result" param/>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="SusceptibilityReportEntry">
-  <page merge title="#{ht 'susceptibility_report_entries.edit.title', :default=>['Edit Susceptibility Report Entry'] }">
-
-    <body: class="edit-page susceptibility-report-entry" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="susceptibility_report_entries.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'susceptibility_report_entries.actions.delete', :default=>['Remove This Susceptibility Report Entry']}" param/>
       </section>
 
       <section param="content-body">

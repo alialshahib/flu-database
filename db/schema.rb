@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223093816) do
+ActiveRecord::Schema.define(:version => 20110225122451) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -151,15 +151,12 @@ ActiveRecord::Schema.define(:version => 20110223093816) do
     t.integer  "csv_file_size"
     t.datetime "csv_updated_at"
     t.integer  "season_id"
+    t.string   "na_sequence_aa"
+    t.string   "ha_sequence_aa"
+    t.string   "m2_sequence_aa"
   end
 
   add_index "susceptibilities", ["season_id"], :name => "index_susceptibilities_on_season_id"
-
-  create_table "susceptibility_report_entries", :force => true do |t|
-    t.float    "result"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "task_assignments", :force => true do |t|
     t.datetime "created_at"
