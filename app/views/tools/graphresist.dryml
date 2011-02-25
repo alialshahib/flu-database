@@ -1,4 +1,34 @@
 
-<tool-page with="&ToolForms::ExtendedQueryToolForm">
+<tool-page with="&ToolForms::GraphResistToolForm">
+
+	<tool-form-body:>
+		<%
+		# NOTE: vocab/options in rails are a hash or an array of label-val pairs
+		# TODO: frakking ugly rounding in the float steps, and conversion needs
+		# some thinking
+		%>
+		<table class="field-list">
+			<form-field name="season" type="selectone"
+				options="&Season.all().collect { |c| [c.name, c.id] }"/>
+			<form-field name="virustype" type="selectone" title="Virus type"
+				options="&VirusType.all().collect { |c| [c.name, c.id] }"/>
+			<form-field name="drug" type="selectone" title="Antiviral"
+				options="&Drug.all().collect { |c| [c.name, c.id] }" />
+			
+			<form-section name="box" title="Box plot settings" />
+			<form-field name="box-min-vals" type="selectone" title="Minimum values"
+				options="&[5, 10, 15, 20]"/>
+			
+			<form-section name="scatter" title="Scatter graph settings" />
+			<form-field name="scatter-offset" type="selectone" title="Offset"
+				options="&(1..5).step(0.5).to_a"/>
+			<form-field name="scatter-gap" type="selectone" title="Gap"
+				options="&(0..1).step(0.1).to_a"/>
+			<form-field name="scatter-round" type="selectone" title="Round"
+				options="&(0..5).to_a()"/>
+		
+		</table>
+
+	</tool-form-body:>
 
 </tool-page>

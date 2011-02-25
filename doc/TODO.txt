@@ -90,6 +90,23 @@ Like to do
 
 * Spreadsheet formats
 
+* Pointers to full data browsing on tools page
+
+* try out Hobo controller as tools page?
+
+* H3 is a bit crowded
+
+* PII / encryption on patient DOB
+
+* Those goddamn edit/remove buttons
+
+* Back button on tools
+
+* Highlights / style changes for error and required fields
+
+* Some sort of message or whatever for tool success?
+
+
 Have done
 ---------
 

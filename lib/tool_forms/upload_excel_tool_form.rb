@@ -23,7 +23,7 @@ module ToolForms
 		end
 		
 		def self.id
-			return 'bulk-susp-upload'
+			return 'bulkupload'
 		end
 	end
 
