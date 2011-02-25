@@ -6,6 +6,7 @@ class ToolsController < ApplicationController
 	end
 	
 	def bulkupload
+		session[:results] = process_form(ToolForms::UploadExcelToolForm, request)
 	end
 	
 	def exquery
@@ -13,6 +14,7 @@ class ToolsController < ApplicationController
 	end
 	
 	def graphresist
+		session[:results] = process_form(ToolForms::GraphResistToolForm, request)
 	end
 
 end
@@ -21,7 +23,7 @@ def process_form(tf, req)
 	# The torturous logic of this method: we are handed a toolform & request ...
 	# Only process form if there has been a submission, otherwise results are nil
 	results = nil
-	if ! request.parameters['_submit'].nil?
+	if ! req.parameters['_submit'].nil?
 		# check for errors in parameters and clean them up
 		conv_params, errors = tf.is_valid?(req.parameters)
 		# if we get parameters back, it's okay, process it
