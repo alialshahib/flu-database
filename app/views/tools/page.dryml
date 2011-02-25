@@ -33,6 +33,7 @@ elsewhere.
 						<%
 							# put results in array to render one by one
 							# Zero-length array means no results.
+							# TODO: stick null result message (and success) into flash?
 							if results.class != Array
 								results = [results]
 							end	
@@ -49,12 +50,20 @@ elsewhere.
 				</div>
 			</if>
 			
-			
 			<%# put the form here %>
 			<div class="tool-form">
-				<% method ||= "GET" -%>
-				<form action="" method="&method">
-					<div param="tool-form-body">
+				<%
+					attrs_hsh = {
+						:action => "",
+						:method => this.form_method,
+					}
+					if this.enctype_multipart?
+						attrs_hsh[:enctype] = "multipart/form-data"
+					end
+					
+				-%>
+				<form merge-attrs="&attrs_hsh">
+					<div param="tool-form-fields">
 						THIS IS WHERE THE FORM FIELDS GO
 					</div>
 					<br clear="all" />

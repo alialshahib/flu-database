@@ -1,7 +1,7 @@
 
-<tool-page with="&ToolForms::UploadExcelToolForm" method="POST">
+<tool-page with="&ToolForms::UploadExcelToolForm">
 
-	<tool-form-body:>
+	<tool-form-fields:>
 
 		<table class="field-list">
 			<form-field name="season" type="selectone"
@@ -10,6 +10,6 @@
 			<form-field name="inc_clin" title="Include clinical data" type="boolean" value="0" />
 		</table>
 
-	</tool-form-body:>
+	</tool-form-fields:>
 
 </tool-page>

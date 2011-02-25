@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225131851) do
+ActiveRecord::Schema.define(:version => 20110225141648) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -153,6 +153,9 @@ ActiveRecord::Schema.define(:version => 20110225131851) do
     t.integer  "season_id"
     t.integer  "country_id"
     t.integer  "virus_type_id"
+    t.string   "na_sequence_aa"
+    t.string   "ha_sequence_aa"
+    t.string   "m2_sequence_aa"
   end
 
   add_index "susceptibilities", ["country_id"], :name => "index_susceptibilities_on_country_id"

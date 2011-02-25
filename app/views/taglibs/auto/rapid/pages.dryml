@@ -6,7 +6,7 @@
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Country"><ht key="countries.nav_item">Countries</ht></nav-item>
-    <nav-item with="&Drug"><ht key="drugs.nav_item">Drugs</ht></nav-item>
+    <nav-item with="&Drug"><ht key="drugs.nav_item">Antiviral drugs</ht></nav-item>
     <nav-item with="&Gene"><ht key="genes.nav_item">Genes</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
@@ -148,14 +148,14 @@
 <!-- ====== Drug Pages ====== -->
 
 <def tag="index-page" for="Drug">
-  <page merge title="#{ht 'drugs.index.title', :default=>['Drugs'] }">
+  <page merge title="#{ht 'drugs.index.title', :default=>['Antiviral drugs'] }">
     <body: class="index-page drug" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="drugs.index.heading">
-            Drugs
+            Antiviral drugs
           </ht>
         </h2>
 
@@ -168,7 +168,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="drugs.actions.new">New Drug</ht>
+          <ht key="drugs.actions.new">New Antiviral drugs</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -185,21 +185,21 @@
 
 
 <def tag="new-page" for="Drug">
-  <page merge title="#{ht 'drugs.new.title', :default=>[' New Drug'] }">
+  <page merge title="#{ht 'drugs.new.title', :default=>[' New Antiviral drugs'] }">
     <body: class="new-page drug" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="drugs.new.heading">
-            New Drug
+            New Antiviral drugs
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Drug']}"/>
+          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Antiviral drugs']}"/>
         </form>
       </section>
     </content:>
@@ -208,7 +208,7 @@
 
 
 <def tag="show-page" for="Drug">
-  <page merge title="#{ht 'drugs.show.title', :default=>['Drug'] }">
+  <page merge title="#{ht 'drugs.show.title', :default=>['Antiviral drugs'] }">
 
     <body: class="show-page drug" param/>
 
@@ -224,7 +224,7 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="drugs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Drug
+                Edit Antiviral drugs
               </ht>
             </a>
           </header>
@@ -239,7 +239,7 @@
 
 
 <def tag="edit-page" for="Drug">
-  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Drug'] }">
+  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Antiviral drugs'] }">
 
     <body: class="edit-page drug" param/>
 
@@ -250,7 +250,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Drug']}" param/>
+        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Antiviral drugs']}" param/>
       </section>
 
       <section param="content-body">
@@ -1191,7 +1191,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, na_sequence_aa, ha_sequence, ha_sequence_aa, m2_sequence, m2_sequence_aa, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at, season" param/>
+            <field-list fields="isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, na_sequence_aa, ha_sequence, ha_sequence_aa, m2_sequence, m2_sequence_aa, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at, country, season, virus_type" param/>
           </section>
     </content:>
 

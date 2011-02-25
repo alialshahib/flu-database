@@ -25,6 +25,10 @@ module ToolForms
 		def self.id
 			return 'bulkupload'
 		end
+		
+		def self.form_method
+			return "POST"
+		end
 	end
 
 end

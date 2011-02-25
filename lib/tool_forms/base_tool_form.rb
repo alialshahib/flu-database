@@ -78,6 +78,14 @@ module ToolForms
 			return @@tool_subclass_hash[id]
 		end
 		
+		def self.form_method
+			return "GET"
+		end
+		
+		def self.enctype_multipart?
+			return form_method == "POST"
+		end
+		
 		## Internals:
 		
 		# all subclasses
