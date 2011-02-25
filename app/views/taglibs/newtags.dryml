@@ -53,7 +53,7 @@ inline-vertical. inline-vertical fieldset’s may also be nested inside of a
 horizontal fieldset.
 
 %>
-<def attrs='tag, no-edit, required' tag='ex-fieldset'>
+<def tag='ex-fieldset' attrs='tag, no-edit, required'>
   <% tag ||= scope.in_form ? "input" : "view"; no_edit ||= "skip" -%>
   <% required ||= "" ; required = comma_split(required.gsub('-', '_')) -%>
   <fieldset class='feckless-fields' merge-attrs='&amp;attributes - attrs_for(:with_fields)'>

@@ -129,6 +129,11 @@ elsewhere.
 				</select>
 			</if>
 			
+			<if test="&type == 'file'">
+				<input class="#{name}-tag #{type} #{formid}-#{name}"
+					id="#{formid}_#{name}" name="#{name}" type="#{type}" />
+			</if>
+			
 			<div if="&help" class="input-help"><% help %></div>
 		</td> 
 	</tr>

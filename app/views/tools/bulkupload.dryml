@@ -4,10 +4,12 @@
 	<tool-form-fields:>
 
 		<table class="field-list">
-			<form-field name="season" type="selectone"
-				options="&Season.all().collect { |c| [c.name, c.id] }"/>
-			<form-field name="inc_other" title="Include other data" type="boolean" value="0" />
-			<form-field name="inc_clin" title="Include clinical data" type="boolean" value="0" />
+			<form-field type="file" name="spreadsheet"
+				help="An Excel (.xls or .xls) file in the described format." />
+			<form-field name="dryrun" title="Dry-run" type="boolean"
+				value="0" help="Test the format of your file, but do not save data." />
+			<form-field name="overwrite" title="Overwrite" type="boolean"
+				value="0" help="Overwrite existing data." />
 		</table>
 
 	</tool-form-fields:>

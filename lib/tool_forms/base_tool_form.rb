@@ -114,13 +114,13 @@ module ToolForms
 			converted_params = {}
 			errors = []
 			raw_params.each { |param_name, param_value|
-				if ! ["controller", "action", "submit", "_submit"].member?(param_name)
+				if ! ["controller", "action", "page_path", "authenticity_token"].member?(param_name)
 					begin
 						# Clean each param with name method if supplied, otherwise
 						# use default method and "correct" parameters
 						clean_meth_name = "clean_#{param_name}"
 						if ! self.respond_to?(clean_meth_name)
-							clean_meth_name = "clean_param"
+							clean_meth_name = "clean_default"
 						end
 						clean_value = self.send(clean_meth_name, param_value)
 						raw_params[param_name] = clean_value
@@ -160,8 +160,12 @@ module ToolForms
 			end
 		end
 	
-		def self.clean_param(val_str)
-			return val_str.strip()
+		def self.clean_default(val_str)
+			if val_str.class == String
+				return val_str.strip()
+			else
+				return val_str
+			end
 		end
 
 		def self.validate_all(params)
@@ -176,6 +180,18 @@ module ToolForms
 		
 		def self.process(params)
 			# NOTE: returns results & errors
+			meth_name = "process_default"
+			submit_val = params.fetch("_submit", params.fetch("submit", false))
+			if (submit_val)
+				tmp_meth_name = "process_#{submit_val.downcase}"
+				if self.respond_to?(tmp_meth_name)
+					meth_name = tmp_meth_name
+				end
+			end
+			return self.send(meth_name, params)
+		end
+		
+		def self.process_default(params)
 			return ["foo", 127], []
 		end
 		

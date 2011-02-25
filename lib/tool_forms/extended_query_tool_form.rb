@@ -54,12 +54,11 @@ module ToolForms
 		#	validate(false, "this is another error!")
 		#end
 		
-		## Service:
+		## Services:
 		
 		# Return all resistance reports for this season & virus type & country
-		def self.process(params)
+		def self.process_default(params)
 			# TODO: allow multiple seaons & virus types? Ordering?
-			pp "**** params #{params}"
 			
 			# retreive matching records
 			reports = Susceptibility.scoped(:conditions => {
@@ -76,7 +75,7 @@ module ToolForms
 			# NOTE: returns results & errors
 			return ["foo", 127], []
 		end
-				
+		
 	end
 
 end
