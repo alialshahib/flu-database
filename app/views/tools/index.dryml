@@ -2,7 +2,7 @@
 <docpage title="Tools & utilities">
 	<doc-content:>
 		
-		<h3>Tools</h3> 
+		<subhead>Tools</subhead> 
 		<ul>
 			<li><a href="bulkupload">Bulk upload of resistance data</a></li>
 			<li><a href="exquery">Extended query</a></li>
@@ -13,35 +13,37 @@
 		
 		<% if current_user.administrator? %>
 			<!-- provide quick links to editting -->
-			<h3>Administrative tools</h3> 
+			<subhead>Administrative tools</subhead> 
 			
 				<p>From here you can browse and edit all data. Be careful, this
 				provides access to the full, raw data.</p>
 			
-				<p>Entered data:</p>
+				<subsubhead>Entered data:</subsubhead>
 				
 				<ul>
-					<nav-item with="&Patient">Patients</nav-item>
-					<nav-item with="&Sequence">Sequences</nav-item>
-					<nav-item with="&Mutation">Mutations</nav-item>
-					<nav-item with="&Threshold">Season threshold reports</nav-item>
-					<nav-item with="&Thresholdentry">Season threshold report entries</nav-item>
-					<nav-item with="&Susceptibility">Susceptibility reports</nav-item>
-					<nav-item with="&SusceptibilityReportEntry">Susceptibility report entries</nav-item>
+					<%-
+						link_list = [Patient, Sequence, Mutation, Threshold,
+							Thresholdentry, Susceptibility,
+							SusceptibilityReportEntry]
+					%>
+					<nav-item repeat="&link_list" with="&this">
+						<%= this.view_hints.model_name_plural %>
+					</nav-item>
 				</ul>
 				
-				<p>Vocabularies and domain tables:</p>
+				<subsubhead>Vocabularies and domain tables:</subsubhead>
 				
 				<ul>
-					<nav-item with="&Country">Countries</nav-item>
-					<nav-item with="&Drug">Drugs</nav-item>
-					<nav-item with="&VirusType">Virus types</nav-item>
-					<nav-item with="&Season">Seasons</nav-item>
-					<nav-item with="&Gene">Genes</nav-item>
-					<nav-item with="&PatientLocation">Patient locations</nav-item>
+					<%-
+						link_list = [Country, Drug, VirusType, Season,
+							Gene, PatientLocation]
+					%>
+					<nav-item repeat="&link_list" with="&this">
+						<%= this.view_hints.model_name_plural %>
+					</nav-item>
 				</ul>
 	
-				<p>User administration:</p>
+				<subsubhead>User administration:</subsubhead>
 				
 				<ul>
 					<nav-item with="&User">Users</nav-item>

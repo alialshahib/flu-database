@@ -19,7 +19,11 @@ class ToolsController < ApplicationController
 
 end
 
+
 def process_form(tf, req)
+	# XXX: this is not great and puts far to much work in the controller
+	# TODO: refactor or more to a more logical place
+	
 	# The torturous logic of this method: we are handed a toolform & request ...
 	# Only process form if there has been a submission, otherwise results are nil
 	results = nil
@@ -33,8 +37,9 @@ def process_form(tf, req)
 		# if there are any errors (from validation or processing), show them
 		if 0 < errors.size()
 			flash[:error] = errors.collect { |e|
-				e[0].nil? ? e[1] : "#{e[0].capitalize}: #{e[1]}"
-			}.join('<br />')
+				msg = e[0].nil? ? e[1] : "#{e[0].capitalize}: #{e[1]}"
+				"<p>#{msg}</p>"
+			}.join("\n")
 			results = nil
 		end
 	end

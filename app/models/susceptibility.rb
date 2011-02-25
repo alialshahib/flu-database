@@ -15,7 +15,6 @@ class Susceptibility < ActiveRecord::Base
     other_namely :string
     not_known :boolean 
     date_specimen_collected :date
-   # country enum_string(:brazil, :argentina, :chile, :colombia, :peru, :uruguay)
     iC50_zanamivir_MUNANA_nm :decimal
     iC50_zanamivir_na_star_nm :decimal
     iC50_zanamivir_other_nm :decimal
@@ -52,12 +51,15 @@ class Susceptibility < ActiveRecord::Base
     hospitalisation enum_string(:no, :yes, :not_known)
     death enum_string(:no, :yes, :not_known)
 #    note :html
+
     timestamps
   end
 	
 #	validates_date :date_specimen_collected => Date.nil
 
     belongs_to :season
+    belongs_to :country
+    belongs_to :virus_type
 
  
     # Paperclip

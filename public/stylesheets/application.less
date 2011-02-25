@@ -149,6 +149,45 @@ a.edit-link, a.new-link, a.cancel {
 }
 
 
+/*** FLASHES & MESSAGES */
+/*
+Attempts to unify and share the declarations here result in the base formatting
+coming through.
+TODO: investigate generated css.
+*/
+
+.flash {
+	margin-top: 15px;
+}
+
+.flash.notice, .flash.success {
+	background: #DFF2BF;
+	color:  #4F8A10;
+	background-image: url(/images/icons/32/comment.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid;
+}
+
+.flash.error {
+	background: #BC1C3D;
+	color: white;
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+	border: 1px solid #900024;
+}
+
+div.section.error-messages {
+	background-image: url(/images/icons/32/error.png);
+	background-repeat: no-repeat;
+	background-position: 8px center;
+	padding-left: 48px;
+}
+
+
 /* MAIN CONTENT */
 
 /*
@@ -171,9 +210,29 @@ div.section.content {
 	}
 	
 	p, ul, ol, h1, h2, h3, h4, h5 {
-		margin-bottom: 0.5em;
+		margin-bottom: 0.75em;
 	}
-		
+	
+	h2, h3, h4, h5 {
+		margin-top: 1.5em;
+	}
+	
+	h2 {
+		font-size: 150%;
+		line-height: normal;
+	}
+	
+	h3 {
+		font-size: 110%;
+		font-weight: bold;
+	}
+	
+	h4 {
+		font-size: 100%;
+		text-decoration: underline;
+		font-weight: normal;
+	}
+	
 	p.byline {
 		margin-top: 0.5em;
 		padding-top: 0.25em;

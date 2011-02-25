@@ -138,20 +138,62 @@ a.cancel:hover {
   width: 50%;
   margin: 0;
 }
+.flash { margin-top: 15px; }
+.flash.notice, .flash.success {
+  background: #dff2bf;
+  color: #4f8a10;
+  background-image: url(/images/icons/32/comment.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+  border: 1px solid;
+}
+.flash.error {
+  background: #bc1c3d;
+  color: white;
+  background-image: url(/images/icons/32/error.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+  border: 1px solid #900024;
+}
+div.section.error-messages {
+  background-image: url(/images/icons/32/error.png);
+  background-repeat: no-repeat;
+  background-position: 8px center;
+  padding-left: 48px;
+}
 div.section.content {
   margin: 0;
   padding: 0 45px 15px 45px;
 }
 div.section.content .content-header { margin: 0 0 15px 0; }
 div.section.content .content-body { margin: 0 0 15px 0; }
-div.section.content p { margin-bottom: 0.5em; }
-div.section.content ul { margin-bottom: 0.5em; }
-div.section.content ol { margin-bottom: 0.5em; }
-div.section.content h1 { margin-bottom: 0.5em; }
-div.section.content h2 { margin-bottom: 0.5em; }
-div.section.content h3 { margin-bottom: 0.5em; }
-div.section.content h4 { margin-bottom: 0.5em; }
-div.section.content h5 { margin-bottom: 0.5em; }
+div.section.content p { margin-bottom: 0.75em; }
+div.section.content ul { margin-bottom: 0.75em; }
+div.section.content ol { margin-bottom: 0.75em; }
+div.section.content h1 { margin-bottom: 0.75em; }
+div.section.content h2 { margin-bottom: 0.75em; }
+div.section.content h3 { margin-bottom: 0.75em; }
+div.section.content h4 { margin-bottom: 0.75em; }
+div.section.content h5 { margin-bottom: 0.75em; }
+div.section.content h2 { margin-top: 1.5em; }
+div.section.content h3 { margin-top: 1.5em; }
+div.section.content h4 { margin-top: 1.5em; }
+div.section.content h5 { margin-top: 1.5em; }
+div.section.content h2 {
+  font-size: 150%;
+  line-height: normal;
+}
+div.section.content h3 {
+  font-size: 110%;
+  font-weight: bold;
+}
+div.section.content h4 {
+  font-size: 100%;
+  text-decoration: underline;
+  font-weight: normal;
+}
 div.section.content p.byline {
   margin-top: 0.5em;
   padding-top: 0.25em;

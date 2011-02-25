@@ -92,8 +92,12 @@ This simply used for laying out DRYML and marking where parts are to go.
 
 
 <def tag="input" for="date" attrs="order">
-  <% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
-  <%= select_date(this || Time.now, attributes.merge(:prefix => param_name_for_this, :order => order, :include_blank => true)) %>
+	<% order = order.nil? ? [:day, :month, :year] : comma_split(order).*.to_sym -%>
+	<%=
+		select_date(this || Time.now, attributes.merge(
+			:prefix => param_name_for_this, :order => order,
+			:include_blank => true))
+	%>
 </def>
 
 
@@ -102,10 +106,34 @@ This simply used for laying out DRYML and marking where parts are to go.
    titleize = true if titleize.nil? %>
   <select name="#{param_name_for_this}" merge-attrs>
   <option value=''/>  
-   <%= options_for_select(this_type.values.map {|v| [labels.fetch(v.to_sym, titleize ? v.titleize : v), v] }, this) %> 
+   <%=
+		options_for_select(this_type.values.map { |v|
+			[labels.fetch(v.to_sym, titleize ? v.titleize : v), v] }, this)
+	%> 
   </select>
 </def>
 
 
+<%#
+Tags for headings.
 
+These are just simple shortcuts to unify the presentation of headings. The head
+is a title at the top of the page, subhead and subsubhead are the obvious
+divisions below that. Note that we do not give a "head" tag, because this seems
+to collide with other definitions. Also, it's mostly part of the page tags.
+
+The head is H2, and the sub- and subsubhead levels are based on that.
+
+%>
+<def tag="subhead">
+	<h3 class="subhead" param="default">SUBHEAD HERE</h3>
+</def>
+
+<def tag="subsubhead">
+	<h4 class="subsubhead" param="default">SUBSUBHEAD HERE</h4>
+</def>
+
+
+<%# Tag to be used for cases where no data is provided %>
+<def tag="nil-view">-</def>
 

@@ -10,9 +10,11 @@ elsewhere.
 
 
 %>
-<def tag="tool-page" attrs="toolform">
+<def tag="tool-page" attrs="toolform, method">
 	<page title="&this.title" merge-attrs>
 		<content:>
+			<p>&laquo; <a href="." class="discrete">Back to all tools</a></p>
+
 			<h2 param="title"><%= this.title %></h2>
 		
 			<%# pre-ramble %>
@@ -50,7 +52,8 @@ elsewhere.
 			
 			<%# put the form here %>
 			<div class="tool-form">
-				<form action="" method="GET">
+				<% method ||= "GET" -%>
+				<form action="" method="&method">
 					<div param="tool-form-body" parameters="&request.parameters">
 						THIS IS WHERE THE FORM FIELDS GO
 					</div>

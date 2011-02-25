@@ -1,5 +1,5 @@
 
-<tool-page with="&ToolForms::ExtendedQueryToolForm">
+<tool-page with="&ToolForms::ExtendedQueryToolForm" method="GET">
 
 	<tool-form-body:>
 

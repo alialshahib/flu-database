@@ -102,7 +102,7 @@ module ToolForms
 		def self.is_valid?(raw_params)
 			# TODO: convert param ids to proper titles
 			
-			# the parameters to parse
+			# what we#re collecting & returning
 			converted_params = {}
 			errors = []
 			raw_params.each { |param_name, param_value|
@@ -111,7 +111,6 @@ module ToolForms
 						# Clean each param with name method if supplied, otherwise
 						# use default method and "correct" parameters
 						clean_meth_name = "clean_#{param_name}"
-						pp "looking for #{clean_meth_name} ..."
 						if ! self.respond_to?(clean_meth_name)
 							clean_meth_name = "clean_param"
 						end
@@ -121,7 +120,6 @@ module ToolForms
 						# Validate & convert each param with name method if supplied,
 						# otherwise take as is. 
 						validate_meth_name = "validate_#{param_name}"
-						pp "looking for #{validate_meth_name} ..."
 						if self.respond_to?(validate_meth_name)
 							converted_params[param_name] = self.send(validate_meth_name, clean_value)
 						else
