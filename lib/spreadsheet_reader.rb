@@ -45,13 +45,10 @@ module SpreadsheetReader
 		#    rdr = XlsReader('my-excel.xls')
 		#    rdr = XlsReader('my-excel.xls', {'foo_bar'=> 'foobar'})
 		#
-		def initialize(infile, file_type=nil)
-			if file_type.nil?
-				
-			end
-			if (infile[/\.xls$/] != nil)
+		def initialize(infile, file_type='xls')
+			if file_type == 'xls'
 				@wbook = Excel.new(infile)
-			elsif (infile[/\.xlsx$/] != nil)
+			elsif file_type == 'xlsx'
 				@wbook = ExcelX.new(infile)
 			end
 			# NOTE: in roo, you don't select a worksheet, you name the current one
