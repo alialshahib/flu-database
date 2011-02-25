@@ -32,7 +32,7 @@
 </def>
 
 <extend tag="page">
-  <old-page  merge without-live-search>
+  <old-page  merge without-live-search> 
    <content: replace>
     <section-group class="page-content">
       <aside param="aside1"><search-and-browse/></aside>
@@ -40,7 +40,7 @@
     </section-group>
    </content:>
      <footer: param><footer-nav/></footer:> 
-  </old-page>
+  </old-page> 
 </extend>
 
 
@@ -58,25 +58,20 @@
     <h3>Background and Contacts</h3>
       <navigation current="&current_subject">
         <nav-item href="/docs/about">About SAIRD</nav-item>
-        <nav-item href="/docs/contact">Contact</nav-item>
         <nav-item href="/docs/help">Help</nav-item>
-        <nav-item href="/">Reports</nav-item>
-        <nav-item href="/">Annual Reports</nav-item>
-        <nav-item href="/">Case Definitions</nav-item>
+        <nav-item href="/docs/reports">Reports</nav-item>
+        <nav-item href="/docs/case_definitions">Case Definitions</nav-item>
       </navigation>
    </div>
   </div>
 </def>
 
-
-
 <def tag="footer-nav">
     <ul>
-	<nav-item href="/">SAIRD</nav-item>
 	<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
-	<nav-item href="/">Site Map</nav-item>
+	<nav-item href="/docs/site_map">Site Map</nav-item>
 	<nav-item href="/">Policies and Links</nav-item>
-	<nav-item href="/">Contacts</nav-item>
+	<nav-item href="/docs/contact">Contact</nav-item>
     </ul>
 </def>
 
@@ -151,7 +146,12 @@ TODO: sort, refactor and arrange in a suitable place
     <field-list fields="iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um"/>
 	<br />
 	<h3><b>Please enter Accession number for sequence data</b></h3>
-    <field-list fields="na_sequence, ha_sequence, m2_sequence, comment"/> 
+	<table>
+	<tr><td width="100"></td><td><b>ISD Number</b></td><td><b>AA Resistance Mutations (e.g. S31N; etc)</b></td></tr>
+	<tr><td><b>NA Sequence </b></td><td><field-list fields="na_sequence"/></td><td width="550"><field-list fields="na_sequence_aa"/></td></tr>
+	<tr><td><b>HA Sequence </b></td><td><field-list fields="ha_sequence"/></td><td><field-list fields="ha_sequence_aa"/></td></tr>
+        <tr><td><b>M2 Sequence </b></td><td><field-list fields="m2_sequence"/></td><td><field-list fields="m2_sequence_aa"/></td></tr>
+	</table>
 	<br />   
         <hr /> 
     <h3><b>Please enter data on patient from which virus has been isolated</b></h3>
@@ -318,15 +318,19 @@ TODO: sort, refactor and arrange in a suitable place
 	<tr><td><b>Zanamivir</b></td></tr>
 	<tr><td>Minor outlier cuttoff (nM)</td><td><field-list fields="zanamivir_munana_minor_outlier"/></td><td><field-list fields="zanamivir_nastar_minor_outlier"/></td><td><field-list fields="zanamivir_other_minor_outlier"/></td></tr>
 	<tr><td>Major outlier cuttoff (nM)</td><td><field-list fields="zanamivir_munana_major_outlier"/></td><td><field-list fields="zanamivir_nastar_major_outlier"/></td><td><field-list fields="zanamivir_other_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	<tr><td><b>Oseltamivir</b></td></tr>
         <tr><td>Minor outlier cuttoff (nM)</td><td><field-list fields="oseltamivir_munana_minor_outlier"/></td><td><field-list fields="oseltamivir_nastar_minor_outlier"/></td><td><field-list fields="oseltamivir_other_minor_outlier"/></td></tr>
         <tr><td>Major outlier cuttoff (nM)</td><td><field-list fields="oseltamivir_munana_major_outlier"/></td><td><field-list fields="oseltamivir_nastar_major_outlier"/></td><td><field-list fields="oseltamivir_other_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
  	<tr><td><b>Amantadine</b></td></tr>
-        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><field-list fields="amantadine_munana_minor_outlier"/></td></tr>
-	<tr><td>Major outlier cuttoff (&micro;M)</td><td><field-list fields="amantadine_munana_major_outlier"/></td></tr>
+        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="amantadine_munana_minor_outlier"/></td></tr>
+	<tr><td>Major outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="amantadine_munana_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	<tr><td><b>Rimantadine</b></td></tr>
-        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><field-list fields="rimantadine_munana_minor_outlier"/></td></tr>
-        <tr><td>Major outlier cuttoff (&micro;M)</td><td><field-list fields="rimantadine_munana_major_outlier"/></td></tr>
+        <tr><td>Minor outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="rimantadine_munana_minor_outlier"/></td></tr>
+        <tr><td>Major outlier cuttoff (&micro;M)</td><td><p>&nbsp;</p></td><td><p>&nbsp;</p></td><td><field-list fields="rimantadine_munana_major_outlier"/></td></tr>
+	<tr><td><p>&nbsp;</p></td></tr>
 	</table>
    </form>
 	<br /> 

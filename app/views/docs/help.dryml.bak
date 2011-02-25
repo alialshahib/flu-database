@@ -1,0 +1,22 @@
+
+<docpage title="Help">
+	<doc-content:>
+	<ol>
+		<li><b> How do I sign up for the first time in the web site?</b> </li>
+		There is a sign up link at the top right hand corner where you may sign up for the first time.
+		<li><b> What if I have forgotton my password??</b></li>
+		There is a link at the login page that will send you an email with your passoword.
+		<li><b> I need to insert many threshold reports for each drug.  How can I do that??</b></li>
+		Click on 'Threshold reports' then 'New threshold report' and you may enter the threshold data.  You may repeat this as many times as you like.		
+		<li><b> I have my data in an excel file.  How can I upload this data into the database? ?</b></li>
+		Go to 'Tools' and 'Bulk upload of resistance data'.
+		<li><b> How can I insert my susceptibility data manually??</b></li>
+		Go to 'Resistance reports' and 'New Susceptibility'. See below for more information.
+		<li><b> How can I get a graphic overview of my resistance data? ?</b></li>
+		Go to 'Tools' and 'Graph resistance data' and follow the instructions.
+	</ol>	
+
+	
+
+	</doc-content:>
+</docpage>

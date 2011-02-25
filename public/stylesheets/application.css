@@ -14,16 +14,16 @@
 }
 body {
   background: beige;
-  color: #e67e00;
+  color: black;
   width: auto;
   padding-left: 8%;
   padding-right: 8%;
 }
 div.page-header h1.app-name {
-  background: white url('../images/said_logo_new.png') no-repeat 20px 10px;
+  background: white url('../images/said_logo_new_5.png') no-repeat 20px 10px;
   padding: 0;
   margin: 0;
-  height: 160px;
+  height: 180px;
 }
 div.page-header h1.app-name a {
   display: block;
@@ -62,10 +62,16 @@ div.page-header .main-nav li a:hover {
   background: white !important;
   color: #e67e00;
 }
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 100%;
+}
 .button {
   color: white;
   background: #e67e00;
   border: 1px solid #e67e00;
+  font-size: 80%;
   padding: 5px 10px;
   width: auto;
   fotn-size: 11px;
@@ -75,7 +81,7 @@ div.page-header .main-nav li a:hover {
   -webkit-box-align: center;
 }
 .button:hover {
-  color: #e67e00;
+  color: black;
   background: white;
   cursor: pointer;
 }
@@ -100,6 +106,7 @@ a.edit-link {
   color: #e67e00;
   border: 1px solid #e67e00;
   padding: 0px 2px;
+  font-size: 80%;
 }
 a.edit-link:hover {
   color: white;
@@ -110,6 +117,7 @@ a.new-link {
   color: #e67e00;
   border: 1px solid #e67e00;
   padding: 0px 2px;
+  font-size: 80%;
 }
 a.new-link:hover {
   color: white;
@@ -120,6 +128,7 @@ a.cancel {
   color: #e67e00;
   border: 1px solid #e67e00;
   padding: 0px 2px;
+  font-size: 80%;
 }
 a.cancel:hover {
   color: white;

@@ -1,6 +1,60 @@
 
 <docpage title="Help">
 	<doc-content:>
-		How to use this site.
+	<ol>
+		<li><b> How do I sign up for the first time in the web site?</b> </li>
+		There is a sign up link at the top right hand corner where you may sign up for the first time.
+		<li><b> What if I have forgotten my password?</b></li>
+		There is a link at the login page that will send you an email with your password.
+		<li><b> I need to insert many threshold reports for each drug.  How can I do that?</b></li>
+		Click on 'Threshold reports' then 'New threshold report' and you may enter the threshold data.  You may repeat this as many times as you like.		
+		<li><b> I have my data in an excel file.  How can I upload this data into the database?</b></li>
+		Go to 'Tools' and 'Bulk upload of resistance data'.
+		<li><b> How can I insert my susceptibility data manually?</b></li>
+		Go to 'Resistance reports' and 'New Susceptibility'. See below for more information.
+		<li><b> How can I get a graphic overview of my resistance data?</b></li>
+		Go to 'Tools' and 'Graph resistance data' and follow the instructions.
+	</ol>	
+
+<h2>Field definitions for 'Resistance Data' entry</h2>
+<font color="red">Season:</font><br />
+Pick the appropriate season. Based on the season picked additional assay types to enter susceptibility data for
+might become available. <br />
+<font color="red">Isolate name:</font><br />
+Use the WHO standard, e.g. A/Baden-Wüberg/362/2005.  <br />
+<font color="red">Virus (sub)type:</font><br />
+Pick the appropriate virus (sub)type. <br />
+<font color="red">Source virus:</font><br />
+Check appropriate radio button. If None-sentinel patient has been chosen check the appropriate source; if
+Others is checked, enter which complication in the text box. <br />
+<font color="red">Date specimen collected:</font><br />
+Enter the appropriate date.<br />
+<font color="red">Sensitivity for each data source:</font><br />
+Enter the data with a maximum of two decimals.<br />
+<font color="red">Sequence data:</font><br />
+ISD Number: If sequence has been uploaded in ISD (or elsewhere, e.g. GenBank), provide the accession
+number here.<br />
+aa resistance mutations (e.g. S31N; etc): Enter found resistance aa mutations here.<br />
+<font color="red">Comment:</font><br />
+Enter general comments on the susceptibility of this particular virus isolate here.<br /><br />
+<font color="red"><b>Data on patient from which virus has been isolated</b></font><br /><br />
+<font color="red">Date of birth:</font><br />
+Enter the appropriate date.<br />
+<font color="red">Gender:</font><br />
+Check appropriate box.<br />
+<font color="red">Vaccinated for current flu season:</font><br />
+Check appropriate box.<br />
+<font color="red">Exposure to flu antivirals:</font><br />
+Patient: check appropriate box. If Yes has been chosen, pick the appropriate antiviral from the drop down box.<br />
+Household contact: check appropriate radio button. If Yes has been chosen, pick the appropriate antiviral from the drop down box. <br />
+<font color="red">Geographic location:</font><br />
+Enter the geographic location of the patient as detailed as allowed by local regulations.<br />
+<font color="red">Disease progression in the community:</font><br />
+Check the appropriate box. If Complicated has been chosen check the appropriate complication; if others is checked, enter which complication in the text box.<br />
+<font color="red">Hospitalisation:</font><br />
+Check the appropriate box.<br />
+<font color="red">Death</font><br />
+Check the appropriate box.	<br />
+
 	</doc-content:>
 </docpage>
