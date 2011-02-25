@@ -37,6 +37,7 @@ module ToolForms
 			# TODO: allow multiple seaons & virus types? Ordering?
 			pp "**** params #{params}"
 			pp params["spreadsheet"].methods.sort
+			pp "**** path #{params['spreadsheet'].original_filename}"
 			
 			# NOTE: returns results & errors
 			return ["foo", 127], []

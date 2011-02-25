@@ -1,12 +1,6 @@
 # Spreadsheet reading and value normalization.
 #
-# The main (primary) database objects share several fields and their associated
-# methods (identifier, description, name). For efficacy, they are gathered here.
-#
 module SpreadsheetReader
-
-
-	# Test Roo for reading sample excel spreadsheets
 	
 	# The reader should read a row from the passed spreadsheet and pass a hash of
 	# value-pairs to a block. It should expect a heading, but must allow for
@@ -19,15 +13,11 @@ module SpreadsheetReader
 	
 	### IMPORTS
 	
-	require 'excel_utils.rb'
 	require 'roo'
 	require 'pp'
 	
 	
-	### CONSTANTS & DEFINES
-	
-	INPUT_FILE = 'example-upload.xls'
-	
+	### CONSTANTS & DEFINES	
 	
 	### IMPLEMENTATION ###
 	
@@ -55,7 +45,10 @@ module SpreadsheetReader
 		#    rdr = XlsReader('my-excel.xls')
 		#    rdr = XlsReader('my-excel.xls', {'foo_bar'=> 'foobar'})
 		#
-		def initialize(infile, syn_dict={})
+		def initialize(infile, file_type=nil)
+			if file_type.nil?
+				
+			end
 			if (infile[/\.xls$/] != nil)
 				@wbook = Excel.new(infile)
 			elsif (infile[/\.xlsx$/] != nil)
@@ -63,7 +56,7 @@ module SpreadsheetReader
 			end
 			# NOTE: in roo, you don't select a worksheet, you name the current one
 			@wbook.default_sheet = wbook.sheets.first
-			@syn_dict = syn_dict
+			@syn_dict = {}
 		end
 		
 		# Read the sheet, and return each non-header row to the passed block.
