@@ -2,12 +2,14 @@
 General stylesheet for application.
 
 This should be placed in app/stylesheets and will generate the equivalent .css
-file in public/stylesheets.
+file in public/stylesheets. 
+
+Note that comments in this file are stripped out by the less processing.
 */
 
-/* IMPORTS */
+/*** IMPORTS */
 
-/* CONSTANTS & DEFINES */
+/*** CONSTANTS & DEFINES */
 
 /*
 According to our color tool, 4 magic colors that work together.
@@ -26,7 +28,8 @@ TODO: change element colors to match these.
 
 @discrete-border-style:  1px dotted @discrete-text-clr;
 
-@gutter-width: 8%;
+/* space on either side of main content */
+@gutter-width: 4%;
 
 @logo-ht: 180px;
 
@@ -36,7 +39,7 @@ TODO: change element colors to match these.
 /* OVERALL LAYOUT */
 
 html, body {
-	background: #737373;
+	background: @darkgray;
 	font-size: 1.0em;
 }
 
@@ -60,10 +63,7 @@ div.page-header {
 		height: @logo-ht;
 		
 		a {
-			display:block;  
-			width:100%;  
-			height:100%;  
-			color: transparent;  
+			color: @orangebrown;  
 		}
 	}
 
@@ -254,7 +254,7 @@ div.section.content {
 }
 
 /*
-NOTE: there's some wierdness in the account details, login and signup pages
+NOTE: there's some weirdness in the account details, login and signup pages
 where they are all very narrow, although not in quite the same ways. Fixed now.
 */
 .user-account-page .change-password {
@@ -331,7 +331,7 @@ div.tool-results, div.tool-form {
 	border-top: 1px solid  #E67E00;
 	font-size: 12px;
 	line-height: 10px;
-	padding: 5px 0px 10px 240px;
+	padding: 5px 0px 10px 20px;
 	margin-top: 0;
    position: right;
 
@@ -340,7 +340,6 @@ div.tool-results, div.tool-form {
 		
 		li {
 			float: left;
-			border-right: 1px solid #E67E00;
 			margin: 10;
 			padding: 0 15px 0px 0px;
 			

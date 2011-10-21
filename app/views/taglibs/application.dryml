@@ -6,11 +6,20 @@
 <include src="taglibs/auto/rapid/forms"/>
 
 <!-- general definitions and settings -->
+<%#
+Here are things to be customised for individual installations.
+%>
+
+
 <set-theme name="clean"/>
 
-<def tag="app-name"></def> 
+<def tag="app-name">SAIRD</def> 
+
+<def tag="hosted-logo"><img src='../images/hpa_logo_64.png' /></def>
+
 
 <!-- plugins & extensions -->
+<!-- TODO: get rid of this and all papaerclip -->
 <include src="paperclip" plugin="paperclip_with_hobo"/>
 
 <!-- features and tags for all pages -->
@@ -20,6 +29,9 @@
 <!-- toolforms -->
 <include src="docs/page" />
 <include src="tools/page" />
+
+
+<!-- TODO: move all of this shit out of here -->
 
 
 <def tag="nav-panel">
@@ -68,9 +80,8 @@
 
 <def tag="footer-nav">
     <ul>
-	<nav-item href="http://www.hpa.org.uk/">hpa.org.uk</nav-item>
-	<nav-item href="/docs/site_map">Site Map</nav-item>
-	<nav-item href="/">Policies and Links</nav-item>
+	<nav-item href="/docs">About &amp; help</nav-item>
+	<nav-item href="http://www.hpa.org.uk/"><hosted-logo /></nav-item>
 	<nav-item href="/docs/contact">Contact</nav-item>
     </ul>
 </def>

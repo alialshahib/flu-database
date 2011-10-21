@@ -68,27 +68,12 @@ FIXME: not showing up for seasons?
 </extend>
 
 
-<%#
-Place a link at the top of all show pages that points to the index.
 
-There's some confusion here: a "parent-link" appears at the top of several show
-pages, but is a little cryptic (e.g. "2 Countries" on the user page? and
-something hinky seems to be going on with context as this resolves to a list of
-countries. It turns out that this is done just for objects that belong to a
-collection (:belongs_to) and the link is being generated to point to other
-objects of that collection. So this scrubs the collection link in favour of an
-index link.
-
-TODO: some better styling?
-TODO: using the relative url is a bit suspect
-TODO: making naming/wording a bit better
-FIXME: not showing up for seasons?
-%>
 <def tag="main-nav">
 	<navigation class="main-nav" >
 		<nav-item href="#{base_url}/">Home</nav-item>
-		<nav-item with="&Threshold"><ht key="thresholds.nav_item">Threshold reports</ht></nav-item>
-		<nav-item with="&Susceptibility"><ht key="susceptibilities.nav_item">Resistance reports</ht></nav-item>
+		<nav-item with="&Threshold"><ht key="thresholds.nav_item">Trial Series</ht></nav-item>
+		<nav-item with="&Susceptibility"><ht key="susceptibilities.nav_item">Trials</ht></nav-item>
 		<nav-item href="#{base_url}/tools/">Tools</nav-item>
 	</navigation>
 </def> 
