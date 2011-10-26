@@ -36,19 +36,27 @@ TODO: change element colors to match these.
 
 /*** IMPLEMENTATION */
 
+/* GENERAL STYLES */
+
+.undecorated_link {
+	text-decoration: none;
+	border-width: 0px;
+}
+
+
 /* OVERALL LAYOUT */
 
 html, body {
 	background: @darkgray;
 	font-size: 1.0em;
+	font-family: franklin-gothic-urw, sans-serif;
 }
 
 body {
 	background: beige;
 	color: @body-clr;
 	width: auto;
-	padding-left: @gutter-width;
-	padding-right: @gutter-width;
+	padding: 0 @gutter-width;
 }
 
 
@@ -58,12 +66,15 @@ body {
 div.page-header {
 	
 	h1.app-name {
-		background: white url('../images/said_logo_new_5.png') no-repeat 20px 10px;
-		padding: 0; margin: 0; 
-		height: @logo-ht;
+		padding: 10px;
+		margin: 0px; 
+		text-align: center;
+		background: white;
 		
 		a {
-			color: @orangebrown;  
+			margin: 10px auto;
+			padding: 0px;
+			.undecorated_link;
 		}
 	}
 
@@ -74,20 +85,20 @@ div.page-header {
 		height: 21px;
 		width: 100%;
 		line-height: 21px;
-		padding: 0;
+		padding: 0px;
 		text-align: right;
 		background: @menu-clr;
 	
 		li {
-			margin: 0;
-			padding: 0;
+			margin: 0px;
+			padding: 0px;
 			display:inline;
 			float:none;
 			width:100%;  
 			height:100%;
 	
 			a {
-				margin: 0;
+				margin: 0px;
 				font-weight: normal;
 				display:inline;
 				font-size: 1.1em;
@@ -112,7 +123,7 @@ div.page-header {
 
 table {
         border-collapse: separate;
-        border-spacing: 0;
+        border-spacing: 0px;
         font-size: 100%
 }
 
@@ -156,7 +167,7 @@ a.edit-link, a.new-link, a.cancel {
 .field-list {
 	textarea, input[type=text], input[type=password] {
 		width: 50%;
-		margin: 0;
+		margin: 0px;
 	}
 }
 
@@ -210,15 +221,15 @@ content had to be individually indented. Now we just let them fill the enclosing
 block, and set internal padding on it.
 */
 div.section.content {
-	margin: 0;
+	margin: 0px;
 	padding: 0 45px 15px 45px;
 	
 	.content-header {
-		margin: 0 0 15px 0;
+		margin: 0 0 15px 0px;
 	}
 	
 	.content-body {
-		margin: 0 0 15px 0;
+		margin: 0 0 15px 0px;
 	}
 	
 	p, ul, ol, h1, h2, h3, h4, h5 {
@@ -281,7 +292,7 @@ div.page-content, div.page-content .aside { background: white; }
  
 	h3 {
 		background: #E67E00; color: black;
-		margin: 0; padding: 3px 5px;
+		margin: 0px; padding: 3px 5px;
 		font-weight: normal; font-size: 13px;
 	}
 	
@@ -291,7 +302,7 @@ div.page-content, div.page-content .aside { background: white; }
 		list-style-type: circle;
 		
 		.li {
-			padding: 3px 0;
+			padding: 3px 0px;
 			font-size: 11px;
 			lineheight:14px;
 			color: white;
@@ -326,26 +337,24 @@ div.tool-results, div.tool-form {
 
 .page-footer {
 	background: white no-repeat bottom right; 
-	overflow: hidden;
-	height: 100%;
 	border-top: 1px solid  #E67E00;
-	font-size: 12px;
-	line-height: 10px;
-	padding: 5px 0px 10px 20px;
-	margin-top: 0;
-   position: right;
+	padding: 10px;
+   text-align: center;
 
 	ul {
 		list-style-type: none;
 		
 		li {
-			float: left;
-			margin: 10;
-			padding: 0 15px 0px 0px;
+			display: inline;
+			padding: 0 10px;
 			
 			a {
-				border:none;
+				.undecorated_link;
 				color: @discrete-text-clr;
+				
+				img {
+					vertical-align:middle;
+				}
 			}
 		}
 	}

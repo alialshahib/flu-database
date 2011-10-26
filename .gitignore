@@ -1,5 +1,7 @@
 *.swp
 *.tmp
+.tmp*
+*~
 *.log
 vendor/plugins/more
 *.sqllite3

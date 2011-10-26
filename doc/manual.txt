@@ -1,0 +1,52 @@
+=======================
+SAIRD Manual and How-To
+=======================
+
+Introduction
+------------
+
+Foo
+
+
+The SAIRD model
+---------------
+
+Drug resistance data is stored and arranged in SAIRD in this way:
+
+* The central records stored are *suseptibility reports*. These detail patient
+  data and drug treatment. Each report is allocated to a specific *season* and
+  *country*.
+
+* A country is given geographical area or reporting region.
+
+* A season is a period, that starts on a given day and continues until that
+  day on the following year.
+
+* Users must have accounts and are linked to a given country. They can see and
+  edit data only for the countries for which they have permission. Data from
+  other countries can only be seen in aggregate.
+
+* Administrators can 
+
+Conventions
+~~~~~~~~~~~
+
+Subsections within the SAIRD site are given either as the name of the section
+or as the relative url from the base of the site. For example:
+
+	*Trials*
+	``/trials/new``
+
+Where a sequence of menus or choices must be followed, these are given as a
+series of steps in typewriter font. For example:
+
+	``Home > Seasons > Add a season``
+
+
+For users
+---------
+
+
+For administrators
+------------------
+

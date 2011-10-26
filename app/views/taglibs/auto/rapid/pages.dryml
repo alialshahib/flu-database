@@ -951,6 +951,7 @@
           </header>
 
           <section param="content-body">
+            <view:description param="description"/>
             <field-list fields="year" param/>
           </section>
     </content:>

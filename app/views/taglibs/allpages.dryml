@@ -3,27 +3,39 @@
 <%#
 Change the overall page layout.
 
-This effects three changes:
+This effects several changes:
 * inserting the favicon in the page
 * inserting the page sidebar
-* inserting the default footer.
+* inserting the default footer
+* chnaging to the default site header
 
 XXX: merge without live search?
 %>
 <extend tag="page">
 	<old-page merge without-live-search>
+	
+
 		<after-scripts:>
-			<link rel="shortcut icon" href="/favicon.ico" />
+			<link rel="shortcut icon" href="#{base_url}/favicon.ico" />
 		</after-scripts:>
+		
 		<before-content:>
 			<section-group class="page-content">
 				<aside param="aside1"><search-and-browse/></aside>
 				<section param="content"/>
 			</section-group>
 		</before-content:>
+		
+		<app-name:>
+			<a href="#{base_url}/"><site-logo/></a>
+		</app-name>
+		
 		<footer: param><footer-nav/></footer:> 
+		
 	</old-page>
 </extend>
+
+
 
 
 
@@ -54,6 +66,14 @@ FIXME: not showing up for seasons?
 		<parent-link:>
 			 <!--&laquo; <a href="." class="discrete">browse all records</a>-->
 		</parent-link:>
+		
+		<before-content-body:>
+			<if test="&this.respond_to?(:description)">
+				<p class="description">
+					<view:description />
+				</p>
+			</if>
+		</before-content-body:>
 		
 		<after-content-body:>
 			<br clear="all" />

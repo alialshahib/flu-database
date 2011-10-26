@@ -15,6 +15,8 @@ Here are things to be customised for individual installations.
 
 <def tag="app-name">SAIRD</def> 
 
+<def tag="site-logo"><img src='../images/saird_logo_128.png' /></def>
+
 <def tag="hosted-logo"><img src='../images/hpa_logo_64.png' /></def>
 
 
@@ -43,17 +45,6 @@ Here are things to be customised for individual installations.
  </div>
 </def>
 
-<extend tag="page">
-  <old-page  merge without-live-search> 
-   <content: replace>
-    <section-group class="page-content">
-      <aside param="aside1"><search-and-browse/></aside>
-      <section param="content"/>
-    </section-group>
-   </content:>
-     <footer: param><footer-nav/></footer:> 
-  </old-page> 
-</extend>
 
 
 <def tag="search-and-browse" attrs="current-subject">

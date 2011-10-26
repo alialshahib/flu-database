@@ -21,6 +21,8 @@ Must do
 
 * Check & trial in IE
 
+* Set "contact" address in footer
+
 
 Should do
 ---------

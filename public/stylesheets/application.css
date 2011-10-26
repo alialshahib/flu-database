@@ -8,44 +8,53 @@
 
 
 
-*/html, body {
+*/.undecorated_link {
+  text-decoration: none;
+  border-width: 0px;
+}
+html, body {
   background: #737373;
   font-size: 1em;
+  font-family: franklin-gothic-urw, sans-serif;
 }
 body {
   background: beige;
   color: black;
   width: auto;
-  padding-left: 4%;
-  padding-right: 4%;
+  padding: 0 4%;
 }
 div.page-header h1.app-name {
-  background: white url('../images/said_logo_new_5.png') no-repeat 20px 10px;
-  padding: 0;
-  margin: 0;
-  height: 180px;
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
+  background: white;
 }
-div.page-header h1.app-name a { color: #e67e00; }
+div.page-header h1.app-name a {
+  margin: 10px auto;
+  padding: 0px;
+  text-decoration: none;
+  border-width: 0px;
+}
 div.page-header .main-nav {
   position: relative;
   top: 0px;
   height: 21px;
   width: 100%;
   line-height: 21px;
-  padding: 0;
+  padding: 0px;
   text-align: right;
   background: #e67e00;
 }
 div.page-header .main-nav li {
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
   display: inline;
   float: none;
   width: 100%;
   height: 100%;
 }
 div.page-header .main-nav li a {
-  margin: 0;
+  margin: 0px;
   font-weight: normal;
   display: inline;
   font-size: 1.1em;
@@ -59,7 +68,7 @@ div.page-header .main-nav li a:hover {
 }
 table {
   border-collapse: separate;
-  border-spacing: 0;
+  border-spacing: 0px;
   font-size: 100%;
 }
 .button {
@@ -133,15 +142,15 @@ a.cancel:hover {
 }
 .field-list textarea {
   width: 50%;
-  margin: 0;
+  margin: 0px;
 }
 .field-list input[type=text] {
   width: 50%;
-  margin: 0;
+  margin: 0px;
 }
 .field-list input[type=password] {
   width: 50%;
-  margin: 0;
+  margin: 0px;
 }
 .flash { margin-top: 15px; }
 .flash.notice, .flash.success {
@@ -169,11 +178,11 @@ div.section.error-messages {
   padding-left: 48px;
 }
 div.section.content {
-  margin: 0;
+  margin: 0px;
   padding: 0 45px 15px 45px;
 }
-div.section.content .content-header { margin: 0 0 15px 0; }
-div.section.content .content-body { margin: 0 0 15px 0; }
+div.section.content .content-header { margin: 0 0 15px 0px; }
+div.section.content .content-body { margin: 0 0 15px 0px; }
 div.section.content p { margin-bottom: 0.75em; }
 div.section.content ul { margin-bottom: 0.75em; }
 div.section.content ol { margin-bottom: 0.75em; }
@@ -223,7 +232,7 @@ div.page-content .aside { background: white; }
 .search-and-browse h3 {
   background: #e67e00;
   color: black;
-  margin: 0;
+  margin: 0px;
   padding: 3px 5px;
   font-weight: normal;
   font-size: 13px;
@@ -234,7 +243,7 @@ div.page-content .aside { background: white; }
 }
 .search-and-browse .navigation { list-style-type: circle; }
 .search-and-browse .navigation .li {
-  padding: 3px 0;
+  padding: 3px 0px;
   font-size: 11px;
   lineheight: 14px;
   color: white;
@@ -260,24 +269,18 @@ div.tool-results, div.tool-form {
 .dbg-msg { color: red; }
 .page-footer {
   background: white no-repeat bottom right;
-  overflow: hidden;
-  height: 100%;
   border-top: 1px solid #e67e00;
-  font-size: 12px;
-  line-height: 10px;
-  padding: 5px 0px 10px 20px;
-  margin-top: 0;
-  margin-left: auto;
-  margin-right: auto;
-  position: right;
+  padding: 10px;
+  text-align: center;
 }
 .page-footer ul { list-style-type: none; }
 .page-footer ul li {
-  float: left;
-  margin: 10;
-  padding: 0 15px 0px 0px;
+  display: inline;
+  padding: 0 10px;
 }
 .page-footer ul li a {
-  border: none;
+  text-decoration: none;
+  border-width: 0px;
   color: #737373;
 }
+.page-footer ul li a img { vertical-align: middle; }
