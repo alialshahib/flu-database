@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225141648) do
+ActiveRecord::Schema.define(:version => 20111028171514) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110225141648) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "unit"
   end
 
   create_table "genes", :force => true do |t|
@@ -99,82 +100,29 @@ ActiveRecord::Schema.define(:version => 20110225141648) do
 
   create_table "susceptibilities", :force => true do |t|
     t.string   "isolate_name"
-    t.date     "date_specimen_collected"
+    t.date     "collected"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "virus_type"
-    t.string   "title"
-    t.decimal  "iC50_zanamivir_MUNANA_nm"
-    t.decimal  "iC50_zanamivir_na_star_nm"
-    t.decimal  "iC50_zanamivir_other_nm"
-    t.decimal  "iC50_oseltamivir_munana_nm"
-    t.decimal  "iC50_oseltamivir_na_star_nm"
-    t.decimal  "iC50_oseltamivir_other_nm"
-    t.decimal  "iC50_amantadine_um"
-    t.decimal  "iC50_rimantadine_um"
-    t.string   "na_sequence"
-    t.string   "ha_sequence"
-    t.string   "m2_sequence"
     t.text     "comment"
-    t.date     "dob"
-    t.string   "gender"
-    t.date     "date_onset_of_illness"
-    t.boolean  "hospitalised"
-    t.boolean  "institution"
-    t.boolean  "community"
-    t.boolean  "other"
-    t.boolean  "not_known"
-    t.boolean  "source_virus_sentinel"
-    t.boolean  "source_virus_non_sentinel"
-    t.string   "other_namely"
-    t.string   "vaccinated_for_current_flu_season"
-    t.boolean  "no_exposure_to_flu_antivirals_patient"
-    t.boolean  "yes_exposure_to_flu_antivirals_patient"
-    t.string   "yes_exposure_to_flu_antivirals_patient_which_drug"
-    t.boolean  "not_known_exposure_to_flu_antivirals_patient"
-    t.boolean  "no_exposure_to_flu_antivirals_household_contact"
-    t.boolean  "yes_exposure_to_flu_antivirals_household_contact"
-    t.string   "yes_exposure_to_flu_antivirals_household_contact_which_drug"
-    t.boolean  "not_known_exposure_to_flu_antivirals_household_contact"
-    t.string   "geographic_location"
-    t.boolean  "disease_progression_uncomplicated"
-    t.boolean  "disease_progression_complicated"
-    t.boolean  "disease_progression_complicated_pneumonia"
-    t.boolean  "disease_progression_complicated_otitis_media"
-    t.boolean  "disease_progression_complicated_other"
-    t.string   "disease_progression_complicated_namely"
-    t.boolean  "disease_progression_not_known"
-    t.string   "hospitalisation"
-    t.string   "death"
-    t.string   "csv_file_name"
-    t.string   "csv_content_type"
-    t.integer  "csv_file_size"
-    t.datetime "csv_updated_at"
     t.integer  "season_id"
     t.integer  "country_id"
     t.integer  "virus_type_id"
-    t.string   "na_sequence_aa"
-    t.string   "ha_sequence_aa"
-    t.string   "m2_sequence_aa"
   end
 
   add_index "susceptibilities", ["country_id"], :name => "index_susceptibilities_on_country_id"
   add_index "susceptibilities", ["season_id"], :name => "index_susceptibilities_on_season_id"
   add_index "susceptibilities", ["virus_type_id"], :name => "index_susceptibilities_on_virus_type_id"
 
-  create_table "susceptibility_report_entries", :force => true do |t|
-    t.float    "result"
+  create_table "susceptibility_entries", :force => true do |t|
+    t.float    "measure"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "susceptibility_id"
+    t.integer  "drug_id"
   end
 
-  create_table "task_assignments", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-  end
-
-  add_index "task_assignments", ["user_id"], :name => "index_task_assignments_on_user_id"
+  add_index "susceptibility_entries", ["drug_id"], :name => "index_susceptibility_entries_on_drug_id"
+  add_index "susceptibility_entries", ["susceptibility_id"], :name => "index_susceptibility_entries_on_susceptibility_id"
 
   create_table "thresholdentries", :force => true do |t|
     t.float    "minor"
@@ -195,22 +143,6 @@ ActiveRecord::Schema.define(:version => 20110225141648) do
     t.integer  "season_id"
     t.integer  "country_id"
     t.integer  "virus_type_id"
-    t.float    "zanamivir_munana_minor_outlier"
-    t.float    "zanamivir_munana_major_outlier"
-    t.float    "zanamivir_nastar_minor_outlier"
-    t.float    "zanamivir_nastar_major_outlier"
-    t.float    "zanamivir_other_minor_outlier"
-    t.float    "zanamivir_other_major_outlier"
-    t.float    "oseltamivir_munana_minor_outlier"
-    t.float    "oseltamivir_munana_major_outlier"
-    t.float    "oseltamivir_nastar_minor_outlier"
-    t.float    "oseltamivir_nastar_major_outlier"
-    t.float    "oseltamivir_other_minor_outlier"
-    t.float    "oseltamivir_other_major_outlier"
-    t.float    "amantadine_munana_minor_outlier"
-    t.float    "amantadine_munana_major_outlier"
-    t.float    "rimantadine_munana_minor_outlier"
-    t.float    "rimantadine_munana_major_outlier"
   end
 
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
@@ -222,6 +154,7 @@ ActiveRecord::Schema.define(:version => 20110225141648) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "country_id"
+    t.string   "level",      :default => "'--- :editor\n'"
   end
 
   add_index "user_countries", ["country_id"], :name => "index_user_countries_on_country_id"

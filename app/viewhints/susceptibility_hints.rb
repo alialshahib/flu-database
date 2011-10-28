@@ -1,5 +1,7 @@
 class SusceptibilityHints < Hobo::ViewHints
- 
+
+	model_name "Susceptibility report"
+
 #  children :patients
 #  children :sequences 
 

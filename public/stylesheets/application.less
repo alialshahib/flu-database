@@ -43,6 +43,10 @@ TODO: change element colors to match these.
 	border-width: 0px;
 }
 
+.discrete_text {
+	color: @discrete-text-clr;
+}
+
 
 /* OVERALL LAYOUT */
 
@@ -122,9 +126,9 @@ div.page-header {
 /* TABLE RULES */ 
 
 table {
-        border-collapse: separate;
-        border-spacing: 0px;
-        font-size: 100%
+	border-collapse: separate;
+	border-spacing: 0px;
+	font-size: 100%
 }
 
  
@@ -170,6 +174,15 @@ a.edit-link, a.new-link, a.cancel {
 		margin: 0px;
 	}
 }
+
+
+div.input-many-item {
+	border: 1px dotted @discrete-text-clr;
+	padding: 0 1em;
+	margin-bottom: 1em;
+}
+
+
 
 
 /*** FLASHES & MESSAGES */
@@ -222,18 +235,19 @@ block, and set internal padding on it.
 */
 div.section.content {
 	margin: 0px;
-	padding: 0 45px 15px 45px;
+	padding: 1.0em 45px 3.0em 45px;
 	
 	.content-header {
 		margin: 0 0 15px 0px;
 	}
 	
 	.content-body {
-		margin: 0 0 15px 0px;
+		margin: 0;
+		padding: 0;
 	}
 	
 	p, ul, ol, h1, h2, h3, h4, h5 {
-		margin-bottom: 0.75em;
+		margin-bottom: 0.4em;
 	}
 	
 	h2, h3, h4, h5 {
@@ -248,7 +262,9 @@ div.section.content {
 	h3 {
 		font-size: 110%;
 		font-weight: bold;
+		
 	}
+	
 	
 	h4 {
 		font-size: 100%;
@@ -256,11 +272,18 @@ div.section.content {
 		font-weight: normal;
 	}
 	
+	span.description {
+		margin: 0 0 5.0em;
+		font-style: italic;
+		.discrete_text;
+	}
+	
 	p.byline {
-		margin-top: 0.5em;
-		padding-top: 0.25em;
+		margin: 1em 0 0;
+		padding: 0.5em 0 2.0em;
 		border-top: @discrete-border-style;
 		font-style: italic;
+		.discrete_text;
 	}
 }
 
@@ -321,6 +344,13 @@ div.page-content, div.page-content .aside { background: white; }
 	.submit-button { padding: 2px; color: white; background:  #E67E00}
 	.browse-by-audience select { margin: 5px 3px; width: 92%;}
 }
+
+
+.card {
+	padding: 0.5em 1em;
+	
+}
+
 
 /* TOOL FORMS & RESULTS */
 div.tool-results, div.tool-form {

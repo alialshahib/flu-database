@@ -66,6 +66,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="thresholds.collection.count" count="&this.thresholds.size">
+         <count:thresholds param/>
+      </ht>
+    </body:>
   </card>
 </def>
 
@@ -85,8 +90,8 @@
   </card>
 </def>
 
-<def tag="card" for="TaskAssignment">
-  <card class="task-assignment" param="default" merge>
+<def tag="card" for="SusceptibilityEntry">
+  <card class="susceptibility-entry" param="default" merge>
     <header: param>
       <h4 param="heading"><name/></h4>
     </header:>
@@ -115,8 +120,8 @@
       <h4 param="heading"><a><name/></a></h4>
     </header:>
     <body: param>
-      <ht key="countries.collection.count" count="&this.countries.size">
-         <count:countries param/>
+      <ht key="user_countries.collection.count" count="&this.user_countries.size">
+         <count:user_countries param/>
       </ht>
     </body:>
   </card>
@@ -135,6 +140,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="thresholds.collection.count" count="&this.thresholds.size">
+         <count:thresholds param/>
+      </ht>
+    </body:>
   </card>
 </def>
 

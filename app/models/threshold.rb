@@ -1,6 +1,6 @@
 
 
-# A set of thresholds entries for several drugs.
+# A set of thresholds entries for several drugs for a given season.
 #
 # This would be better called a "Season threshold" as it is for for a given
 # season, country & virus type.
@@ -11,22 +11,6 @@ class Threshold < ActiveRecord::Base
 
 	## Fields & relationships:
 	fields do
- 		zanamivir_munana_minor_outlier :float		
-		zanamivir_munana_major_outlier :float
-		zanamivir_nastar_minor_outlier :float
-		zanamivir_nastar_major_outlier :float
-		zanamivir_other_minor_outlier :float
-		zanamivir_other_major_outlier :float
-		oseltamivir_munana_minor_outlier :float
-                oseltamivir_munana_major_outlier :float
-                oseltamivir_nastar_minor_outlier :float
-                oseltamivir_nastar_major_outlier :float
-                oseltamivir_other_minor_outlier :float
-                oseltamivir_other_major_outlier :float
-		amantadine_munana_minor_outlier :float
-                amantadine_munana_major_outlier :float
-		rimantadine_munana_minor_outlier :float
-                rimantadine_munana_major_outlier :float
 		description :text
 		
 		timestamps
@@ -35,16 +19,20 @@ class Threshold < ActiveRecord::Base
 	belongs_to :season
 	belongs_to :country
 	belongs_to :virus_type
-	has_many :threshold_entries, :dependent => :destroy, :accessible => true
+	
+	has_many :thresholdentries, :dependent => :destroy, :accessible => true
 
-	# TODO: unclear if this assures a unique combination of virus, season and
-	# country in all directions. Something like this:
-	#  add_index :A, [:B, :C], :unique => true
-	# to ensure uniqueness on db level?
+	validates_presence_of :season_id 
+	validates_presence_of :country_id 
+	validates_presence_of :virus_type_id 
+	
+	# ensures that the combination of season, country and virus is unique
+	# TODO: test
 	validates_uniqueness_of(:virus_type_id, :scope => [
          :country_id,
-         :virus_type_id,
-      ]
+         :season_id,
+      ],
+      :message => 'is already in our database for this season and country.'
    )
 
 	## Permissions:
@@ -64,4 +52,20 @@ class Threshold < ActiveRecord::Base
 		true
 	end
 
+	## Accessors:
+	def name
+		#return "#{virus_type.name} #{season.name} (#{country.name})"
+		
+		name_parts = []
+		if ! virus_type.nil? then name_parts << virus_type.name end
+		if ! season.nil? then name_parts << season.name end
+		if ! country.nil? then name_parts << "(#{country.name})" end
+		
+		if 0 < name_parts.length
+			return name_parts.join(' ')
+		else
+			return "No name (FIXME)"
+		end
+	end
+	
 end

@@ -23,11 +23,17 @@ Must do
 
 * Set "contact" address in footer
 
+* Seasons
+
+	- Editing & sensible creation
+	
 
 Should do
 ---------
 
 * Validations?
+
+* Error signs are ugly
 
 * There is no site map - make one or delete footer pointer
 

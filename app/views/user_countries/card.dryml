@@ -1,0 +1,19 @@
+<%#
+Override listing of user country to point at country data.
+
+TODO: make less space consuming
+TODO: include gravatar
+????: it would be more orthogonal for this to appear in the model view folder
+%>
+
+<extend tag="card" for="UserCountry">
+  <old-card  merge>
+	 <header: replace>
+	 	<h4>
+	 		<a href="&object_url this.country">
+	 			<%= "#{this.country.name} (#{this.level})" %>
+			</a>
+		</h4>
+	 </header:>
+  </old-card>
+</extend>

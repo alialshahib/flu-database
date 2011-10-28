@@ -1,8 +1,16 @@
 class ThresholdentryHints < Hobo::ViewHints
+	# TODO: make sure it draws the units on stuff appropriately
+	
+	model_name "Threshold entry"
+	
+	field_names({
+		:minor => "Minor cutoff",
+		:major => "Major cutoff",
+	})
 
-  model_name "Threshold report entry"
-  
-  # field_names :field1 => "First Field", :field2 => "Second Field"
+	field_help({
+		:minor => "Lower threshold for resistance outliers",
+		:major => "Higher threshold for resistance outliers",
+	})
 
-  
 end

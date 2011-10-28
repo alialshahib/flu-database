@@ -5,8 +5,8 @@
 <def tag="main-nav">
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
-    <nav-item with="&Country"><ht key="countries.nav_item">Countries</ht></nav-item>
-    <nav-item with="&Drug"><ht key="drugs.nav_item">Antiviral drugs</ht></nav-item>
+    <nav-item with="&Country"><ht key="countries.nav_item">Reporting Countries</ht></nav-item>
+    <nav-item with="&Drug"><ht key="drugs.nav_item">Potential Drug resistances</ht></nav-item>
     <nav-item with="&Gene"><ht key="genes.nav_item">Genes</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
@@ -19,14 +19,14 @@
 <!-- ====== Country Pages ====== -->
 
 <def tag="index-page" for="Country">
-  <page merge title="#{ht 'countries.index.title', :default=>['Countries'] }">
+  <page merge title="#{ht 'countries.index.title', :default=>['Reporting Countries'] }">
     <body: class="index-page country" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="countries.index.heading">
-            Countries
+            Reporting Countries
           </ht>
         </h2>
 
@@ -39,7 +39,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="countries.actions.new">New Country</ht>
+          <ht key="countries.actions.new">New Reporting Country</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -56,21 +56,21 @@
 
 
 <def tag="new-page" for="Country">
-  <page merge title="#{ht 'countries.new.title', :default=>[' New Country'] }">
+  <page merge title="#{ht 'countries.new.title', :default=>[' New Reporting Country'] }">
     <body: class="new-page country" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="countries.new.heading">
-            New Country
+            New Reporting Country
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'countries.actions.create', :default=>['Create Country']}"/>
+          <submit: label="#{ht 'countries.actions.create', :default=>['Create Reporting Country']}"/>
         </form>
       </section>
     </content:>
@@ -79,13 +79,12 @@
 
 
 <def tag="show-page" for="Country">
-  <page merge title="#{ht 'countries.show.title', :default=>['Country'] }">
+  <page merge title="#{ht 'countries.show.title', :default=>['Reporting Country'] }">
 
     <body: class="show-page country" param/>
 
     <content: param>
           <header param="content-header">
-            <a:users param="parent-link">&laquo; <ht key="countries.actions.back" to="users"><name/></ht></a:users>
             <h2 param="heading">
               <ht key="countries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -96,7 +95,7 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="countries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Country
+                Edit Reporting Country
               </ht>
             </a>
           </header>
@@ -119,7 +118,7 @@
 
 
 <def tag="edit-page" for="Country">
-  <page merge title="#{ht 'countries.edit.title', :default=>['Edit Country'] }">
+  <page merge title="#{ht 'countries.edit.title', :default=>['Edit Reporting Country'] }">
 
     <body: class="edit-page country" param/>
 
@@ -130,7 +129,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'countries.actions.delete', :default=>['Remove This Country']}" param/>
+        <delete-button label="#{ht 'countries.actions.delete', :default=>['Remove This Reporting Country']}" param/>
       </section>
 
       <section param="content-body">
@@ -148,14 +147,14 @@
 <!-- ====== Drug Pages ====== -->
 
 <def tag="index-page" for="Drug">
-  <page merge title="#{ht 'drugs.index.title', :default=>['Antiviral drugs'] }">
+  <page merge title="#{ht 'drugs.index.title', :default=>['Potential Drug resistances'] }">
     <body: class="index-page drug" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="drugs.index.heading">
-            Antiviral drugs
+            Potential Drug resistances
           </ht>
         </h2>
 
@@ -168,7 +167,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="drugs.actions.new">New Antiviral drugs</ht>
+          <ht key="drugs.actions.new">New Potential Drug resistance</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -185,21 +184,21 @@
 
 
 <def tag="new-page" for="Drug">
-  <page merge title="#{ht 'drugs.new.title', :default=>[' New Antiviral drugs'] }">
+  <page merge title="#{ht 'drugs.new.title', :default=>[' New Potential Drug resistance'] }">
     <body: class="new-page drug" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="drugs.new.heading">
-            New Antiviral drugs
+            New Potential Drug resistance
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Antiviral drugs']}"/>
+          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Potential Drug resistance']}"/>
         </form>
       </section>
     </content:>
@@ -208,7 +207,7 @@
 
 
 <def tag="show-page" for="Drug">
-  <page merge title="#{ht 'drugs.show.title', :default=>['Antiviral drugs'] }">
+  <page merge title="#{ht 'drugs.show.title', :default=>['Potential Drug resistance'] }">
 
     <body: class="show-page drug" param/>
 
@@ -224,13 +223,14 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="drugs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Antiviral drugs
+                Edit Potential Drug resistance
               </ht>
             </a>
           </header>
 
           <section param="content-body">
             <view:description param="description"/>
+            <field-list fields="unit" param/>
           </section>
     </content:>
 
@@ -239,7 +239,7 @@
 
 
 <def tag="edit-page" for="Drug">
-  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Antiviral drugs'] }">
+  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Potential Drug resistance'] }">
 
     <body: class="edit-page drug" param/>
 
@@ -250,7 +250,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Antiviral drugs']}" param/>
+        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Potential Drug resistance']}" param/>
       </section>
 
       <section param="content-body">
@@ -934,6 +934,8 @@
     <body: class="show-page season" param/>
 
     <content: param>
+      <section-group>
+        <section param="main-content">
           <header param="content-header">
             <h2 param="heading">
               <ht key="seasons.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
@@ -953,7 +955,29 @@
           <section param="content-body">
             <view:description param="description"/>
             <field-list fields="year" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="seasons.collection.heading.other" >
+                  Thresholds
+                </ht>
+              </h3>
+
+              <collection:thresholds param/>
+            </section>
           </section>
+        </section>
+
+        <aside param>
+          <section param="susceptibilities-collection-section">
+            <h3 param="susceptibilities-collection-heading">
+              <ht key="susceptibilities.collection.heading.other" >
+                Susceptibilities
+              </ht>
+            </h3>
+            <collection:susceptibilities  param="susceptibilities-collection"/>
+          </section>
+        </aside>
+      </section-group>
     </content:>
 
   </page>
@@ -1110,14 +1134,14 @@
 <!-- ====== Susceptibility Pages ====== -->
 
 <def tag="index-page" for="Susceptibility">
-  <page merge title="#{ht 'susceptibilities.index.title', :default=>['Susceptibilities'] }">
+  <page merge title="#{ht 'susceptibilities.index.title', :default=>['Susceptibility reports'] }">
     <body: class="index-page susceptibility" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="susceptibilities.index.heading">
-            Susceptibilities
+            Susceptibility reports
           </ht>
         </h2>
 
@@ -1130,7 +1154,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="susceptibilities.actions.new">New Susceptibility</ht>
+          <ht key="susceptibilities.actions.new">New Susceptibility report</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1147,21 +1171,21 @@
 
 
 <def tag="new-page" for="Susceptibility">
-  <page merge title="#{ht 'susceptibilities.new.title', :default=>[' New Susceptibility'] }">
+  <page merge title="#{ht 'susceptibilities.new.title', :default=>[' New Susceptibility report'] }">
     <body: class="new-page susceptibility" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="susceptibilities.new.heading">
-            New Susceptibility
+            New Susceptibility report
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'susceptibilities.actions.create', :default=>['Create Susceptibility']}"/>
+          <submit: label="#{ht 'susceptibilities.actions.create', :default=>['Create Susceptibility report']}"/>
         </form>
       </section>
     </content:>
@@ -1170,7 +1194,7 @@
 
 
 <def tag="show-page" for="Susceptibility">
-  <page merge title="#{ht 'susceptibilities.show.title', :default=>['Susceptibility'] }">
+  <page merge title="#{ht 'susceptibilities.show.title', :default=>['Susceptibility report'] }">
 
     <body: class="show-page susceptibility" param/>
 
@@ -1182,17 +1206,17 @@
               </ht>
             </h2>
 
-            <record-flags fields="hospitalised, institution, community, other, not_known, source_virus_sentinel, source_virus_non_sentinel, no_exposure_to_flu_antivirals_patient, yes_exposure_to_flu_antivirals_patient, not_known_exposure_to_flu_antivirals_patient, no_exposure_to_flu_antivirals_household_contact, yes_exposure_to_flu_antivirals_household_contact, not_known_exposure_to_flu_antivirals_household_contact, disease_progression_uncomplicated, disease_progression_complicated, disease_progression_complicated_pneumonia, disease_progression_complicated_otitis_media, disease_progression_complicated_other, disease_progression_not_known" param/>
+            <record-flags fields="" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="susceptibilities.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Susceptibility
+                Edit Susceptibility report
               </ht>
             </a>
           </header>
 
           <section param="content-body">
-            <field-list fields="isolate_name, virus_type, other_namely, date_specimen_collected, iC50_zanamivir_MUNANA_nm, iC50_zanamivir_na_star_nm, iC50_zanamivir_other_nm, iC50_oseltamivir_munana_nm, iC50_oseltamivir_na_star_nm, iC50_oseltamivir_other_nm, iC50_amantadine_um, iC50_rimantadine_um, na_sequence, na_sequence_aa, ha_sequence, ha_sequence_aa, m2_sequence, m2_sequence_aa, comment, dob, gender, date_onset_of_illness, vaccinated_for_current_flu_season, yes_exposure_to_flu_antivirals_patient_which_drug, yes_exposure_to_flu_antivirals_household_contact_which_drug, geographic_location, disease_progression_complicated_namely, hospitalisation, death, csv_file_name, csv_content_type, csv_file_size, csv_updated_at, country, season, virus_type" param/>
+            <field-list fields="isolate_name, collected, comment, country, season, virus_type" param/>
           </section>
     </content:>
 
@@ -1201,7 +1225,7 @@
 
 
 <def tag="edit-page" for="Susceptibility">
-  <page merge title="#{ht 'susceptibilities.edit.title', :default=>['Edit Susceptibility'] }">
+  <page merge title="#{ht 'susceptibilities.edit.title', :default=>['Edit Susceptibility report'] }">
 
     <body: class="edit-page susceptibility" param/>
 
@@ -1212,7 +1236,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'susceptibilities.actions.delete', :default=>['Remove This Susceptibility']}" param/>
+        <delete-button label="#{ht 'susceptibilities.actions.delete', :default=>['Remove This Susceptibility report']}" param/>
       </section>
 
       <section param="content-body">
@@ -1230,14 +1254,14 @@
 <!-- ====== Thresholdentry Pages ====== -->
 
 <def tag="index-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.index.title', :default=>['Threshold report entries'] }">
+  <page merge title="#{ht 'thresholdentries.index.title', :default=>['Threshold entries'] }">
     <body: class="index-page thresholdentry" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="thresholdentries.index.heading">
-            Threshold report entries
+            Threshold entries
           </ht>
         </h2>
 
@@ -1250,7 +1274,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="thresholdentries.actions.new">New Threshold report entry</ht>
+          <ht key="thresholdentries.actions.new">New Threshold entry</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1267,21 +1291,21 @@
 
 
 <def tag="new-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.new.title', :default=>[' New Threshold report entry'] }">
+  <page merge title="#{ht 'thresholdentries.new.title', :default=>[' New Threshold entry'] }">
     <body: class="new-page thresholdentry" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="thresholdentries.new.heading">
-            New Threshold report entry
+            New Threshold entry
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'thresholdentries.actions.create', :default=>['Create Threshold report entry']}"/>
+          <submit: label="#{ht 'thresholdentries.actions.create', :default=>['Create Threshold entry']}"/>
         </form>
       </section>
     </content:>
@@ -1290,7 +1314,7 @@
 
 
 <def tag="show-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.show.title', :default=>['Threshold report entry'] }">
+  <page merge title="#{ht 'thresholdentries.show.title', :default=>['Threshold entry'] }">
 
     <body: class="show-page thresholdentry" param/>
 
@@ -1306,7 +1330,7 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="thresholdentries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Threshold report entry
+                Edit Threshold entry
               </ht>
             </a>
           </header>
@@ -1321,7 +1345,7 @@
 
 
 <def tag="edit-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.edit.title', :default=>['Edit Threshold report entry'] }">
+  <page merge title="#{ht 'thresholdentries.edit.title', :default=>['Edit Threshold entry'] }">
 
     <body: class="edit-page thresholdentry" param/>
 
@@ -1332,7 +1356,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'thresholdentries.actions.delete', :default=>['Remove This Threshold report entry']}" param/>
+        <delete-button label="#{ht 'thresholdentries.actions.delete', :default=>['Remove This Threshold entry']}" param/>
       </section>
 
       <section param="content-body">
@@ -1350,14 +1374,14 @@
 <!-- ====== Threshold Pages ====== -->
 
 <def tag="index-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.index.title', :default=>['Season threshold reports'] }">
+  <page merge title="#{ht 'thresholds.index.title', :default=>['Seasonal thresholds'] }">
     <body: class="index-page threshold" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="thresholds.index.heading">
-            Season threshold reports
+            Seasonal thresholds
           </ht>
         </h2>
 
@@ -1370,7 +1394,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="thresholds.actions.new">New Season threshold report</ht>
+          <ht key="thresholds.actions.new">New Seasonal threshold</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1387,21 +1411,21 @@
 
 
 <def tag="new-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.new.title', :default=>[' New Season threshold report'] }">
+  <page merge title="#{ht 'thresholds.new.title', :default=>[' New Seasonal threshold'] }">
     <body: class="new-page threshold" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="thresholds.new.heading">
-            New Season threshold report
+            New Seasonal threshold
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'thresholds.actions.create', :default=>['Create Season threshold report']}"/>
+          <submit: label="#{ht 'thresholds.actions.create', :default=>['Create Seasonal threshold']}"/>
         </form>
       </section>
     </content:>
@@ -1410,12 +1434,13 @@
 
 
 <def tag="show-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.show.title', :default=>['Season threshold report'] }">
+  <page merge title="#{ht 'thresholds.show.title', :default=>['Seasonal threshold'] }">
 
     <body: class="show-page threshold" param/>
 
     <content: param>
           <header param="content-header">
+            <a:virus_type param="parent-link">&laquo; <ht key="thresholds.actions.back" to="virus_type"><name/></ht></a:virus_type>
             <h2 param="heading">
               <ht key="thresholds.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -1426,14 +1451,14 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="thresholds.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Season threshold report
+                Edit Seasonal threshold
               </ht>
             </a>
           </header>
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="zanamivir_munana_minor_outlier, zanamivir_munana_major_outlier, zanamivir_nastar_minor_outlier, zanamivir_nastar_major_outlier, zanamivir_other_minor_outlier, zanamivir_other_major_outlier, oseltamivir_munana_minor_outlier, oseltamivir_munana_major_outlier, oseltamivir_nastar_minor_outlier, oseltamivir_nastar_major_outlier, oseltamivir_other_minor_outlier, oseltamivir_other_major_outlier, amantadine_munana_minor_outlier, amantadine_munana_major_outlier, rimantadine_munana_minor_outlier, rimantadine_munana_major_outlier, country, season, virus_type" param/>
+            <field-list fields="country, season" param/>
           </section>
     </content:>
 
@@ -1442,7 +1467,7 @@
 
 
 <def tag="edit-page" for="Threshold">
-  <page merge title="#{ht 'thresholds.edit.title', :default=>['Edit Season threshold report'] }">
+  <page merge title="#{ht 'thresholds.edit.title', :default=>['Edit Seasonal threshold'] }">
 
     <body: class="edit-page threshold" param/>
 
@@ -1453,7 +1478,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This Season threshold report']}" param/>
+        <delete-button label="#{ht 'thresholds.actions.delete', :default=>['Remove This Seasonal threshold']}" param/>
       </section>
 
       <section param="content-body">
@@ -1558,11 +1583,11 @@
             <section param="collection-section">
               <h3 param="collection-heading">
                 <ht key="users.collection.heading.your" >
-                  <Your/>Countries
+                  <Your/>User Countries
                 </ht>
               </h3>
 
-              <collection:countries param/>
+              <collection:user_countries param/>
             </section>
           </section>
     </content:>
@@ -1647,14 +1672,14 @@
 <!-- ====== VirusType Pages ====== -->
 
 <def tag="index-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.index.title', :default=>['Virus (sub)types'] }">
+  <page merge title="#{ht 'virus_types.index.title', :default=>['Pathogen (sub)types'] }">
     <body: class="index-page virus-type" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="virus_types.index.heading">
-            Virus (sub)types
+            Pathogen (sub)types
           </ht>
         </h2>
 
@@ -1667,7 +1692,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="virus_types.actions.new">New Virus (sub)type</ht>
+          <ht key="virus_types.actions.new">New Pathogen (sub)type</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1684,21 +1709,21 @@
 
 
 <def tag="new-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.new.title', :default=>[' New Virus (sub)type'] }">
+  <page merge title="#{ht 'virus_types.new.title', :default=>[' New Pathogen (sub)type'] }">
     <body: class="new-page virus-type" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="virus_types.new.heading">
-            New Virus (sub)type
+            New Pathogen (sub)type
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'virus_types.actions.create', :default=>['Create Virus (sub)type']}"/>
+          <submit: label="#{ht 'virus_types.actions.create', :default=>['Create Pathogen (sub)type']}"/>
         </form>
       </section>
     </content:>
@@ -1707,7 +1732,7 @@
 
 
 <def tag="show-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.show.title', :default=>['Virus (sub)type'] }">
+  <page merge title="#{ht 'virus_types.show.title', :default=>['Pathogen (sub)type'] }">
 
     <body: class="show-page virus-type" param/>
 
@@ -1723,13 +1748,22 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="virus_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Virus (sub)type
+                Edit Pathogen (sub)type
               </ht>
             </a>
           </header>
 
           <section param="content-body">
             <view:description param="description"/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="virus_types.collection.heading.other" >
+                  Thresholds
+                </ht>
+              </h3>
+
+              <collection:thresholds param/>
+            </section>
           </section>
     </content:>
 
@@ -1738,7 +1772,7 @@
 
 
 <def tag="edit-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.edit.title', :default=>['Edit Virus (sub)type'] }">
+  <page merge title="#{ht 'virus_types.edit.title', :default=>['Edit Pathogen (sub)type'] }">
 
     <body: class="edit-page virus-type" param/>
 
@@ -1749,7 +1783,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'virus_types.actions.delete', :default=>['Remove This Virus (sub)type']}" param/>
+        <delete-button label="#{ht 'virus_types.actions.delete', :default=>['Remove This Pathogen (sub)type']}" param/>
       </section>
 
       <section param="content-body">

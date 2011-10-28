@@ -17,16 +17,10 @@ NOTE: Comments are ... complicated ... in Hobo. It seems that a bug
 	 <h2><name /> (<%= @this.user_name %>)</h2>
   </heading:>
 
-  <record-flags: replace></record-flags:>
-
-  <content-body:>
-	 <div>
+	<prepend-content-body:>
 		<ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
-		<div style="float: left">
-		  <field-list fields="user_name, email_address, administrator, state" />
-		</div>
-	 </div>
-	 <br />
-  </content-body:>
+	</prepend-content-body:>
+	
+  <field-list: fields="user_name, email_address, state" />
 	
 </show-page>

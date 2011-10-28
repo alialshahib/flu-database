@@ -1,0 +1,10 @@
+<%#
+Customize the appearance of a page showing a single seasonal threshold.
+
+TOD: hide fields that are mentioned in title
+%>
+<show-page>
+	
+	<field-list: fields="virus_type, season, country" />
+	
+</show-page>

@@ -12,6 +12,7 @@
   text-decoration: none;
   border-width: 0px;
 }
+.discrete_text { color: #737373; }
 html, body {
   background: #737373;
   font-size: 1em;
@@ -152,6 +153,11 @@ a.cancel:hover {
   width: 50%;
   margin: 0px;
 }
+div.input-many-item {
+  border: 1px dotted #737373;
+  padding: 0 1em;
+  margin-bottom: 1em;
+}
 .flash { margin-top: 15px; }
 .flash.notice, .flash.success {
   background: #dff2bf;
@@ -179,18 +185,21 @@ div.section.error-messages {
 }
 div.section.content {
   margin: 0px;
-  padding: 0 45px 15px 45px;
+  padding: 1em 45px 3em 45px;
 }
 div.section.content .content-header { margin: 0 0 15px 0px; }
-div.section.content .content-body { margin: 0 0 15px 0px; }
-div.section.content p { margin-bottom: 0.75em; }
-div.section.content ul { margin-bottom: 0.75em; }
-div.section.content ol { margin-bottom: 0.75em; }
-div.section.content h1 { margin-bottom: 0.75em; }
-div.section.content h2 { margin-bottom: 0.75em; }
-div.section.content h3 { margin-bottom: 0.75em; }
-div.section.content h4 { margin-bottom: 0.75em; }
-div.section.content h5 { margin-bottom: 0.75em; }
+div.section.content .content-body {
+  margin: 0;
+  padding: 0;
+}
+div.section.content p { margin-bottom: 0.4em; }
+div.section.content ul { margin-bottom: 0.4em; }
+div.section.content ol { margin-bottom: 0.4em; }
+div.section.content h1 { margin-bottom: 0.4em; }
+div.section.content h2 { margin-bottom: 0.4em; }
+div.section.content h3 { margin-bottom: 0.4em; }
+div.section.content h4 { margin-bottom: 0.4em; }
+div.section.content h5 { margin-bottom: 0.4em; }
 div.section.content h2 { margin-top: 1.5em; }
 div.section.content h3 { margin-top: 1.5em; }
 div.section.content h4 { margin-top: 1.5em; }
@@ -208,11 +217,17 @@ div.section.content h4 {
   text-decoration: underline;
   font-weight: normal;
 }
+div.section.content span.description {
+  margin: 0 0 5em;
+  font-style: italic;
+  color: #737373;
+}
 div.section.content p.byline {
-  margin-top: 0.5em;
-  padding-top: 0.25em;
+  margin: 1em 0 0;
+  padding: 0.5em 0 2em;
   border-top: 1px dotted #737373;
   font-style: italic;
+  color: #737373;
 }
 .user-account-page .change-password { width: 100%; }
 .login-page .field-list { width: 100%; }
@@ -261,6 +276,7 @@ div.page-content .aside { background: white; }
   margin: 5px 3px;
   width: 92%;
 }
+.card { padding: 0.5em 1em; }
 div.tool-results, div.tool-form {
   border-top: 1px dotted #737373;
   margin-top: 1em;

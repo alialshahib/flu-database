@@ -16,6 +16,8 @@ class Season < ActiveRecord::Base
 	end
 
 	has_many :thresholds
+	has_many :susceptibilities
+
 
 	set_default_order "year DESC"
 

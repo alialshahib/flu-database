@@ -1,30 +1,37 @@
-<%# general page changes and extensions %>
+<!-- general page changes and extensions -->
 
-<%#
+
+<!--
+The global footer.
+
+TODO: check links.
+-->
+<def tag="footer-nav">
+    <ul>
+	<nav-item href="/docs">About &amp; help</nav-item>
+	<nav-item href="http://www.hpa.org.uk/"><hosted-logo /></nav-item>
+	<nav-item href="/docs/contact">Contact</nav-item>
+    </ul>
+</def>
+
+
+<!--
 Change the overall page layout.
 
 This effects several changes:
 * inserting the favicon in the page
-* inserting the page sidebar
 * inserting the default footer
-* chnaging to the default site header
+* changing to the default site header
 
-XXX: merge without live search?
-%>
+TODO: merge without live search?
+
+-->
 <extend tag="page">
 	<old-page merge without-live-search>
 	
-
 		<after-scripts:>
 			<link rel="shortcut icon" href="#{base_url}/favicon.ico" />
 		</after-scripts:>
-		
-		<before-content:>
-			<section-group class="page-content">
-				<aside param="aside1"><search-and-browse/></aside>
-				<section param="content"/>
-			</section-group>
-		</before-content:>
 		
 		<app-name:>
 			<a href="#{base_url}/"><site-logo/></a>
@@ -37,12 +44,10 @@ XXX: merge without live search?
 
 
 
+<!--
+Change the overall show page layout.
 
-
-
-<%#
 Place a link at the top of all show pages that points to the index.
-
 There's some confusion here: a "parent-link" appears at the top of several show
 pages, but is a little cryptic (e.g. "2 Countries" on the user page? and
 something hinky seems to be going on with context as this resolves to a list of
@@ -55,7 +60,7 @@ TODO: some better styling?
 TODO: using the relative url is a bit suspect
 TODO: making naming/wording a bit better
 FIXME: not showing up for seasons?
-%>
+-->
 <extend tag="show-page">
 	<old-show-page merge>
 	 
@@ -70,7 +75,7 @@ FIXME: not showing up for seasons?
 		<before-content-body:>
 			<if test="&this.respond_to?(:description)">
 				<p class="description">
-					<view:description />
+					fdgfdgfdg<view:description />
 				</p>
 			</if>
 		</before-content-body:>
@@ -89,24 +94,29 @@ FIXME: not showing up for seasons?
 
 
 
-<def tag="main-nav">
-	<navigation class="main-nav" >
-		<nav-item href="#{base_url}/">Home</nav-item>
-		<nav-item with="&Threshold"><ht key="thresholds.nav_item">Trial Series</ht></nav-item>
-		<nav-item with="&Susceptibility"><ht key="susceptibilities.nav_item">Trials</ht></nav-item>
-		<nav-item href="#{base_url}/tools/">Tools</nav-item>
-	</navigation>
-</def> 
+<!--
+Change the overall index page layout.
+
+This is to makes the capitilzation of records more rational. At the current
+moment, it's a bit wonky.
+-->
+<extend tag="index-page">
+	<old-index-page merge>
+		
+		<heading:>
+			<%= this.member_class.view_hints.model_name_plural.capitalize() %>
+		</heading:>
+		
+		<count:>
+			<span count="&this.size">
+				There <count label="records" prefix="are" lowercase />.
+			</span>
+		</count:>
+
+	</old-index-page>
+</extend>
 
 
-<def tag="nav-panel">
-	<div class="nav-panel" param="default">
-	<h3 param="heading"></h3>
-	<div param="body">
-		<ul param="items"/>
-	</div>
- </div>
-</def>
 
 
 

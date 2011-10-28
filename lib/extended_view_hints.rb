@@ -30,7 +30,7 @@ require('dev_tools')
 #		})
 #
 # Solving the third problem is tricky. Our solution is to explicitly for the
-# default values to be set. Not thhis must be the last thing done in the
+# default values to be set. Note this must be the last thing done in the
 # derived class.
 #
 # @example

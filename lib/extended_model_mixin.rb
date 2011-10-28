@@ -2,6 +2,7 @@
 ### IMPORTS
 
 require('dev_tools')
+require('rails_extensions')
 
 
 ### CONSTANTS & DEFINES

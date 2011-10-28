@@ -1,26 +1,11 @@
-    <!-- <collection:><a/></collection:>  Here you are calling the parameter tag in application.dryml. notice the ':' is for calling a tag. The <a/> tag is a Rapid tag that is similar to the HTML <a>, but it also automatically provides a hyperlink to the route to show a particular record of the model.  If we add a body to the tag (between the collection) then Hobo will no longer use the <card> tag. Remember that when Hobo wants to list the records from a table, tags in the pages.dryml file call tags in the cards.dryml file.  Card tags define how individual database table records are rendered. -->
-  <!-- <collection:><h4><a><view:title/></a></h4>....<h4> heading tag is Hobo's bold and large font tag acoording to Hobo's CSS files.  The view tag is Rapid's <view> tag. -->
-    <!-- <view:gender/>  Here you call the <view> tag and under each record you can show its geneder or anything else you want from the attributes.  -->
-<!--         <repeat:gender join=", "><a/></repeat> -->
-<!--   </collection:> --> 
+
 <index-page>
- <collection: replace>
-      <div>
-           <table-plus fields="this,isolate_name,virus_type,date_specimen_collected">
-             <controls:/>
-           </table-plus>
-      </div>
- </collection:>
+	<collection: replace>
+		<div>
+			<table-plus fields="this,collected">
+				<controls:/>
+			</table-plus>
+		</div>
+	</collection:>
 </index-page>
 
-<!--<def tag="card" for="Susceptibility">
-  <card class="patient" param="default" merge>
-    <header: param>
-      <h4 param="heading"><a><name/></a></h4>
-    </header:>
-    <body: param>
-      <count:patients param/>
-      <br/><view:patients/>
-    </body:>
-  </card>
-</def> -->

@@ -1,7 +1,18 @@
 class DrugHints < Hobo::ViewHints
 
-  model_name "Antiviral drugs"
-  # field_names :field1 => "First Field", :field2 => "Second Field"
-  # field_help :field1 => "Enter what you want in this field"
-  # children :primary_collection1, :aside_collection1, :aside_collection2
+	model_name "Potential Drug resistance"
+	
+	field_names({
+		:unit => "Unit of measurement",
+	})
+	
+	field_help({
+		:description => "How the resistance is measured, etc.",
+		:unit => "E.g. nM, uM",
+		
+	})
+	
+	# TODO: enable viewing of thresholds and reports from drug
+	#children :thresholds
+	
 end

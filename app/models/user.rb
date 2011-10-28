@@ -11,8 +11,8 @@ class User < ActiveRecord::Base
       timestamps
    end
    
-   has_many :countries, :through => :user_countries, :accessible => true
-   has_many :user_countries, :dependent => :destroy
+   has_many :countries, :through => :user_countries
+   has_many :user_countries, :dependent => :destroy, :accessible => true
 
    ## Lifecycle & transitions:
    

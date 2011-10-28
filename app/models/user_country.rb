@@ -3,20 +3,23 @@
 #
 #
 class UserCountry < ActiveRecord::Base
-
+	# TODO: may need to set levels of access / user level for each country, such
+	#   as can view (reader), can add & edit seasons (editor), can add members
+	# and edit country data (manager). Also add thresholds?
+	
 	hobo_model # Don't put anything above this
 
 	## Defines & Constants:
-	
+   #model_name_plural "Memberships"
+ 
+   #model_name "Membership"
+   
 	# what can the user do with the country?
 	Level = HoboFields::EnumString.for(:reader, :editor, :manager)
 	
 	## Fields & relationships:
-	# TODO: may need to set levels of access / user level for each country, such
-	#   as can view (reader), can add & edit seasons (editor), can add members
-	# and edit country data (manager). Also add thresholds?
 	fields do
-		level         UserCountry::Status, :required, :default => :editor
+		level         UserCountry::Level, :required, :default => :editor
 		
 		timestamps
 	end

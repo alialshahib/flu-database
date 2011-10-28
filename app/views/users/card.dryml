@@ -9,16 +9,26 @@ TODO: include gravatar
   <old-card  merge>
     <default: replace>
 		<div>
-		  <ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
-		  <div style="float: left">
+			<ex-gravatar style="float: left; margin: 10px 20px 10px 0" />
+			<div style="float: left">
+
 			 <header: param>
 				<h4 param="heading"><a><name/></a></h4>
 			 </header:>
+			 
 			 <body: param>
 				<if test="&0 < this.countries.count">
-				  Member of <view:countries />
+					Member of
+						<repeat with="&this.user_countries">
+							<a href="#{object_url this.country}">
+								<%= this.country.name %>
+								(<view:level />)</a><%= last_item? ? '.' : ', ' %>
+						</repeat>
+						
+						
 				</if>
 		   </body:>
+			
 		  </div>
 		</div>
 		<br clear="all"/>
