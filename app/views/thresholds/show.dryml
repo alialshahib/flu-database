@@ -5,6 +5,6 @@ TOD: hide fields that are mentioned in title
 %>
 <show-page>
 	
-	<field-list: fields="virus_type, season, country" />
+	<field-list: fields="pathogen_type, season, country" />
 	
 </show-page>

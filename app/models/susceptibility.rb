@@ -13,15 +13,15 @@ class Susceptibility < ActiveRecord::Base
 	
 	belongs_to :season
 	belongs_to :country
-	belongs_to :virus_type
+	belongs_to :pathogen_type
 	has_many :susceptibility_entries, :dependent => :destroy, :accessible => true
-	# has_many :sequences,:dependent => :destroy
+	has_many :susceptibility_sequences, :dependent => :destroy, :accessible => true
 	
 	## Validation:
+	# TODO: validate that no resistance or sequence appears twice
 	validates_presence_of :season_id 
 	validates_presence_of :country_id 
-	validates_presence_of :virus_type_id 
-	
+	validates_presence_of :pathogen_type_id 
 	
 	
 	## Permissions:

@@ -1,6 +1,6 @@
-class DrugHints < Hobo::ViewHints
+class ResistanceHints < Hobo::ViewHints
 
-	model_name "Potential Drug resistance"
+	model_name "Potential Resistance resistance"
 	
 	field_names({
 		:unit => "Unit of measurement",

@@ -6,7 +6,7 @@ class ThresholdHints < Hobo::ViewHints
 		:description => "How were the cutoff values arrived at.",
 		:country => "What reporting region is this set of thresholds for?",
 		:season =>"During what season do these thresholds hold?",
-		:virus_type => "In what virus are these thresholds being counted?",
+		:pathogen_type => "In what virus are these thresholds being counted?",
 	)
 	
 	# TODO: how do we name this?

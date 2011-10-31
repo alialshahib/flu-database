@@ -18,17 +18,17 @@ class Threshold < ActiveRecord::Base
 	
 	belongs_to :season
 	belongs_to :country
-	belongs_to :virus_type
+	belongs_to :pathogen_type
 	
 	has_many :thresholdentries, :dependent => :destroy, :accessible => true
 
 	validates_presence_of :season_id 
 	validates_presence_of :country_id 
-	validates_presence_of :virus_type_id 
+	validates_presence_of :pathogen_type_id 
 	
 	# ensures that the combination of season, country and virus is unique
 	# TODO: test
-	validates_uniqueness_of(:virus_type_id, :scope => [
+	validates_uniqueness_of(:pathogen_type_id, :scope => [
          :country_id,
          :season_id,
       ],

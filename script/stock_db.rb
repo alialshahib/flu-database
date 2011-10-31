@@ -30,7 +30,7 @@ INITIAL_DATA = {
 		{:name=> 'M'},
 	],
 	
-	:Drug => [
+	:Resistance => [
 		{:name=> 'Amantadine'},
 		{:name=> 'Oseltamivir'},
 		{:name=> 'Oseltamivir (MUNANA)'},

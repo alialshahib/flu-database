@@ -1,4 +1,4 @@
-class Drug < ActiveRecord::Base
+class Resistance < ActiveRecord::Base
 
 	hobo_model # Don't put anything above this
 	

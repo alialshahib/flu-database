@@ -34,7 +34,7 @@
 				
 				<ul>
 					<%-
-						link_list = [Country, Drug, VirusType, Season,
+						link_list = [Country, Resistance, PathogenType, Season,
 							Gene, PatientLocation]
 					%>
 					<nav-item repeat="&link_list" with="&this">

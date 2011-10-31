@@ -12,7 +12,7 @@
 
 
 
-<def tag="form" for="Drug">
+<def tag="form" for="Resistance">
   <form merge param="default">
     <error-messages param/>
     <field-list fields="name, description, unit" param/>

@@ -1,0 +1,2 @@
+module PathogenTypesHelper
+end

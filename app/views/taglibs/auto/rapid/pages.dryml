@@ -6,7 +6,7 @@
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Country"><ht key="countries.nav_item">Reporting Countries</ht></nav-item>
-    <nav-item with="&Drug"><ht key="drugs.nav_item">Potential Drug resistances</ht></nav-item>
+    <nav-item with="&Resistance"><ht key="drugs.nav_item">Potential Resistance resistances</ht></nav-item>
     <nav-item with="&Gene"><ht key="genes.nav_item">Genes</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
@@ -144,17 +144,17 @@
 
 
 
-<!-- ====== Drug Pages ====== -->
+<!-- ====== Resistance Pages ====== -->
 
-<def tag="index-page" for="Drug">
-  <page merge title="#{ht 'drugs.index.title', :default=>['Potential Drug resistances'] }">
+<def tag="index-page" for="Resistance">
+  <page merge title="#{ht 'drugs.index.title', :default=>['Potential Resistance resistances'] }">
     <body: class="index-page drug" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="drugs.index.heading">
-            Potential Drug resistances
+            Potential Resistance resistances
           </ht>
         </h2>
 
@@ -167,7 +167,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="drugs.actions.new">New Potential Drug resistance</ht>
+          <ht key="drugs.actions.new">New Potential Resistance resistance</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -183,22 +183,22 @@
 </def>
 
 
-<def tag="new-page" for="Drug">
-  <page merge title="#{ht 'drugs.new.title', :default=>[' New Potential Drug resistance'] }">
+<def tag="new-page" for="Resistance">
+  <page merge title="#{ht 'drugs.new.title', :default=>[' New Potential Resistance resistance'] }">
     <body: class="new-page drug" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="drugs.new.heading">
-            New Potential Drug resistance
+            New Potential Resistance resistance
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Potential Drug resistance']}"/>
+          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Potential Resistance resistance']}"/>
         </form>
       </section>
     </content:>
@@ -206,8 +206,8 @@
 </def>
 
 
-<def tag="show-page" for="Drug">
-  <page merge title="#{ht 'drugs.show.title', :default=>['Potential Drug resistance'] }">
+<def tag="show-page" for="Resistance">
+  <page merge title="#{ht 'drugs.show.title', :default=>['Potential Resistance resistance'] }">
 
     <body: class="show-page drug" param/>
 
@@ -223,7 +223,7 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="drugs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Potential Drug resistance
+                Edit Potential Resistance resistance
               </ht>
             </a>
           </header>
@@ -238,8 +238,8 @@
 </def>
 
 
-<def tag="edit-page" for="Drug">
-  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Potential Drug resistance'] }">
+<def tag="edit-page" for="Resistance">
+  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Potential Resistance resistance'] }">
 
     <body: class="edit-page drug" param/>
 
@@ -250,7 +250,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Potential Drug resistance']}" param/>
+        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Potential Resistance resistance']}" param/>
       </section>
 
       <section param="content-body">

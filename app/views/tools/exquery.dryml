@@ -7,7 +7,7 @@
 				<form-field name="season" type="selectone"
 					options="&Season.all().collect { |c| [c.name, c.id] }"/>
 				<form-field name="virustype" type="selectone" title="Virus type"
-					options="&VirusType.all().collect { |c| [c.name, c.id] }"/>
+					options="&PathogenType.all().collect { |c| [c.name, c.id] }"/>
 				<form-field name="country" type="selectone"
 					options="&Country.all().collect { |c| [c.name, c.id] }"/>
 				<form-field name="inc_other" title="Include other data" type="boolean" value="0" />

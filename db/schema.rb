@@ -9,20 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111028171514) do
+ActiveRecord::Schema.define(:version => 20111031162853) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-  end
-
-  create_table "drugs", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "unit"
   end
 
   create_table "genes", :force => true do |t|
@@ -58,6 +50,13 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
 
   add_index "mutations", ["sequence_id"], :name => "index_mutations_on_sequence_id"
 
+  create_table "pathogen_types", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "patient_locations", :force => true do |t|
     t.string   "name"
     t.text     "description"
@@ -66,18 +65,31 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
   end
 
   create_table "patients", :force => true do |t|
-    t.string   "title"
     t.string   "location"
-    t.date     "dob"
     t.string   "gender"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "susceptibility_id"
-    t.boolean  "vaccinated"
-    t.date     "date_onset_of_illness"
+    t.string   "vaccinated"
+    t.date     "date_of_birth"
+    t.date     "date_of_illness"
+    t.string   "antivirals"
+    t.string   "household_contact"
+    t.string   "disease_progression"
+    t.string   "disease_complication"
+    t.string   "hospitalized"
+    t.string   "death"
   end
 
   add_index "patients", ["susceptibility_id"], :name => "index_patients_on_susceptibility_id"
+
+  create_table "resistances", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "unit"
+  end
 
   create_table "seasons", :force => true do |t|
     t.datetime "created_at"
@@ -85,17 +97,17 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
     t.integer  "year"
   end
 
-  create_table "sequences", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "susceptibility_id"
-    t.string   "na_sequence"
-    t.string   "ha_sequence"
-    t.string   "m2_sequence"
-    t.text     "comment"
-    t.string   "title"
+  create_table "sequence_mutations", :force => true do |t|
+    t.text "description"
   end
 
+  create_table "sequences", :force => true do |t|
+    t.integer "susceptibility_id"
+    t.string  "title"
+    t.integer "gene_id"
+  end
+
+  add_index "sequences", ["gene_id"], :name => "index_sequences_on_gene_id"
   add_index "sequences", ["susceptibility_id"], :name => "index_sequences_on_susceptibility_id"
 
   create_table "susceptibilities", :force => true do |t|
@@ -106,23 +118,28 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
     t.text     "comment"
     t.integer  "season_id"
     t.integer  "country_id"
-    t.integer  "virus_type_id"
+    t.integer  "pathogen_type_id"
   end
 
   add_index "susceptibilities", ["country_id"], :name => "index_susceptibilities_on_country_id"
+  add_index "susceptibilities", ["pathogen_type_id"], :name => "index_susceptibilities_on_pathogen_type_id"
   add_index "susceptibilities", ["season_id"], :name => "index_susceptibilities_on_season_id"
-  add_index "susceptibilities", ["virus_type_id"], :name => "index_susceptibilities_on_virus_type_id"
 
   create_table "susceptibility_entries", :force => true do |t|
     t.float    "measure"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "susceptibility_id"
-    t.integer  "drug_id"
+    t.integer  "resistance_id"
   end
 
-  add_index "susceptibility_entries", ["drug_id"], :name => "index_susceptibility_entries_on_drug_id"
+  add_index "susceptibility_entries", ["resistance_id"], :name => "index_susceptibility_entries_on_resistance_id"
   add_index "susceptibility_entries", ["susceptibility_id"], :name => "index_susceptibility_entries_on_susceptibility_id"
+
+  create_table "susceptibility_sequences", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "thresholdentries", :force => true do |t|
     t.float    "minor"
@@ -130,10 +147,10 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "threshold_id"
-    t.integer  "drug_id"
+    t.integer  "resistance_id"
   end
 
-  add_index "thresholdentries", ["drug_id"], :name => "index_thresholdentries_on_drug_id"
+  add_index "thresholdentries", ["resistance_id"], :name => "index_thresholdentries_on_resistance_id"
   add_index "thresholdentries", ["threshold_id"], :name => "index_thresholdentries_on_threshold_id"
 
   create_table "thresholds", :force => true do |t|
@@ -142,12 +159,12 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
     t.text     "description"
     t.integer  "season_id"
     t.integer  "country_id"
-    t.integer  "virus_type_id"
+    t.integer  "pathogen_type_id"
   end
 
   add_index "thresholds", ["country_id"], :name => "index_thresholds_on_country_id"
+  add_index "thresholds", ["pathogen_type_id"], :name => "index_thresholds_on_pathogen_type_id"
   add_index "thresholds", ["season_id"], :name => "index_thresholds_on_season_id"
-  add_index "thresholds", ["virus_type_id"], :name => "index_thresholds_on_virus_type_id"
 
   create_table "user_countries", :force => true do |t|
     t.datetime "created_at"
@@ -176,12 +193,5 @@ ActiveRecord::Schema.define(:version => 20111028171514) do
   end
 
   add_index "users", ["state"], :name => "index_users_on_state"
-
-  create_table "virus_types", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

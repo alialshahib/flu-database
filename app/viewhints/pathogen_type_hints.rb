@@ -1,4 +1,4 @@
-class VirusTypeHints < Hobo::ViewHints
+class PathogenTypeHints < Hobo::ViewHints
 
 	model_name "Pathogen (sub)type"
 	

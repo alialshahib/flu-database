@@ -1,7 +1,7 @@
 
 # A virus (alright pathogen) type or subtype that can be tested or drug resistance.
 #
-class VirusType < ActiveRecord::Base
+class PathogenType < ActiveRecord::Base
 
 	hobo_model # Don't put anything above this
 	

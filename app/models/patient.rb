@@ -1,41 +1,51 @@
 class Patient < ActiveRecord::Base
 
-  hobo_model # Don't put anything above this
+	## Model & relationships:
+	hobo_model # Don't put anything above this
 
-  fields do
-    title    :string, :required
-    location :string 
-    dob      :date
-    gender   enum_string(:male,:female)
-    date_onset_of_illness :date
-    vaccinated :boolean
-#    age      :integer
-     
-    timestamps
-  end
-  validates_length_of :title, :within => 2..20, :too_long => "pick a shorter
-  name", :too_short => "pick a longer name"
-#  validates_numericality_of :age 
-  
-  belongs_to :susceptibility
-  
+	# what can the user do with the country?
+	Gender = HoboFields::EnumString.for(:male, :female)
+	TriState = HoboFields::EnumString.for(:yes, :no, :unknown)
+	
+	fields do
+		date_of_birth         :date
+		gender                Patient::Gender
+		date_of_illness       :date
+		location              :string
+		vaccinated            Patient::TriState
+		antivirals            Patient::TriState
+		household_contact     Patient::TriState
+		disease_progression   Patient::TriState
+		disease_complication  :string
+		hospitalized          Patient::TriState
+		death                 Patient::TriState
+		
+		timestamps
+	end
+	
+	# belongs_to :resistance, :dependent => :destroy, :accessible => true
 
-  # --- Permissions --- #
-
-  def create_permitted?
-    acting_user.administrator?
-  end
-
-  def update_permitted?
-    acting_user.administrator?
-  end
-
-  def destroy_permitted?
-    acting_user.administrator?
-  end
-
-  def view_permitted?(field)
-    true
-  end
+	
+	
+	belongs_to :susceptibility
+	
+	
+	# --- Permissions --- #
+	
+	def create_permitted?
+		acting_user.administrator?
+	end
+	
+	def update_permitted?
+		acting_user.administrator?
+	end
+	
+	def destroy_permitted?
+		acting_user.administrator?
+	end
+	
+	def view_permitted?(field)
+		true
+	end
 
 end

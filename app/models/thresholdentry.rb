@@ -16,10 +16,10 @@ class Thresholdentry < ActiveRecord::Base
 	end
 
    belongs_to :threshold
-   belongs_to :drug
+   belongs_to :resistance
    
 	# TODO: index?
-	validates_uniqueness_of(:threshold, :scope => :drug,
+	validates_uniqueness_of(:threshold, :scope => :resistance,
    	:message => 'is already an entry for this drug')
 	
 	# TODO: need to validate minor if less than major
