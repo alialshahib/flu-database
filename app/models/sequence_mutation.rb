@@ -11,9 +11,10 @@ class SequenceMutation < ActiveRecord::Base
 	hobo_model # Don't put anything above this
 	
 	fields do
-		 description   :text, :required
+		description   :text, :required
 	end
 	
+	belongs_to :susceptibility_sequence
 	
 	## Permissions:
 	def create_permitted?

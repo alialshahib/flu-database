@@ -10,8 +10,12 @@ Tool bar to appear on all pages.
 <def tag="main-nav">
 	<navigation class="main-nav" >
 		<nav-item href="#{base_url}/">Home</nav-item>
-		<nav-item with="&Threshold"><ht key="thresholds.nav_item">Thresholds</ht></nav-item>
-		<nav-item with="&Susceptibility"><ht key="susceptibilities.nav_item">Reports</ht></nav-item>
+		<%-
+			link_list = [Threshold, Susceptibility]
+		%>
+		<nav-item repeat="&link_list" with="&this">
+			<%= this.view_hints.model_name_plural %>
+		</nav-item>
 		<nav-item href="#{base_url}/tools/">Tools</nav-item>
 	</navigation>
 </def> 

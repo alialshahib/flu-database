@@ -111,7 +111,7 @@ moment, it's a bit wonky.
 			<span count="&this.size">
 				There <count label="records" prefix="are" lowercase />.
 			</span>
-		</count:>
+		</count:> 
 
 	</old-index-page>
 </extend>

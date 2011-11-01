@@ -8,7 +8,7 @@ class Mutation < ActiveRecord::Base
     timestamps
   end
 
-  belongs_to :sequence, :dependent => :destroy 
+  belongs_to :susceptibility_sequence, :dependent => :destroy 
 
   # --- Permissions --- #
 

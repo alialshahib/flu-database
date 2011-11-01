@@ -6,9 +6,9 @@
   <navigation class="main-nav" merge-attrs param="default">
     <nav-item href="#{base_url}/">Home</nav-item>
     <nav-item with="&Country"><ht key="countries.nav_item">Reporting Countries</ht></nav-item>
-    <nav-item with="&Resistance"><ht key="drugs.nav_item">Potential Resistance resistances</ht></nav-item>
     <nav-item with="&Gene"><ht key="genes.nav_item">Genes</ht></nav-item>
     <nav-item with="&Ic50Data"><ht key="ic50_datas.nav_item">IC50 Datas</ht></nav-item>
+    <nav-item with="&PathogenType"><ht key="pathogen_types.nav_item">Pathogen (sub)types</ht></nav-item>
     <nav-item with="&Patient"><ht key="patients.nav_item">Patients</ht></nav-item>
   </navigation>
 </def>
@@ -130,127 +130,6 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'countries.actions.delete', :default=>['Remove This Reporting Country']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
-<!-- ====== Resistance Pages ====== -->
-
-<def tag="index-page" for="Resistance">
-  <page merge title="#{ht 'drugs.index.title', :default=>['Potential Resistance resistances'] }">
-    <body: class="index-page drug" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="drugs.index.heading">
-            Potential Resistance resistances
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="drugs.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="drugs.actions.new">New Potential Resistance resistance</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="Resistance">
-  <page merge title="#{ht 'drugs.new.title', :default=>[' New Potential Resistance resistance'] }">
-    <body: class="new-page drug" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="drugs.new.heading">
-            New Potential Resistance resistance
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'drugs.actions.create', :default=>['Create Potential Resistance resistance']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="Resistance">
-  <page merge title="#{ht 'drugs.show.title', :default=>['Potential Resistance resistance'] }">
-
-    <body: class="show-page drug" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="drugs.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="drugs.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Potential Resistance resistance
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <view:description param="description"/>
-            <field-list fields="unit" param/>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="Resistance">
-  <page merge title="#{ht 'drugs.edit.title', :default=>['Edit Potential Resistance resistance'] }">
-
-    <body: class="edit-page drug" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="drugs.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'drugs.actions.delete', :default=>['Remove This Potential Resistance resistance']}" param/>
       </section>
 
       <section param="content-body">
@@ -591,7 +470,7 @@
 
           <section param="content-body">
             <view:description param="description"/>
-            <field-list fields="sequence" param/>
+            <field-list fields="susceptibility_sequence" param/>
           </section>
     </content:>
 
@@ -612,6 +491,135 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'mutations.actions.delete', :default=>['Remove This Mutation']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== PathogenType Pages ====== -->
+
+<def tag="index-page" for="PathogenType">
+  <page merge title="#{ht 'pathogen_types.index.title', :default=>['Pathogen (sub)types'] }">
+    <body: class="index-page pathogen-type" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="pathogen_types.index.heading">
+            Pathogen (sub)types
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="pathogen_types.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="pathogen_types.actions.new">New Pathogen (sub)type</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="PathogenType">
+  <page merge title="#{ht 'pathogen_types.new.title', :default=>[' New Pathogen (sub)type'] }">
+    <body: class="new-page pathogen-type" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="pathogen_types.new.heading">
+            New Pathogen (sub)type
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'pathogen_types.actions.create', :default=>['Create Pathogen (sub)type']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="PathogenType">
+  <page merge title="#{ht 'pathogen_types.show.title', :default=>['Pathogen (sub)type'] }">
+
+    <body: class="show-page pathogen-type" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="pathogen_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="pathogen_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Pathogen (sub)type
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="pathogen_types.collection.heading.other" >
+                  Thresholds
+                </ht>
+              </h3>
+
+              <collection:thresholds param/>
+            </section>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="PathogenType">
+  <page merge title="#{ht 'pathogen_types.edit.title', :default=>['Edit Pathogen (sub)type'] }">
+
+    <body: class="edit-page pathogen-type" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="pathogen_types.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'pathogen_types.actions.delete', :default=>['Remove This Pathogen (sub)type']}" param/>
       </section>
 
       <section param="content-body">
@@ -821,7 +829,7 @@
               </ht>
             </h2>
 
-            <record-flags fields="vaccinated" param/>
+            <record-flags fields="" param/>
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="patients.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
@@ -831,7 +839,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="location, dob, gender, date_onset_of_illness, susceptibility" param/>
+            <field-list fields="date_of_birth, gender, date_of_illness, location, vaccinated, antivirals, household_contact, disease_progression, disease_complication, hospitalized, death, susceptibility" param/>
           </section>
     </content:>
 
@@ -852,6 +860,127 @@
           </ht>
         </h2>
         <delete-button label="#{ht 'patients.actions.delete', :default=>['Remove This Patient']}" param/>
+      </section>
+
+      <section param="content-body">
+        <form param/>
+      </section>
+    </content:>
+
+  </page>
+</def>
+
+
+
+
+
+<!-- ====== Resistance Pages ====== -->
+
+<def tag="index-page" for="Resistance">
+  <page merge title="#{ht 'resistances.index.title', :default=>['Potential Resistance resistances'] }">
+    <body: class="index-page resistance" param/>
+
+    <content: param>
+      <header param="content-header">
+        <h2 param="heading">
+          <ht key="resistances.index.heading">
+            Potential Resistance resistances
+          </ht>
+        </h2>
+
+        <p param="count" if>
+          <ht key="resistances.collection.count" count="&this.size">
+            There <count prefix="are"/>
+          </ht>
+        </p>
+      </header>
+
+      <section param="content-body">
+        <a action="new" to="&model" param="new-link">
+          <ht key="resistances.actions.new">New Potential Resistance resistance</ht>
+        </a>
+
+        <page-nav param="top-page-nav"/>
+
+        <collection param/>
+
+        <page-nav param="bottom-page-nav"/>
+
+
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="new-page" for="Resistance">
+  <page merge title="#{ht 'resistances.new.title', :default=>[' New Potential Resistance resistance'] }">
+    <body: class="new-page resistance" param/>
+
+    <content: param>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="resistances.new.heading">
+            New Potential Resistance resistance
+          </ht>
+        </h2>
+      </section>
+
+      <section param="content-body">
+        <form param>
+          <submit: label="#{ht 'resistances.actions.create', :default=>['Create Potential Resistance resistance']}"/>
+        </form>
+      </section>
+    </content:>
+  </page>
+</def>
+
+
+<def tag="show-page" for="Resistance">
+  <page merge title="#{ht 'resistances.show.title', :default=>['Potential Resistance resistance'] }">
+
+    <body: class="show-page resistance" param/>
+
+    <content: param>
+          <header param="content-header">
+            <h2 param="heading">
+              <ht key="resistances.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
+                <name/>
+              </ht>
+            </h2>
+
+            <record-flags fields="" param/>
+
+            <a action="edit" if="&can_edit?" param="edit-link">
+              <ht key="resistances.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
+                Edit Potential Resistance resistance
+              </ht>
+            </a>
+          </header>
+
+          <section param="content-body">
+            <view:description param="description"/>
+            <field-list fields="unit" param/>
+          </section>
+    </content:>
+
+  </page>
+</def>
+
+
+<def tag="edit-page" for="Resistance">
+  <page merge title="#{ht 'resistances.edit.title', :default=>['Edit Potential Resistance resistance'] }">
+
+    <body: class="edit-page resistance" param/>
+
+    <content:>
+      <section param="content-header">
+        <h2 param="heading">
+          <ht key="resistances.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
+            Edit <type-name/>
+          </ht>
+        </h2>
+        <delete-button label="#{ht 'resistances.actions.delete', :default=>['Remove This Potential Resistance resistance']}" param/>
       </section>
 
       <section param="content-body">
@@ -1011,126 +1140,6 @@
 
 
 
-<!-- ====== Sequence Pages ====== -->
-
-<def tag="index-page" for="Sequence">
-  <page merge title="#{ht 'sequences.index.title', :default=>['Sequences'] }">
-    <body: class="index-page sequence" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="sequences.index.heading">
-            Sequences
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="sequences.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="sequences.actions.new">New Sequence</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="Sequence">
-  <page merge title="#{ht 'sequences.new.title', :default=>[' New Sequence'] }">
-    <body: class="new-page sequence" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="sequences.new.heading">
-            New Sequence
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'sequences.actions.create', :default=>['Create Sequence']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="Sequence">
-  <page merge title="#{ht 'sequences.show.title', :default=>['Sequence'] }">
-
-    <body: class="show-page sequence" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="sequences.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="sequences.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Sequence
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <field-list fields="na_sequence, ha_sequence, m2_sequence, comment, susceptibility" param/>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="Sequence">
-  <page merge title="#{ht 'sequences.edit.title', :default=>['Edit Sequence'] }">
-
-    <body: class="edit-page sequence" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="sequences.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'sequences.actions.delete', :default=>['Remove This Sequence']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
-
-
-
 <!-- ====== Susceptibility Pages ====== -->
 
 <def tag="index-page" for="Susceptibility">
@@ -1216,7 +1225,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="isolate_name, collected, comment, country, season, virus_type" param/>
+            <field-list fields="isolate_name, collected, comment, country, pathogen_type, season" param/>
           </section>
     </content:>
 
@@ -1336,7 +1345,7 @@
           </header>
 
           <section param="content-body">
-            <field-list fields="minor, major, drug, threshold" param/>
+            <field-list fields="minor, major, resistance, threshold" param/>
           </section>
     </content:>
 
@@ -1440,7 +1449,7 @@
 
     <content: param>
           <header param="content-header">
-            <a:virus_type param="parent-link">&laquo; <ht key="thresholds.actions.back" to="virus_type"><name/></ht></a:virus_type>
+            <a:pathogen_type param="parent-link">&laquo; <ht key="thresholds.actions.back" to="pathogen_type"><name/></ht></a:pathogen_type>
             <h2 param="heading">
               <ht key="thresholds.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -1666,134 +1675,5 @@
 
   </page>
 </def>
-
-
-
-<!-- ====== VirusType Pages ====== -->
-
-<def tag="index-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.index.title', :default=>['Pathogen (sub)types'] }">
-    <body: class="index-page virus-type" param/>
-
-    <content: param>
-      <header param="content-header">
-        <h2 param="heading">
-          <ht key="virus_types.index.heading">
-            Pathogen (sub)types
-          </ht>
-        </h2>
-
-        <p param="count" if>
-          <ht key="virus_types.collection.count" count="&this.size">
-            There <count prefix="are"/>
-          </ht>
-        </p>
-      </header>
-
-      <section param="content-body">
-        <a action="new" to="&model" param="new-link">
-          <ht key="virus_types.actions.new">New Pathogen (sub)type</ht>
-        </a>
-
-        <page-nav param="top-page-nav"/>
-
-        <collection param/>
-
-        <page-nav param="bottom-page-nav"/>
-
-
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="new-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.new.title', :default=>[' New Pathogen (sub)type'] }">
-    <body: class="new-page virus-type" param/>
-
-    <content: param>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="virus_types.new.heading">
-            New Pathogen (sub)type
-          </ht>
-        </h2>
-      </section>
-
-      <section param="content-body">
-        <form param>
-          <submit: label="#{ht 'virus_types.actions.create', :default=>['Create Pathogen (sub)type']}"/>
-        </form>
-      </section>
-    </content:>
-  </page>
-</def>
-
-
-<def tag="show-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.show.title', :default=>['Pathogen (sub)type'] }">
-
-    <body: class="show-page virus-type" param/>
-
-    <content: param>
-          <header param="content-header">
-            <h2 param="heading">
-              <ht key="virus_types.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
-                <name/>
-              </ht>
-            </h2>
-
-            <record-flags fields="" param/>
-
-            <a action="edit" if="&can_edit?" param="edit-link">
-              <ht key="virus_types.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Pathogen (sub)type
-              </ht>
-            </a>
-          </header>
-
-          <section param="content-body">
-            <view:description param="description"/>
-            <section param="collection-section">
-              <h3 param="collection-heading">
-                <ht key="virus_types.collection.heading.other" >
-                  Thresholds
-                </ht>
-              </h3>
-
-              <collection:thresholds param/>
-            </section>
-          </section>
-    </content:>
-
-  </page>
-</def>
-
-
-<def tag="edit-page" for="VirusType">
-  <page merge title="#{ht 'virus_types.edit.title', :default=>['Edit Pathogen (sub)type'] }">
-
-    <body: class="edit-page virus-type" param/>
-
-    <content:>
-      <section param="content-header">
-        <h2 param="heading">
-          <ht key="virus_types.edit.heading" name="&this.respond_to?(:name) ? this.name : ''">
-            Edit <type-name/>
-          </ht>
-        </h2>
-        <delete-button label="#{ht 'virus_types.actions.delete', :default=>['Remove This Pathogen (sub)type']}" param/>
-      </section>
-
-      <section param="content-body">
-        <form param/>
-      </section>
-    </content:>
-
-  </page>
-</def>
-
-
 
 

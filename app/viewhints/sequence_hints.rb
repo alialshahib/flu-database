@@ -2,7 +2,6 @@ class SequenceHints < Hobo::ViewHints
 
 #  children :mutations  
 
-  field_names :na_sequence => "NA Sequence", :ha_sequence => "HA Sequence"
   
 #   rows ({
 #                :title => 5,

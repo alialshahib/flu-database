@@ -5,28 +5,54 @@ SAIRD Manual and How-To
 Introduction
 ------------
 
-Foo
+Emerging drug resistance is a urgent problem in public health. In many common
+diseases like influenza and tuberculosis, it is critical to record and share
+resistance data so as to prepare interventions and appropriate clinical
+treatments. SAIRD - the South American Influenza Resistance Database - is a
+web-based system for tracking and comparing resistance data across a number of
+reporting regions, allowing the saving and searching of resistance trends.
 
 
-The SAIRD model
----------------
+The SAIRD model & concepts
+--------------------------
 
-Drug resistance data is stored and arranged in SAIRD in this way:
+To build a mental model of how SAIRD works, drug resistance data is stored
+and arranged in SAIRD in this way:
 
-* The central records stored are *suseptibility reports*. These detail patient
-  data and drug treatment. Each report is allocated to a specific *season* and
-  *country*.
+* In a paragraph: *Members* will enter and view *susceptibility reports* for
+  specific *countries*, *seasons* and *virus types*. These can be compared
+  against *thresholds* (which are also specific for particular countries,
+  seasons and virus types). Special *tools* are available to for complicated
+  searching, comparison and graphing of the data.
 
-* A country is given geographical area or reporting region.
+* A *country* is given geographical area or reporting region, with
+  associated members.
 
-* A season is a period, that starts on a given day and continues until that
-  day on the following year.
+* A *season* is a year-long period, that starts on a given day and continues until that
+  day on the following year. 
+  
+* Users of SAIRD are grouped into several categories:
 
-* Users must have accounts and are linked to a given country. They can see and
-  edit data only for the countries for which they have permission. Data from
-  other countries can only be seen in aggregate.
+	* *Members* are associated with countries and cannot see data for other
+	  countries:
+	
+		* *Readers*: can only see data for their country, but not add to or edit
+		  it.
+	
+		* *Editors*: can add to or edit the data associated with a country.
 
-* Administrators can 
+	* *Administrators*: special privileged users,, they can create, edit or
+	  delete everything.
+
+* The central records stored are *susceptibility reports*. These report
+  an instance of observed resistance in a given *season* and *country*. This
+  is recorded as a measure of resistance against one or more *drugs*,
+  *sequence data* and *mutations* and *patient* information. 
+
+* Susceptibility reports are usefully compared to *seasonal thresholds*. These
+  give minor and major limits for a given drug resistance found in a virus
+  type in a season and country. 
+
 
 Conventions
 ~~~~~~~~~~~
@@ -46,7 +72,121 @@ series of steps in typewriter font. For example:
 For users
 ---------
 
+How do I join the site?
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can create an account yourself, but:
+
+* You won't be able to log in until have activated your account by clicking on
+  a link received in your email.
+  
+* Then your account won't be able to do or see anything until an administrator
+  associates you with a reporting country and gives you the appropriate
+  permissions.
+  
+It may be easier to just ask an administrator to create the account for you.
+
+Note that if you have a `Gravatar <http://gravatar.com>`__ for the email
+address you use, it will appear next to your name in the system.
+
+
+How do I browse susceptibility reports & seasonal thresholds?
+-------------------------------------------------------------
+
+On the toolbar on the top of every page, there are links to thus. Click the
+appropriate one and you see a list or reports or thresholds. Note that you
+will only see those you have access to, i.e. those for countries in which
+you are a member:
+
+	/thresholds
+	/susceptibilities
+
+Click on any of the listed items to go to the individual reports. Note that
+in the report you can click on the linked season, country, virus type or
+drug resistance to the detail pages for them.
+
+
+How do I add a susceptibility report?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+foo
+
+How do I add a seasonal threshold threshold report?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+foo
+
+
 
 For administrators
 ------------------
+
+Who can do what?
+~~~~~~~~~~~~~~~~
+
+For security, there are different classes of users in SAIRD. They are:
+
+* Users: everyone with an account on SAIRD. Unless they are granted
+  permissions, they can do very little.
+  
+* Administrators: special privileged users,, they can create, edit or
+  delete everything.
+  
+* Members: users that are associated with countries. These will form the bulk
+  of users, people who can see and create data for that country. Ordinarily
+  members cannot see data that is not associated with their country.
+  However, a user can be a member of more than one country. Members come in
+  three types:
+  
+	* Editors: are members that are allowed to create and delete data for their
+	  country.
+	  
+	* Readers: are members that can only see data for their country, but not
+	  add to or edit it.
+	  
+	* Managers: members with special administrative powers over their country.
+	  Note that at the moment managers have only a few small extra abilities
+	  over editors.
+
+
+How do I change / edit / create X?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The most common cases are listed below, but just about everything is editable
+in SAIRD. You can browse the lists of data in by going to the appropriate url,
+e.g.:
+
+	``/Thresholds``
+	``/Users``
+	etc.
+	
+Links to all of these can be found on the ``Tools`` page.
+
+Something to keep in mind is that SAIRD stores two types of data:
+
+* Data: i.e., the usual user-entered information that will: thresholds,
+  susceptibility reports etc.
+  
+* Vocabularies: the lists of choices that are used through the system:
+  countries, drug resistances, virus types etc. These can only be
+  edited by the administrator. These will change rarely if at all (largely
+  only when a new drug or pathogen or reporting region is added) and
+  should almost never be deleted.
+
+
+How do I create a user?
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* Go to the users index page at ``/users``. This can also be found from the
+  Tools page at ``Tools > User administration > Users``.
+  
+* Click ``Create new user``.
+
+* Fill in their name, username, email address and password.
+
+Note that usernames and email addresses have to be unique throughout the
+system.
+
+
+
 

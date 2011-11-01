@@ -1,5 +1,5 @@
 <index-page>
-  
-  
-  
+	<new-link:>
+		<ht key="users.actions.new">New User</ht>
+	</new-link:>
 </index-page>

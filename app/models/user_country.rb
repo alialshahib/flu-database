@@ -10,10 +10,10 @@ class UserCountry < ActiveRecord::Base
 	hobo_model # Don't put anything above this
 
 	## Defines & Constants:
-   #model_name_plural "Memberships"
+	#model_name_plural "Memberships"
  
-   #model_name "Membership"
-   
+	#model_name "Membership"
+	
 	# what can the user do with the country?
 	Level = HoboFields::EnumString.for(:reader, :editor, :manager)
 	
@@ -27,6 +27,13 @@ class UserCountry < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :country
 
+	## validations:
+	validates_uniqueness_of(:user_id, :scope => [
+			:country_id,
+		],
+		:message => 'is already in our database for this country.'
+	)
+		
 	## Permissions:
 	def create_permitted?
 		acting_user.administrator?

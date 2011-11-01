@@ -38,6 +38,11 @@ class Threshold < ActiveRecord::Base
 	## Permissions:
 	def create_permitted?
 		acting_user.administrator?
+		#if acting_user.administrator?
+		#	return true
+		#else
+		#	return acting_user.is_country_editor (country)
+		#end
 	end
 
 	def update_permitted?
@@ -57,7 +62,7 @@ class Threshold < ActiveRecord::Base
 		#return "#{virus_type.name} #{season.name} (#{country.name})"
 		
 		name_parts = []
-		if ! virus_type.nil? then name_parts << virus_type.name end
+		if ! pathogen_type.nil? then name_parts << pathogen_type.name end
 		if ! season.nil? then name_parts << season.name end
 		if ! country.nil? then name_parts << "(#{country.name})" end
 		

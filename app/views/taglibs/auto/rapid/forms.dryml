@@ -12,18 +12,6 @@
 
 
 
-<def tag="form" for="Resistance">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="name, description, unit" param/>
-    <div param="actions">
-      <submit label="#{ht 'drugs.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
 <def tag="form" for="Gene">
   <form merge param="default">
     <error-messages param/>
@@ -51,9 +39,21 @@
 <def tag="form" for="Mutation">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="description, sequence" param/>
+    <field-list fields="description, susceptibility_sequence" param/>
     <div param="actions">
       <submit label="#{ht 'mutations.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="PathogenType">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, description" param/>
+    <div param="actions">
+      <submit label="#{ht 'pathogen_types.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
@@ -75,9 +75,21 @@
 <def tag="form" for="Patient">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="title, location, dob, gender, date_onset_of_illness, vaccinated, susceptibility" param/>
+    <field-list fields="date_of_birth, gender, date_of_illness, location, vaccinated, antivirals, household_contact, disease_progression, disease_complication, hospitalized, death, susceptibility" param/>
     <div param="actions">
       <submit label="#{ht 'patients.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
+    </div>
+  </form>
+</def>
+
+
+
+<def tag="form" for="Resistance">
+  <form merge param="default">
+    <error-messages param/>
+    <field-list fields="name, description, unit" param/>
+    <div param="actions">
+      <submit label="#{ht 'resistances.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
   </form>
 </def>
@@ -96,22 +108,10 @@
 
 
 
-<def tag="form" for="Sequence">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="title, na_sequence, ha_sequence, m2_sequence, comment, susceptibility" param/>
-    <div param="actions">
-      <submit label="#{ht 'sequences.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
-
 <def tag="form" for="Susceptibility">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="isolate_name, collected, comment, country, season, susceptibility_entries, virus_type" param/>
+    <field-list fields="isolate_name, collected, comment, country, pathogen_type, patients, season, susceptibility_entries, susceptibility_sequences" param/>
     <div param="actions">
       <submit label="#{ht 'susceptibilities.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -123,7 +123,7 @@
 <def tag="form" for="Thresholdentry">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="minor, major, drug, threshold" param/>
+    <field-list fields="minor, major, resistance, threshold" param/>
     <div param="actions">
       <submit label="#{ht 'thresholdentries.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -135,7 +135,7 @@
 <def tag="form" for="Threshold">
   <form merge param="default">
     <error-messages param/>
-    <field-list fields="description, country, season, thresholdentries, virus_type" param/>
+    <field-list fields="description, country, pathogen_type, season, thresholdentries" param/>
     <div param="actions">
       <submit label="#{ht 'thresholds.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
     </div>
@@ -176,16 +176,4 @@
     </div>
   </form>
 </def>
-
-<def tag="form" for="VirusType">
-  <form merge param="default">
-    <error-messages param/>
-    <field-list fields="name, description" param/>
-    <div param="actions">
-      <submit label="#{ht 'virus_types.actions.save', :default=>['Save']}" param/><or-cancel param="cancel"/>
-    </div>
-  </form>
-</def>
-
-
 

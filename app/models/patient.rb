@@ -25,8 +25,6 @@ class Patient < ActiveRecord::Base
 	
 	# belongs_to :resistance, :dependent => :destroy, :accessible => true
 
-	
-	
 	belongs_to :susceptibility
 	
 	

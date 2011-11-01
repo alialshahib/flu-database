@@ -22,8 +22,9 @@
 				
 				<ul>
 					<%-
-						link_list = [Patient, Sequence, Mutation, Threshold,
-							Thresholdentry, Susceptibility]
+						link_list = [Patient, SusceptibilitySequence,
+							SequenceMutation, Threshold, Thresholdentry,
+							Susceptibility]
 					%>
 					<nav-item repeat="&link_list" with="&this">
 						<%= this.view_hints.model_name_plural %>

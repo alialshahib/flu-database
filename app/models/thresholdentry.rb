@@ -18,11 +18,12 @@ class Thresholdentry < ActiveRecord::Base
    belongs_to :threshold
    belongs_to :resistance
    
-	# TODO: index?
-	validates_uniqueness_of(:threshold, :scope => :resistance,
-   	:message => 'is already an entry for this drug')
-	
-	# TODO: need to validate minor if less than major
+	## Validations:
+   def validate
+   	if self ['major'] <= self['minor']
+			errors.add('minor', 'minor cutoff must be greatre than major'')
+   	end
+   end
 
 	## Permissions:
 	def create_permitted?

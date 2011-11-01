@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111031162853) do
+ActiveRecord::Schema.define(:version => 20111031180621) do
 
   create_table "countries", :force => true do |t|
     t.datetime "created_at"
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(:version => 20111031162853) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "susceptibility_sequence_id"
   end
 
-  add_index "mutations", ["sequence_id"], :name => "index_mutations_on_sequence_id"
+  add_index "mutations", ["susceptibility_sequence_id"], :name => "index_mutations_on_susceptibility_sequence_id"
 
   create_table "pathogen_types", :force => true do |t|
     t.string   "name"
@@ -98,17 +99,11 @@ ActiveRecord::Schema.define(:version => 20111031162853) do
   end
 
   create_table "sequence_mutations", :force => true do |t|
-    t.text "description"
+    t.text    "description"
+    t.integer "susceptibility_sequence_id"
   end
 
-  create_table "sequences", :force => true do |t|
-    t.integer "susceptibility_id"
-    t.string  "title"
-    t.integer "gene_id"
-  end
-
-  add_index "sequences", ["gene_id"], :name => "index_sequences_on_gene_id"
-  add_index "sequences", ["susceptibility_id"], :name => "index_sequences_on_susceptibility_id"
+  add_index "sequence_mutations", ["susceptibility_sequence_id"], :name => "index_sequence_mutations_on_susceptibility_sequence_id"
 
   create_table "susceptibilities", :force => true do |t|
     t.string   "isolate_name"
@@ -137,9 +132,13 @@ ActiveRecord::Schema.define(:version => 20111031162853) do
   add_index "susceptibility_entries", ["susceptibility_id"], :name => "index_susceptibility_entries_on_susceptibility_id"
 
   create_table "susceptibility_sequences", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string  "title"
+    t.integer "susceptibility_id"
+    t.integer "gene_id"
   end
+
+  add_index "susceptibility_sequences", ["gene_id"], :name => "index_susceptibility_sequences_on_gene_id"
+  add_index "susceptibility_sequences", ["susceptibility_id"], :name => "index_susceptibility_sequences_on_susceptibility_id"
 
   create_table "thresholdentries", :force => true do |t|
     t.float    "minor"
