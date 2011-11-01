@@ -11,19 +11,32 @@ class Thresholdentry < ActiveRecord::Base
 	fields do
 		minor :float
 		major :float
-		
+
 		timestamps
 	end
 
-   belongs_to :threshold
-   belongs_to :resistance
-   
+	belongs_to :threshold
+	belongs_to :resistance
+
 	## Validations:
-   def validate
-   	if self ['major'] <= self['minor']
-			errors.add('minor', 'minor cutoff must be greatre than major'')
-   	end
-   end
+	validates_presence_of :resistance_id
+
+	def validate
+		if self ['major'] <= self['minor']
+			errors.add('minor', 'minor cutoff must be greater than major')
+		end
+	end
+
+	## Accessors:
+	def name
+		return "%s (%s-%s%s)" % [
+			resistance.nil? ? '-' : resistance.name,
+			minor.nil? ? '-' : minor,
+			major.nil? ? '-' : major,
+			resistance.nil? ? '' : resistance.unit,
+		]
+	end
+
 
 	## Permissions:
 	def create_permitted?

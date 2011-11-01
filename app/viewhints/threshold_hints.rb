@@ -10,5 +10,5 @@ class ThresholdHints < Hobo::ViewHints
 	)
 	
 	# TODO: how do we name this?
-	#children :thresholdentry
+	children :thresholdentries
 end

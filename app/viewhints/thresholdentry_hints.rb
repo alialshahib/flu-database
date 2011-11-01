@@ -1,7 +1,7 @@
 class ThresholdentryHints < Hobo::ViewHints
 	# TODO: make sure it draws the units on stuff appropriately
 	
-	model_name "Threshold entry"
+	model_name "Drug resistance threshold"
 	
 	field_names({
 		:minor => "Minor cutoff",

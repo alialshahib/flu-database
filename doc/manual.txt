@@ -91,7 +91,7 @@ address you use, it will appear next to your name in the system.
 
 
 How do I browse susceptibility reports & seasonal thresholds?
--------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 On the toolbar on the top of every page, there are links to thus. Click the
 appropriate one and you see a list or reports or thresholds. Note that you
@@ -111,10 +111,12 @@ How do I add a susceptibility report?
 
 foo
 
-How do I add a seasonal threshold threshold report?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+How do I add a seasonal threshold?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-foo
+A seasonl 
+Just like susceptibility reports, you can edit and add to a seasonal
+threshold later. For example, you might 
 
 
 

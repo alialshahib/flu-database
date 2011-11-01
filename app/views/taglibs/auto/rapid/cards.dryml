@@ -124,6 +124,11 @@
     <header: param>
       <h4 param="heading"><a><name/></a></h4>
     </header:>
+    <body: param>
+      <ht key="thresholdentries.collection.count" count="&this.thresholdentries.size">
+         <count:thresholdentries param/>
+      </ht>
+    </body:>
   </card>
 </def>
 

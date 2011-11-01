@@ -1263,14 +1263,14 @@
 <!-- ====== Thresholdentry Pages ====== -->
 
 <def tag="index-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.index.title', :default=>['Threshold entries'] }">
+  <page merge title="#{ht 'thresholdentries.index.title', :default=>['Drug resistance thresholds'] }">
     <body: class="index-page thresholdentry" param/>
 
     <content: param>
       <header param="content-header">
         <h2 param="heading">
           <ht key="thresholdentries.index.heading">
-            Threshold entries
+            Drug resistance thresholds
           </ht>
         </h2>
 
@@ -1283,7 +1283,7 @@
 
       <section param="content-body">
         <a action="new" to="&model" param="new-link">
-          <ht key="thresholdentries.actions.new">New Threshold entry</ht>
+          <ht key="thresholdentries.actions.new">New Drug resistance threshold</ht>
         </a>
 
         <page-nav param="top-page-nav"/>
@@ -1300,21 +1300,21 @@
 
 
 <def tag="new-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.new.title', :default=>[' New Threshold entry'] }">
+  <page merge title="#{ht 'thresholdentries.new.title', :default=>[' New Drug resistance threshold'] }">
     <body: class="new-page thresholdentry" param/>
 
     <content: param>
       <section param="content-header">
         <h2 param="heading">
           <ht key="thresholdentries.new.heading">
-            New Threshold entry
+            New Drug resistance threshold
           </ht>
         </h2>
       </section>
 
       <section param="content-body">
         <form param>
-          <submit: label="#{ht 'thresholdentries.actions.create', :default=>['Create Threshold entry']}"/>
+          <submit: label="#{ht 'thresholdentries.actions.create', :default=>['Create Drug resistance threshold']}"/>
         </form>
       </section>
     </content:>
@@ -1323,12 +1323,13 @@
 
 
 <def tag="show-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.show.title', :default=>['Threshold entry'] }">
+  <page merge title="#{ht 'thresholdentries.show.title', :default=>['Drug resistance threshold'] }">
 
     <body: class="show-page thresholdentry" param/>
 
     <content: param>
           <header param="content-header">
+            <a:threshold param="parent-link">&laquo; <ht key="thresholdentries.actions.back" to="threshold"><name/></ht></a:threshold>
             <h2 param="heading">
               <ht key="thresholdentries.show.heading" name="&this.respond_to?(:name) ? this.name : ''">
                 <name/>
@@ -1339,13 +1340,13 @@
 
             <a action="edit" if="&can_edit?" param="edit-link">
               <ht key="thresholdentries.actions.edit" name="&this.respond_to?(:name) ? this.name : ''">
-                Edit Threshold entry
+                Edit Drug resistance threshold
               </ht>
             </a>
           </header>
 
           <section param="content-body">
-            <field-list fields="minor, major, resistance, threshold" param/>
+            <field-list fields="minor, major, resistance" param/>
           </section>
     </content:>
 
@@ -1354,7 +1355,7 @@
 
 
 <def tag="edit-page" for="Thresholdentry">
-  <page merge title="#{ht 'thresholdentries.edit.title', :default=>['Edit Threshold entry'] }">
+  <page merge title="#{ht 'thresholdentries.edit.title', :default=>['Edit Drug resistance threshold'] }">
 
     <body: class="edit-page thresholdentry" param/>
 
@@ -1365,7 +1366,7 @@
             Edit <type-name/>
           </ht>
         </h2>
-        <delete-button label="#{ht 'thresholdentries.actions.delete', :default=>['Remove This Threshold entry']}" param/>
+        <delete-button label="#{ht 'thresholdentries.actions.delete', :default=>['Remove This Drug resistance threshold']}" param/>
       </section>
 
       <section param="content-body">
@@ -1468,6 +1469,15 @@
           <section param="content-body">
             <view:description param="description"/>
             <field-list fields="country, season" param/>
+            <section param="collection-section">
+              <h3 param="collection-heading">
+                <ht key="thresholds.collection.heading.other" >
+                  Thresholdentries
+                </ht>
+              </h3>
+
+              <collection:thresholdentries param/>
+            </section>
           </section>
     </content:>
 
